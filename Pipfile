@@ -15,6 +15,9 @@ django-silk = "*"
 django-rest-auth = "*"
 "psycopg2" = "*"
 django-postgres-copy = "*"
+django-extensions = "*"
+django-mjml = "*"
+pygraphviz = "*"
 
 
 [dev-packages]

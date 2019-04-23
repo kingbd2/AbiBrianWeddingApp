@@ -67,9 +67,9 @@ INSTALLED_APPS = [
     # Third party
     'silk',
     'livereload', 
-    # 'mjml',
+    'mjml',
     # 'huey.contrib.djhuey',
-    # 'django_extensions',
+    'django_extensions',
 ]
 SITE_ID = 1
 
@@ -199,3 +199,10 @@ STATICFILES_DIRS = []
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+# Graph model settings
+GRAPH_MODELS = {
+    'all_applications': True,
+    'group_models': True,
+}
