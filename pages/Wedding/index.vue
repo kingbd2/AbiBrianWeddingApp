@@ -3,7 +3,7 @@
     <div>
       <!-- <logo /> -->
       <figure class="image is-128x128">
-        <img src="../assets/images/front.png">
+        <img src="../../assets/images/front.png">
       </figure>
       <h1 class="title">
         We're getting married!

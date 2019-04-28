@@ -108,6 +108,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'livereload.middleware.LiveReloadScript',
+    'silk.middleware.SilkyMiddleware',
 ]
 # Set this appropriately in production!
 CORS_ORIGIN_ALLOW_ALL = True

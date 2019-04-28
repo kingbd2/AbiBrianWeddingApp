@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="hero is-dark is-small">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <p class="title">
+                Welcome to the Talented REST API server.
+            </p>
+        </div>
+    </div>
+
+
+<section class="hero is-small">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <a href="{% url 'api_instructions' %}">
+                <button class="button is-warning is-large">
+                    Explore the Talented API.
+                </button>
+            </a>
+        </div>
+    </div>
+</section>
+</section>
+{% endblock %}

@@ -1,0 +1,105 @@
+{% load mjml %}
+{% mjml %}
+{% load account %}{% user_display user as user_display %}{% load i18n %}{% autoescape off %}
+{% blocktrans with site_name=current_site.name site_domain=current_site.domain %}
+<mjml>
+    <mj-body>
+        <!-- Company Header -->
+        <mj-section background-color="#f0f0f0">
+            <mj-column>
+                <mj-text font-style="italic" font-size="30px" color="#626262" font-family="Helvetica Neue">
+                    {{ site_name }}
+                </mj-text>
+                <mj-text font-style="" font-size="20px" color="#626262">
+                    Hello from {{ site_name }}!
+                </mj-text>
+            </mj-column>
+        </mj-section>
+
+        <!-- Image Header -->
+        <!-- <mj-section background-url="https://unsplash.it/500/400?random">
+            <mj-column width="600px">
+                <mj-text align="center" color="#fff" font-size="40px" font-family="Roboto">Get Noticed</mj-text>
+                <mj-button background-color="#048BA8" href="#">
+                    Promotion
+                </mj-button>
+            </mj-column>
+        </mj-section> -->
+        <mj-section background-color="#fafafa">
+            <mj-column width="400px">
+                <mj-text font-style="" font-size="20px" font-family="Roboto" color="#048BA8">You're receiving this
+                    e-mail because user
+                    {{ user_display }} has given yours as an e-mail address to connect their account.</mj-text>
+                <mj-text color="#048BA8">
+                    To confirm this is correct, go to {{ activate_url }}</h2>
+                </mj-text>
+                <mj-button background-color="#048BA8" href="#">Learn more</mj-button>
+            </mj-column>
+        </mj-section>
+
+        <!-- Intro text -->
+        <mj-section background-color="#fafafa">
+            <mj-column width="400px">
+                <mj-text font-style="" font-size="20px" font-family="Roboto" color="#048BA8">Welcome to Talented</mj-text>
+                <mj-text color="#048BA8">
+                    Talented is the largest database of local skilled and creative individuals offering their unique talents to the world. Whatever your needs, you will be connected with professionals matching your requirements. from painters, language lessons, wedding bartenders, to a three piece band.
+                </mj-text>
+
+                <mj-button background-color="#048BA8" href="#">Learn more</mj-button>
+
+            </mj-column>
+        </mj-section>
+
+        <!-- 2 columns section -->
+        <!-- Side image -->
+        <mj-section background-color="white">
+
+            <!-- Left image -->
+            <mj-column>
+                <mj-image width="200px" src="https://unsplash.it/500/400?random" />
+            </mj-column>
+
+            <!-- right paragraph -->
+            <mj-column>
+                <mj-text font-style="" font-size="20px" font-family="Roboto" color="#048BA8">
+                    Do amazing things
+                </mj-text>
+
+                <mj-text color="#048BA8">
+                    Guaranteed reliability of payment and level of service. The Talented platform pre-vets each profile on it’s platform ensuring credibility and reliability.
+                    Simple invoicing and payment interface within the Talented platform
+                    Get connected with multiple matches. Review and select the best match that suits your requirements.
+                    Find professionals you can trust by browsing their portfolios and reading their user testimonials.
+                    Find professionals you can trust by browsing their portfolios and reading their user testimonials.
+                    We’re always available to help. Our support consists of real people who are readily available to answer your questions.</mj-text>
+
+            </mj-column>
+        </mj-section>
+
+        <!-- Icons -->
+        <mj-section background-color="#fbfbfb">
+            <!-- <mj-column>
+                <mj-image width="100px" src="http://191n.mj.am/img/191n/3s/x0l.png" />
+            </mj-column>
+            <mj-column>
+                <mj-image width="100px" src="http://191n.mj.am/img/191n/3s/x01.png" />
+            </mj-column>
+            <mj-column>
+                <mj-image width="100px" src="http://191n.mj.am/img/191n/3s/x0s.png" />
+            </mj-column> -->
+        </mj-section>
+
+        <mj-section background-color="#e7e7e7">
+            <mj-column>
+                <mj-social>
+                    <mj-social-element name="facebook" />
+                </mj-social>
+            </mj-column>
+        </mj-section>
+
+
+    </mj-body>
+</mjml>
+{% endblocktrans %}
+{% endautoescape %}
+{% endmjml %}

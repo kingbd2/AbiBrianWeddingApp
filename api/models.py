@@ -60,7 +60,7 @@ class Guest(models.Model):
         is_attending = models.NullBooleanField(default=None)
         role = models.ForeignKey(
                 Role, on_delete=models.CASCADE, null=True)
-        objects = CopyManager()
+        # objects = CopyManager()
 
         def __str__(self):
                 return self.first_name
