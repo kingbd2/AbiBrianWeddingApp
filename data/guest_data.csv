@@ -1,0 +1,131 @@
+first_name,last_name,email,party,group,hasguest,iskid,is_primarycontact,is_superuser
+Derek,Attewell,derek.attewell@gmail.com,Attewell-Killackey,MC,FALSE,FALSE,TRUE,FALSE
+Tieghan ,Killackey,derek.attewell@gmail.com,Attewell-Killackey,Wedding Party Partner,FALSE,FALSE,FALSE,FALSE
+Brian,Kinsella,b.d.kinsella@gmail.com,Kinsella-Saunders,Wedding Party,FALSE,FALSE,TRUE,FALSE
+Steph ,Saunders,b.d.kinsella@gmail.com,Kinsella-Saunders,Wedding Party Partner,FALSE,FALSE,FALSE,FALSE
+Bram,Evert,bram.evert@gmail.com,Evert-Monyo,Wedding Party,FALSE,FALSE,TRUE,FALSE
+Susie ,Monyo,bram.evert@gmail.com,Evert-Monyo,Wedding Party Partner,FALSE,FALSE,FALSE,FALSE
+Ryan,McCrea,rykmccrea@gmail.com ,Violin-McCrea,Wedding Guest,FALSE,FALSE,TRUE,FALSE
+Georgia,Violin,rykmccrea@gmail.com ,Violin-McCrea,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Gabby,Ouimet,michaelmoore01@gmail.com ,Ouimet-Moore,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Michael,Moore,michaelmoore01@gmail.com ,Ouimet-Moore,Wedding Guest,FALSE,FALSE,TRUE,FALSE
+Rodion,Gusev,rodion.gusev@gmail.com,Gusev,Wedding Guest,FALSE,FALSE,TRUE,FALSE
+Christine,Gusev,rodion.gusev@gmail.com,Gusev,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Rob,Gibson,robertgibsonb@gmail.com,Gibson,Wedding Guest,FALSE,FALSE,TRUE,FALSE
+Nyrie,Gibson,robertgibsonb@gmail.com,Gibson,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Matt,Barrett,matthew.albert.barrett@gmail.com ,Barett,Wedding Guest,FALSE,FALSE,TRUE,FALSE
+Anna,Barett,matthew.albert.barrett@gmail.com ,Barett,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Kyle,Lubieniecki,kylelubieniecki@gmail.com,Lubieniecki,Wedding Guest,TRUE,FALSE,TRUE,FALSE
+Guest,D'Ortenzio,robdortenzio@gmail.com ,D'Ortenzio,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Rob ,D'Ortenzio,robdortenzio@gmail.com ,D'Ortenzio,Wedding Guest,FALSE,FALSE,TRUE,FALSE
+Alex,Blumenstein,alexblumenstein@gmail.com,Blumenstein,Wedding Guest,TRUE,FALSE,TRUE,FALSE
+Becky,Barnett,rebecca.olson@mail.mcgill.ca,Barnett,Wedding Party,FALSE,FALSE,TRUE,FALSE
+Jon,Barnett,rebecca.olson@mail.mcgill.ca,Barnett,Wedding Party Partner,FALSE,FALSE,FALSE,FALSE
+Suchitra,Joshi,suchitra.joshi1@gmail.com,Joshi,Wedding Party,TRUE,FALSE,TRUE,FALSE
+Ryan ,Lichtenfels,klynch@anaheimducks.com,Lichtenfels-Lynch,Wedding Party Partner,FALSE,FALSE,FALSE,FALSE
+Keren ,Lynch,klynch@anaheimducks.com,Lichtenfels-Lynch,Wedding Party,FALSE,FALSE,TRUE,FALSE
+Jessica,Hajsan,Jessica.gabriel@hm.com,Hajsan,MC,FALSE,FALSE,TRUE,FALSE
+Anthony ,Hajsan,Jessica.gabriel@hm.com,Hajsan,Wedding Party Partner,FALSE,FALSE,FALSE,FALSE
+Geoff,Neilson,arobin66@gmail.com,Neilson,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Amanda,Neilson,arobin66@gmail.com,Neilson,Wedding Guest,FALSE,FALSE,TRUE,FALSE
+Ben ,Sit,jennaalia@gmail.com,Maertz-Sit,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Jenna ,Maertz,jennaalia@gmail.com,Maertz-Sit,Wedding Guest,FALSE,FALSE,TRUE,FALSE
+Zeshan ,Siddiqi,kcampbell.hba2012@gmail.com,Campbell-Siddiqi,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Karly,Campbell,kcampbell.hba2012@gmail.com,Campbell-Siddiqi,Wedding Guest,FALSE,FALSE,TRUE,FALSE
+Jeff,Gloven,adinamburden@gmail.com,Gloven,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Adina,Gloven,adinamburden@gmail.com,Gloven,Wedding Guest,FALSE,FALSE,TRUE,FALSE
+Evan,Tenenbaum,ruth.a.levin@gmail.com,Tenenbaum,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Ruth ,Tenenbaum,ruth.a.levin@gmail.com,Tenenbaum,Wedding Guest,FALSE,FALSE,TRUE,FALSE
+Michael,Lobodzinski,nlobodzinski@hotmail.com,Lobodzinski,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Nina ,Lobodzinski,nlobodzinski@hotmail.com,Lobodzinski,Wedding Guest,FALSE,FALSE,TRUE,FALSE
+Ashley ,Snively,zaifman86@gmail.com,Snively-Zaifman,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Jared,Zaifman,zaifman86@gmail.com,Snively-Zaifman,Wedding Guest,FALSE,FALSE,TRUE,FALSE
+Ben,Interiano,cbhavnani@gmail.com,Interiano-Bhavnani,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Carina ,Bhavnani,cbhavnani@gmail.com,Interiano-Bhavnani,Wedding Guest,FALSE,FALSE,TRUE,FALSE
+Ben,Dickie,bendickie@icloud.com,Dickie,Wedding Guest,FALSE,FALSE,TRUE,FALSE
+Marianne ,Panneton,jake.breuer@evcanada.com,Breuer,Wedding Guest,FALSE,FALSE,TRUE,FALSE
+Jake ,Breuer ,jake.breuer@evcanada.com,Breuer,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Daniela ,Pico,dani.pico.a@gmail.com,Pico,Wedding Guest,FALSE,FALSE,TRUE,FALSE
+Marty,King,kingbd2@gmail.com,Bride-Groom,Bride-Groom,FALSE,FALSE,TRUE,TRUE
+Shmells,Schneider-Friedman,abiella@me.com,Bride-Groom,Bride-Groom,FALSE,FALSE,TRUE,TRUE
+Zara,Shaikh,zarashaikh1@gmail.com,Shaikh,Wedding Guest,TRUE,FALSE,TRUE,FALSE
+Juan,Rincon,alison_king_85@hotmail.com,Rincon,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Alison,Rincon,alison_king_85@hotmail.com,Rincon,Wedding Guest,FALSE,FALSE,TRUE,FALSE
+Peter,King,kingbc15@gmail.com,King,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Brenda,King,kingbc15@gmail.com,King,Wedding Guest,FALSE,FALSE,TRUE,FALSE
+Melanie,King,kingmpe@gmail.com,MMKing,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Matthew,King,kingmpe@gmail.com,MMKing,Wedding Guest,FALSE,FALSE,TRUE,FALSE
+Eva,King,kingmpe@gmail.com,MMKing,Wedding Guest,FALSE,TRUE,FALSE,FALSE
+Robin,King,kingmpe@gmail.com,MMKing,Wedding Guest,FALSE,TRUE,FALSE,FALSE
+Gavin,King,kingmpe@gmail.com,MMKing,Wedding Guest,FALSE,TRUE,FALSE,FALSE
+Carolyn,Forde,carjforde@gmail.com,Forde,Wedding Guest,FALSE,FALSE,TRUE,FALSE
+Peter,Forde,carjforde@gmail.com,Forde,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Connor ,Forde,conforde@gmail.com,Forde-Johnston,Wedding Guest,FALSE,FALSE,TRUE,FALSE
+Denise,Johnston,conforde@gmail.com,Forde-Johnston,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Laurel,King,lcking@videotron.ca,King-Hoffman,Wedding Guest,FALSE,FALSE,TRUE,FALSE
+Thomas,Hoffman,lcking@videotron.ca,King-Hoffman,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Scott,Mitchell,scotchmitch1a@gmail.com,Mitchell,Wedding Guest,FALSE,FALSE,TRUE,FALSE
+Joanne,Mitchell,scotchmitch1a@gmail.com,Mitchell,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Jamie and Isabelle,Mitchell,isabellepare12@yahoo.ca,Mitchell,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Phil,Reimer,preimer@gmail.com,Reimer,Wedding Guest,TRUE,FALSE,TRUE,FALSE
+Lydia,Reimer,lydiajr@gmail.com,Reimer,Wedding Guest,TRUE,FALSE,TRUE,FALSE
+Susan,Reimer,susanreimer@gmail.com,Reimer,Wedding Guest,FALSE,FALSE,TRUE,FALSE
+David ,Reimer,susanreimer@gmail.com,Reimer,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Arthur,Fox,andreaking@hotmail.ca,King-Fox,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Andrea,King,andreaking@hotmail.ca,King-Fox,Wedding Guest,FALSE,FALSE,TRUE,FALSE
+Ian and Tizzie,Kerr,kerr1634@rogers.com,Kerr,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Jim and Edy ,Buchanan,jtbuchanan77@gmail.com,Buchanan,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Michel and Sue ,Lavictoire,sue_lavictoire@yahoo.ca,Lavictoire,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Dave and Lorna,MacFarlane,dave.macfarlane57@gmail.com,MacFarlane,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Keith and Wendy ,Madley,keithmadley2@gmail.com,Madley,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Randy and Marina ,Flewelling,rflewelling@reversemgmt.com,Flewelling,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Clive and Brynah,Schneider-Friedman,clivesf@mac.com,Schneider-Friedman,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Raphaela and Jeff,Schneider-Friedman,raphaelasf@me.com,Schneider-Friedman-McKinnon,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Wendy and Lorry,Schneider,wendyschnei@gmail.com,Schneider,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Tanya and Zack,Ross,tschneider@purebarre.com,Ross,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Becca and Alex,,b.schneider33@gmail.com,BASchneider,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Emily and Luc,,emily.schneider1@gmail.com,ELSchneider,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Hillary,Schneider,hillary@epona-rise-retreats.com,HSchneider,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Marilyn and David ,Katz,maranddavid@yahoo.com,Katz,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Judy and Jerrold ,Howard,jandj.howard@rogers.com,Howard,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Anita Small and Norm Rosenblum,,asmall@mac.com,Small-Rosenblum,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Tami Cleitman and Garry Blackstein,,cleitman@netvision.net.il,Cleitman-Blackstein,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Dick and Martine ,,rlyke@sympatico.ca,Lyke,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Debbie Gilbert and Dave Lefkowich,,dgilbert36@gmail.com,Gilbert-Lefkowich,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Jaime ,McGrail,jaime.mcgrail@gmail.com,McGrail,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Don and Jen,Irwin-Morrow,dr.jenirwin@monarchsystem.com,Irwin-Morrow,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Jacquie and Julie,,jburkell@uwo.ca,Burkell,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Kathy Karn and Michael Pearce,,kathykarn@me.com,Karn-Pearce,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Manny and Hazel ,Friedman,friedmanm@rogers.com,Friedman,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Jessie and Harvey ,Goldberg,jbgoldberg@sympatico.ca,Goldberg,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Natalie ,Goldberg,ngoldbe4@gmail.com,Goldberg,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Sabine and Tony ,Goldberg,sbngoldberg@gmail.com,Goldberg,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Daniel,Goldberg,dgoldberg156@gmail.com,Goldberg,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+David Goldberg and Christine Vinette,Goldberg,dmgoldberg@gmail.com,Goldberg,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Maxine and Leonard,Silverstein,lemax@rogers.com,Silverstein,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Judy and Philip ,Weinstein,judyweinstein@hotmail.com,Weinstein,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Aron and Rachel ,Weinstein,rachel@weinstein.to,Weinstein,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Alana and Eric ,Warner,akweinstein@rogers.com,Warner,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Debra and Robert,Breuer,debrabreuer28@gmail.com,Breuer,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Gloria and Reid,,gloriajmcneill@gmail.com,McNeill,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Sharlene ,Friedman,sharlenegf@gmail.com,Friedman,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Michel and Louise,,michel.friedman1007@gmail.com,Friedman,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Bernice,Friedman,bernleefriedman@aol.com,Friedman,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Bonnie,Friedman,bonnie.friedman.home@gmail.com,Friedman,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Gabi and Daniel,,gabofthewld@gmail.com,Gabi-Daniel,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Tanya and Dave ,Temkin,Temkindj@aol.com,Temkin,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Sean Friedman and Sue Jones,,seanf8100@icloud.com,Friedman,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Danielle and Gershon,Morris,gershonmorris@googlemail.com,Morris,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+"Simone, Dennis, Mia, and Hayden",Berkovic,simonefriedman@gmail.com,Berkovic,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Rory,Friedman,rory_friedman@yahoo.com,Friedman,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+The Erbsteins,,bonita_erbstein@yahoo.com,Erbstein,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Lisa and Jay,Gower,lisagower32@btinternet.com,Gower,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Jordan,Cares,jordancares@rogers.com,Cares,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Barrie and Barbara,,brimer@netspace.net.au,Rimer,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Cecil and Sarah,,sarcec@yahoo.com,Cecil-Sarah,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Saul,,saulrimer@gmail.com,Rimer,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Steven and Karen,,jawbrker@ix.netcom.com,Steven-Karen,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Avril and Jeff ,,pizazz1@pacbell.net,Avril-Jeff,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Janice and Steven ,,jansbrenner@yahoo.com,Brenner,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Solomon and Simone ,,sollyab@isales.co.za,Solomon,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Joan,,prince.joan1@gmail.com,Joan,Wedding Guest,FALSE,FALSE,FALSE,FALSE

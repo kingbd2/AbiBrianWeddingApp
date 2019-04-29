@@ -14,20 +14,23 @@ class Party(models.Model):
         """
         A party consists of one or more guests.
         """
-        name = models.TextField()
+        name = models.TextField(primary_key=True)
         save_the_date_sent = models.DateTimeField(null=True, default=None)
         is_invited = models.BooleanField(default=False)
         is_attending = models.NullBooleanField(default=None)
         category = models.CharField(max_length=20, null=True, blank=True)
         invitation_id = models.UUIDField(
-            primary_key=True, default=uuid.uuid4, editable=False)
+            default=uuid.uuid4, editable=False)
         invitation_sent = models.DateTimeField(
             null=True, blank=True, default=None)
         invitation_opened = models.DateTimeField(
             null=True, blank=True, default=None)
-        is_invited = models.BooleanField(default=False)
         rehearsal_dinner = models.BooleanField(default=False)
         comments = models.TextField(null=True, blank=True)
+        objects = CopyManager()
+
+        def __str__(self):
+                return self.name
 
 
 class Role(models.Model):
@@ -50,20 +53,24 @@ class Guest(models.Model):
         A single guest
         """
         party = models.ForeignKey(Party, on_delete=models.CASCADE, null=True)
+        is_superuser = models.BooleanField(default=False)
+        is_primarycontact = models.BooleanField(default=False)
+        iskid = models.BooleanField(default=False)
+        hasguest = models.BooleanField(default=False)
+        group = models.TextField(null=True, blank=True)
         first_name = models.TextField(null=True, blank=True)
         last_name = models.TextField(null=True, blank=True)
         email = models.EmailField(
             verbose_name='email address',
             max_length=255,
-            unique=True,
         )
         is_attending = models.NullBooleanField(default=None)
         role = models.ForeignKey(
                 Role, on_delete=models.CASCADE, null=True)
-        # objects = CopyManager()
+        objects = CopyManager()
 
         def __str__(self):
-                return self.first_name
+                return '{} {}'.format(self.first_name, self.last_name)
 
 
 class Location(models.Model):
