@@ -27,6 +27,12 @@ export default {
   ** Global CSS
   */
   css: [
+    // Load a Node.js module directly (here it's a Sass file)
+    'bulma',
+    // CSS file in the project
+    // '@/assets/css/main.css',
+    // SCSS file in the project
+    '@/assets/css/main.scss'
   ],
 
   /*
@@ -39,10 +45,15 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
+    'nuxt-sass-resources-loader', 
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     // Doc:https://github.com/nuxt-community/modules/tree/master/packages/bulma
-    '@nuxtjs/bulma'
+    '@nuxtjs/bulma',
+    
+  ],
+  sassResources: [
+    '@/assets/css/main.scss',
   ],
   /*
   ** Axios module configuration
@@ -65,16 +76,16 @@ export default {
     /*
     ** You can extend webpack config here
     */
-    extend(config, ctx) {
-      // Run ESLint on save
-      // if (ctx.isDev && ctx.isClient) {
-      //   config.module.rules.push({
-      //     enforce: 'pre',
-      //     test: /\.(js|vue)$/,
-      //     loader: 'eslint-loader',
-      //     exclude: /(node_modules)/
-      //   })
-      // }
-    }
+    // extend(config, ctx) {
+    //   // Run ESLint on save
+    //   if (ctx.isDev && ctx.isClient) {
+    //     config.module.rules.push({
+    //       enforce: 'pre',
+    //       test: /\.(js|vue)$/,
+    //       loader: 'eslint-loader',
+    //       exclude: /(node_modules)/
+    //     })
+    //   }
+    // }
   }
 }

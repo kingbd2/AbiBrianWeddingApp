@@ -1,0 +1,78 @@
+// Import Bulma's core
+@import "~bulma/sass/utilities/_all";
+// Colours
+$BLUE: #7392B7;
+$BLUEGREEN: #759EB8;
+$STEEL-BLUE: #B3C5D7;
+$LIGHT-BLUE: #C5D5EA;
+$LIGHTGREY: #D8E1E9;
+
+$TURQUOISE: #ACF39D;
+$PASTEL: #E3B5A4;
+$MAROON: #773344;
+$RED: #E85F5C;
+
+$PURPLE: #6c698d;
+$MEDIUMGREY: #a2a7a5;
+$white: #ffffff;
+$DARKGREY: #626267;
+
+$SMOKE: #F4F4F6;
+$CEIL: #8CA0D7;
+$BURGUNDY: #412234;
+$LAVENDER: #6D466B;
+$PINK: #EAD7D7;
+
+$primary: $CEIL;
+$primary-invert: findColorInvert($primary);
+// $primary-invert: $WHITE;
+
+$light: $SMOKE;
+$dark: $DARKGREY;
+$info: $BURGUNDY;
+$success: $LAVENDER;
+$danger: $RED;
+$link: $PINK;
+$warning: $PASTEL;
+// Set your colors
+// $primary: #8c67ef;
+// $twitter: #4099FF;
+// $twitter-invert: findColorInvert($twitter);
+
+// Setup $colors to use as bulma classes (e.g. 'is-twitter')
+$colors: ("white": ($white, $black),
+"black": ($black, $white),
+"light": ($light, $light-invert),
+"dark": ($dark, $dark-invert),
+"primary": ($primary, $primary-invert),
+"info": ($info, $info-invert),
+"success": ($success, $success-invert),
+"warning": ($warning, $warning-invert),
+"danger": ($danger, $danger-invert),
+"link": ($link, $link-invert)
+);
+// "twitter": ($twitter, $twitter-invert));
+$footer-background-color: $info;
+@import url('https://fonts.googleapis.com/css?family=Karla|Source+Serif+Pro');
+
+$titles: 'Karla', sans-serif;
+$information: 'Source Serif Pro', serif;
+
+$primary-font: $titles;
+$secondary-font: $information;
+
+$family-sans-serif: $primary-font;
+$family-serif: 'Source Serif Pro', serif;
+
+// Links
+$link: $primary;
+$link-invert: $primary-invert;
+$link-focus-border: $primary;
+
+$speed-slow: 150ms !default;
+$speed-slower: 250ms !default;
+
+$navbar-item-img-max-height: 15rem;
+
+// Import Bulma and Buefy styles
+@import "~bulma";
