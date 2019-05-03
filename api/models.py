@@ -57,9 +57,9 @@ class Guest(models.Model):
         is_primarycontact = models.BooleanField(default=False)
         iskid = models.BooleanField(default=False)
         hasguest = models.BooleanField(default=False)
-        group = models.TextField(null=True, blank=True)
-        first_name = models.TextField(null=True, blank=True)
-        last_name = models.TextField(null=True, blank=True)
+        group = models.CharField(blank=True, null=True, max_length=50)
+        first_name = models.CharField(blank=True, null=True, max_length=50)
+        last_name = models.CharField(blank=True, null=True, max_length=50)
         email = models.EmailField(
             verbose_name='email address',
             max_length=255,

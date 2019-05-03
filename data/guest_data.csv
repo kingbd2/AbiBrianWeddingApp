@@ -73,18 +73,30 @@ Susan,Reimer,susanreimer@gmail.com,Reimer,Wedding Guest,FALSE,FALSE,TRUE,FALSE
 David ,Reimer,susanreimer@gmail.com,Reimer,Wedding Guest,FALSE,FALSE,FALSE,FALSE
 Arthur,Fox,andreaking@hotmail.ca,King-Fox,Wedding Guest,FALSE,FALSE,FALSE,FALSE
 Andrea,King,andreaking@hotmail.ca,King-Fox,Wedding Guest,FALSE,FALSE,TRUE,FALSE
-Ian and Tizzie,Kerr,kerr1634@rogers.com,Kerr,Wedding Guest,FALSE,FALSE,FALSE,FALSE
-Jim and Edy ,Buchanan,jtbuchanan77@gmail.com,Buchanan,Wedding Guest,FALSE,FALSE,FALSE,FALSE
-Michel and Sue ,Lavictoire,sue_lavictoire@yahoo.ca,Lavictoire,Wedding Guest,FALSE,FALSE,FALSE,FALSE
-Dave and Lorna,MacFarlane,dave.macfarlane57@gmail.com,MacFarlane,Wedding Guest,FALSE,FALSE,FALSE,FALSE
-Keith and Wendy ,Madley,keithmadley2@gmail.com,Madley,Wedding Guest,FALSE,FALSE,FALSE,FALSE
-Randy and Marina ,Flewelling,rflewelling@reversemgmt.com,Flewelling,Wedding Guest,FALSE,FALSE,FALSE,FALSE
-Clive and Brynah,Schneider-Friedman,clivesf@mac.com,Schneider-Friedman,Wedding Guest,FALSE,FALSE,FALSE,FALSE
-Raphaela and Jeff,Schneider-Friedman,raphaelasf@me.com,Schneider-Friedman-McKinnon,Wedding Guest,FALSE,FALSE,FALSE,FALSE
-Wendy and Lorry,Schneider,wendyschnei@gmail.com,Schneider,Wedding Guest,FALSE,FALSE,FALSE,FALSE
-Tanya and Zack,Ross,tschneider@purebarre.com,Ross,Wedding Guest,FALSE,FALSE,FALSE,FALSE
-Becca and Alex,,b.schneider33@gmail.com,BASchneider,Wedding Guest,FALSE,FALSE,FALSE,FALSE
-Emily and Luc,,emily.schneider1@gmail.com,ELSchneider,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Tizzie,Kerr,kerr1634@rogers.com,Kerr,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Ian ,Kerr,kerr1634@rogers.com,Kerr,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Edy,Buchanan,jtbuchanan77@gmail.com,Buchanan,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Jim,Buchanan,jtbuchanan77@gmail.com,Buchanan,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Sue ,Lavictoire,sue_lavictoire@yahoo.ca,Lavictoire,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Michel,Lavictoire,sue_lavictoire@yahoo.ca,Lavictoire,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Lorna,MacFarlane,dave.macfarlane57@gmail.com,MacFarlane,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Dave,MacFarlane,dave.macfarlane57@gmail.com,MacFarlane,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Keith,Madley,keithmadley2@gmail.com,Madley,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Wendy ,Madley,keithmadley2@gmail.com,Madley,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Marina,Flewelling,rflewelling@reversemgmt.com,Flewelling,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Randy ,Flewelling,rflewelling@reversemgmt.com,Flewelling,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Brynah,Schneider-Friedman,clivesf@mac.com,Schneider-Friedman,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Clive,Schneider-Friedman,clivesf@mac.com,Schneider-Friedman,Wedding Guest,FALSE,FALSE,TRUE,FALSE
+Jeff,McKinnon,raphaelasf@me.com,Schneider-Friedman-McKinnon,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Raphaela,Schneider-Friedman,raphaelasf@me.com,Schneider-Friedman-McKinnon,Wedding Guest,FALSE,FALSE,TRUE,FALSE
+Lorry,Schneider,wendyschnei@gmail.com,Schneider,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Wendy,Schneider,wendyschnei@gmail.com,Schneider,Wedding Guest,FALSE,FALSE,TRUE,FALSE
+Zack,Ross,tschneider@purebarre.com,Ross,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Tanya,Ross,tschneider@purebarre.com,Ross,Wedding Guest,FALSE,FALSE,TRUE,FALSE
+Alex,,b.schneider33@gmail.com,BASchneider,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Becca,Schneider,b.schneider33@gmail.com,BASchneider,Wedding Guest,FALSE,FALSE,TRUE,FALSE
+Luc,,emily.schneider1@gmail.com,ELSchneider,Wedding Guest,FALSE,FALSE,FALSE,FALSE
+Emily,Schneider,emily.schneider1@gmail.com,ELSchneider,Wedding Guest,FALSE,FALSE,TRUE,FALSE
 Hillary,Schneider,hillary@epona-rise-retreats.com,HSchneider,Wedding Guest,FALSE,FALSE,FALSE,FALSE
 Marilyn and David ,Katz,maranddavid@yahoo.com,Katz,Wedding Guest,FALSE,FALSE,FALSE,FALSE
 Judy and Jerrold ,Howard,jandj.howard@rogers.com,Howard,Wedding Guest,FALSE,FALSE,FALSE,FALSE
