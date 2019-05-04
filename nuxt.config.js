@@ -21,7 +21,9 @@ export default {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#fff' },
+ loading: {
+  color: '#8CA0D7'
+},
 
   /*
   ** Global CSS
@@ -32,7 +34,7 @@ export default {
     // CSS file in the project
     // '@/assets/css/main.css',
     // SCSS file in the project
-    '@/assets/css/main.scss'
+    '@/assets/css/main.scss',
   ],
 
   /*
@@ -45,11 +47,11 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
-    'nuxt-sass-resources-loader', 
+    // 'nuxt-sass-resources-loader', 
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     // Doc:https://github.com/nuxt-community/modules/tree/master/packages/bulma
-    '@nuxtjs/bulma',
+    // '@nuxtjs/bulma',
     
   ],
   sassResources: [
@@ -87,5 +89,9 @@ export default {
     //     })
     //   }
     // }
-  }
+  },
+  server: {
+    port: 8080, // default: 3000
+    host: '0.0.0.0', // default: localhost
+  },
 }

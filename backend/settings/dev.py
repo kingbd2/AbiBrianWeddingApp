@@ -126,6 +126,15 @@ CORS_ALLOW_HEADERS = (
 )
 ROOT_URLCONF = 'backend.urls'
 
+# Email Settings
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'talentedsuper@gmail.com'
+EMAIL_HOST_PASSWORD = 'E8Co6j1lZtaU@S&fMAo5e$a7mQzXOl'
+EMAIL_PORT = 587
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -207,3 +216,5 @@ GRAPH_MODELS = {
     'all_applications': True,
     'group_models': True,
 }
+
+
