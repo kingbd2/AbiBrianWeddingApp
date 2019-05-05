@@ -1,0 +1,73 @@
+{% load mjml %}
+{% mjml %}
+{% autoescape off %}
+{% load i18n %}
+
+<mjml>
+    <mj-body>
+        <!-- Company Header -->
+        <mj-section background-color="">
+            <mj-column>
+                <mj-text font-style="italic" font-size="30px" color="#626262" font-family="Helvetica Neue">
+                    Hi, {{ Party.name }}
+                </mj-text>
+                <mj-text font-style="italic" font-size="30px" color="#626262" font-family="Helvetica Neue">
+                    Abiella and Brian are getting married!
+                </mj-text>
+                <mj-text font-style="italic" font-size="20px" color="#626262">
+                    And we want to celebrate with you!
+                </mj-text>
+            </mj-column>
+        </mj-section>
+
+        <!-- Image Header -->
+        <!-- <mj-section background-url="https://unsplash.it/500/400?random">
+            <mj-column width="600px">
+                <mj-text align="center" color="#fff" font-size="40px" font-family="Roboto">Get Noticed</mj-text>
+                <mj-button background-color="#048BA8" href="#">
+                    Promotion
+                </mj-button>
+            </mj-column>
+        </mj-section> -->
+        <mj-section background-color="#fafafa">
+            <mj-column width="400px">
+                <mj-text font-style="italic" font-size="20px" font-family="Roboto" color="#048BA8">You're receiving this
+                    e-mail because you are invited to Abiella and Brian's wedding on September 1st, 2019.</mj-text>
+                
+                <mj-button background-color="#048BA8" href="#">Click here to RSVP.</mj-button>
+            </mj-column>
+        </mj-section>
+
+        
+
+        <!-- 2 columns section -->
+        <!-- Side image -->
+        <mj-section background-color="white">
+
+            <!-- Left image -->
+            <mj-column>
+                <mj-image width="200px" src="https://unsplash.it/500/400?random" />
+            </mj-column>
+
+            <!-- right paragraph -->
+            <!-- <mj-column>
+                <mj-text font-style="" font-size="20px" font-family="Roboto" color="#048BA8">
+                    Do amazing things
+                </mj-text>
+
+                <mj-text color="#048BA8">
+                    Guaranteed reliability of payment and level of service. The Talented platform pre-vets each profile
+                    on it’s platform ensuring credibility and reliability.
+                    Simple invoicing and payment interface within the Talented platform
+                    Get connected with multiple matches. Review and select the best match that suits your requirements.
+                    Find professionals you can trust by browsing their portfolios and reading their user testimonials.
+                    Find professionals you can trust by browsing their portfolios and reading their user testimonials.
+                    We’re always available to help. Our support consists of real people who are readily available to
+                    answer your questions.</mj-text>
+
+            </mj-column> -->
+        </mj-section>
+    </mj-body>
+</mjml>
+{% endautoescape %}
+{% endmjml %}

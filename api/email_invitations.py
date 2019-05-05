@@ -1,14 +1,15 @@
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 
-def send_invitation():
-    msg_plain = render_to_string('email/invitation_email.txt', )
-    msg_html = render_to_string('email/invitation_email.html', )
+
+def send_invitation(c):
+    msg_plain = render_to_string('email/wedding_invitation_email.txt', c)
+    msg_html = render_to_string('email/wedding_invitation_email.html', c)
 
     send_mail(
-        'email title',
+        'Abiella and Brian are getting married!',
         msg_plain,
-        'some@sender.com',
+        'abiella.and.brian@gmail.com',
         ['kingbd2@gmail.com'],
         html_message=msg_html,
     )
