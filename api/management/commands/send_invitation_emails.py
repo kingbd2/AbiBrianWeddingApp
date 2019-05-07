@@ -9,6 +9,16 @@ c = {'name': Party.name}
 class Command(BaseCommand):
 
     def handle(self, *args, **kwargs):
-        c = {'name': Party.name}
-        send_invitation(c)
+        data = Party.objects.all()
+        # filter(name="King").values()
+        i=0
+        for item in data:
+            c = {'name': item}
+            send_invitation(c)
+            i=i+1
+            if i == 4:
+                break
+            print(item)
+        
+        # send_invitation(c)
         print("Email sent")
