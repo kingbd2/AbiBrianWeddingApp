@@ -13,10 +13,12 @@ class Command(BaseCommand):
         # filter(name="King").values()
         i = 0
         for item in data:
-            guests = list(Guest.objects.filter(party=item).values('first_name'))
-            print(guests[0]["first_name"])
+            email = list(Guest.objects.filter(party=item).values('email'))
+            first_name = list(Guest.objects.filter(party=item).values('first_name'))
+            last_name = list(Guest.objects.filter(party=item).values('last_name'))
+            print(email, first_name)
             i = i+1
-            if i == 1:
+            if i == 10:
                 break
         # i = 0
         # for item in data:

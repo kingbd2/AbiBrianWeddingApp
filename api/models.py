@@ -16,8 +16,8 @@ class Party(models.Model):
         """
         name = models.TextField(primary_key=True)
         save_the_date_sent = models.DateTimeField(null=True, default=None)
-        is_invited = models.BooleanField(default=False)
-        is_attending = models.NullBooleanField(default=None)
+        is_invited = models.BooleanField(null=True, blank=True, default=False)
+        is_attending = models.NullBooleanField(null=True, blank=True, default=None)
         category = models.CharField(max_length=20, null=True, blank=True)
         invitation_id = models.UUIDField(
             default=uuid.uuid4, editable=False)
@@ -25,7 +25,7 @@ class Party(models.Model):
             null=True, blank=True, default=None)
         invitation_opened = models.DateTimeField(
             null=True, blank=True, default=None)
-        rehearsal_dinner = models.BooleanField(default=False)
+        rehearsal_dinner = models.BooleanField(null=True, blank=True, default=False)
         comments = models.TextField(null=True, blank=True)
         objects = CopyManager()
 
