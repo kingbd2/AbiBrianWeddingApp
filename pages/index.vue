@@ -15,8 +15,12 @@
           </figure>
         </div>
       </div> -->
-      <figure class="image is-128x128">
+      <!-- <figure class="image is-128x128">
         <img src="../assets/images/front.png">
+      </figure> -->
+      <figure>
+        <img src="https://berqdg.bn.files.1drv.com/y4ml13TGhWP7VNsb9cqUVcto_Hhmb7uVQPhLI5fIwKd1Qf2NvqOZBdu6W65bMcTil5UGo3u9gVcT2XW6FO46skmjMn1yNxcgdQ7UjlHAUvn_PxUJZqd3m-qE97IhsPyYVup3n64PmvaRCmrMCqsflCUu7Mahd4nEdiD2fPbn1U0bifT_WHc8dGPRJBzaBMVbwDrPwYjwBRduvMAgOV0sjQE-w?width=2428&height=1366&cropmode=none" 
+        width="400" height="427" />
       </figure>
 
       <h1 class="title">

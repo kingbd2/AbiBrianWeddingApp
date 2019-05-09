@@ -5,6 +5,9 @@
       <figure class="image is-128x128">
         <img src="../../assets/images/front.png">
       </figure>
+      <figure class="image is-128x128">
+        <img src="https://b0rldg.bn.files.1drv.com/y4mjEgv7U-YShZxhuJGHcJq570FGnpqtH_jbTDJc2YkIw5HzIp2Oc_uHBR2HqfA-H_KXitQQHgXmWp5jH9GfwMIEg3Fn0U55lS8ZUxGSdZ-Nv3UQjnnbyZgCHTMGgpqayG045cevXad1xeSDcTFVupt1aYowxr9sKCPN2yKbthO-lmdUiyR25tO1tsTLhF4aC-W7g2fqZMdNUat-4D4ZOyc9A?width=640&height=427&cropmode=none" width="640" height="427" />
+      </figure>
       <h1 class="title">
         We're getting married!
       </h1>
