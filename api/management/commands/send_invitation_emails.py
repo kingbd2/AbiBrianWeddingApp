@@ -40,6 +40,6 @@ class Command(BaseCommand):
             send_invitation(c)
             print("Email sent")
             i = i+1
-            if i == 1:
+            if i == 10:
                 break
 

@@ -14,7 +14,7 @@ class GuestSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class PartyGuestSerializer(serializers.ModelSerializer):
+class PartySerializer(serializers.ModelSerializer):
     class Meta:
         model = Party
         fields = '__all__'
