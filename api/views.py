@@ -1,7 +1,7 @@
 # api/views.py
 # Import local objects
-from api.models import Guest
-from api.serializers import GuestSerializer
+from api.models import Guest, Party
+from api.serializers import GuestSerializer, PartyGuestSerializer
 
 # Import Django packages
 from django.shortcuts import render, get_object_or_404
@@ -40,3 +40,16 @@ def guest_list(request, format=None):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+@csrf_exempt
+@api_view(['GET'])
+def party_detail(request, invitation_id):
+    """
+    List all users, or create a new user.
+    """
+    party_guests = Party.objects.filter(
+        invitation_id=invitation_id)
+        # .values('last_name')
+    serializer = PartyGuestSerializer(party_guests, many=True)
+    return JsonResponse(serializer.data, safe=False)

@@ -14,13 +14,17 @@ class Party(models.Model):
         """
         A party consists of one or more guests.
         """
-        name = models.TextField(primary_key=True)
+        name = models.CharField(max_length=50, primary_key=True)
+        email = models.EmailField(
+            verbose_name='email address',
+            max_length=255,
+        )
         save_the_date_sent = models.DateTimeField(null=True, default=None)
         is_invited = models.BooleanField(null=True, blank=True, default=False)
         is_attending = models.NullBooleanField(null=True, blank=True, default=None)
         category = models.CharField(max_length=20, null=True, blank=True)
         invitation_id = models.UUIDField(
-            default=uuid.uuid4, editable=False)
+            default=uuid.uuid4, editable=False, unique=True)
         invitation_sent = models.DateTimeField(
             null=True, blank=True, default=None)
         invitation_opened = models.DateTimeField(
@@ -60,10 +64,6 @@ class Guest(models.Model):
         group = models.CharField(blank=True, null=True, max_length=50)
         first_name = models.CharField(blank=True, null=True, max_length=50)
         last_name = models.CharField(blank=True, null=True, max_length=50)
-        email = models.EmailField(
-            verbose_name='email address',
-            max_length=255,
-        )
         is_attending = models.NullBooleanField(default=None)
         role = models.ForeignKey(
                 Role, on_delete=models.CASCADE, null=True)
@@ -77,17 +77,25 @@ class Location(models.Model):
         location_name = models.CharField(blank=True, max_length=100)
         city = models.CharField(blank=True, max_length=100)
         street_num = models.CharField(blank=True, max_length=100)
-        sreet_name = models.CharField(blank=True, max_length=100)
-        postal_code = models.CharField(blank=True, max_length=6)
+        street_name = models.CharField(blank=True, max_length=100)
+        postal_code = models.CharField(blank=True, max_length=7)
+        province = models.CharField(blank=True, max_length=100)
+        country = models.CharField(blank=True, max_length=100)
+        long = models.DecimalField(
+            max_digits=9, decimal_places=6, blank=True, null=True)
+        lat = models.DecimalField(
+            max_digits=9, decimal_places=6, blank=True, null=True)
+        objects = CopyManager()
 
 
 class Event(models.Model):
         role = models.ForeignKey(
-            Role, on_delete=models.CASCADE, null=True)
+            Role, on_delete=models.CASCADE, null=True, blank=True)
         event_name = models.CharField(blank=True, max_length=100)
         date = models.DateField()
-        start_time = models.DateField(auto_now=True)
-        end_time = models.DateField(auto_now=True)
+        start_time = models.DateTimeField()
+        end_time = models.DateTimeField()
         details = models.TextField()
         location_id = models.ForeignKey(
             Location, on_delete=models.CASCADE, null=True)
+        objects = CopyManager()

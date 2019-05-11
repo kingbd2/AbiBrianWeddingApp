@@ -9,24 +9,37 @@ c = {'name': Party.name}
 class Command(BaseCommand):
 
     def handle(self, *args, **kwargs):
-        data = Party.objects.all()
-        # filter(name="King").values()
+        # data = Party.objects.all()
+        data = list(Party.objects.values('name','email', 'invitation_id'))
         i = 0
         for item in data:
-            email = list(Guest.objects.filter(party=item).values('email'))
-            first_name = list(Guest.objects.filter(party=item).values('first_name'))
-            last_name = list(Guest.objects.filter(party=item).values('last_name'))
-            print(email, first_name)
+            invitation_id = item['invitation_id']
+            # print(invitation_id)
+            first_name = list(Guest.objects.filter(
+                party=item['name']).values('first_name'))
+            last_name = list(Guest.objects.filter(
+                party=item['name']).values('last_name'))
+
+            if len(first_name) == 1:
+                first_name_text = first_name[0]['first_name']
+                print(first_name_text)
+            elif len(first_name) == 2:
+                first_name_text = first_name[0]['first_name'] + \
+                    " and " + \
+                    first_name[1]['first_name']
+                print(first_name_text)
+            else:
+                for name in first_name:
+                    first_name_text = ", ".join(name)
+                    print(first_name_text)
+
+            c = {
+                'first_name_text': first_name_text,
+                'last_name': last_name,
+                'invitation_id': invitation_id}
+            send_invitation(c)
+            print("Email sent")
             i = i+1
-            if i == 10:
+            if i == 1:
                 break
-        # i = 0
-        # for item in data:
-        #     c = {'name': item}
-        #     send_invitation(c)
-        #     i = i+1
-        #     print(item)
-        #     if i == 1:
-        #         break
-        # send_invitation(c)
-        # print("Email sent")
+

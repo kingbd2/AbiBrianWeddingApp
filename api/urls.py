@@ -28,6 +28,7 @@ urlpatterns = [
         template_name='api_instructions.html'), name='api_instructions'),
     # path('users/<str:username>/', views.user_detail),
     path('guests/', views.guest_list),
+    path('<uuid:invitation_id>', views.party_detail),
 
     # TEST URLS BELOW
     # path('example/', views.ExampleView.as_view()),

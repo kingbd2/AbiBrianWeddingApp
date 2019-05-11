@@ -5,12 +5,18 @@ from django.contrib.auth.forms import PasswordResetForm
 from django.conf import settings
 from django.utils.translation import gettext as _
 ###### IMPORT YOUR USER MODEL ######
-from .models import Guest
+from .models import Guest, Party
 
 
 class GuestSerializer(serializers.ModelSerializer):
     class Meta:
         model = Guest
+        fields = '__all__'
+
+
+class PartyGuestSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Party
         fields = '__all__'
 
 # class PostSerializer(serializers.ModelSerializer):
