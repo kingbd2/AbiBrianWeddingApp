@@ -76,3 +76,10 @@ $navbar-item-img-max-height: 15rem;
 
 // Import Bulma and Buefy styles
 @import "~bulma";
+
+.page-enter-active, .page-leave-active {
+    transition: opacity .5s;
+  }
+.page-enter, .page-leave-to {
+opacity: 0;
+}
