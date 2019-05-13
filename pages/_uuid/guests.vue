@@ -6,11 +6,8 @@
                     width="400" height="427" />
             </figure>
             <h1 class="title">
-                We're getting married!
+                This is the guest RSVP page to RSVP all guests in a party.
             </h1>
-            <h2 class="subtitle">
-                And we want to celebrate with you.
-            </h2>
             <div class="party">
                 <div class="loading" v-if="loading">
                     Loading...
@@ -20,45 +17,26 @@
                     {{ error }}
                 </div>
 
-                <div v-if="party" class="content">
-                    <h2>{{ party.name }}</h2>
-                    <p>{{ party.email }}</p>
-                </div>
-                <div>
-                    <nuxt-link to="rsvp-uuid-guests">RSVP for your guests</nuxt-link>
-                    <!-- <div class="button"></div> -->
+                <div v-if="guests" class="content">
+                    <guestrsvp v-bind:guests="guests"></guestrsvp>
                 </div>
             </div>
-            <!-- <section class="hero is-primary">
-        <div class="hero-body">
-          <div class="container">
-            <h1 class="title">
-              Primary title
-            </h1>
-            <h2 class="subtitle">
-              Primary subtitle
-            </h2>
-          </div>
-        </div>
-      </section> -->
         </div>
     </section>
 </template>
 
 <script>
-    // export default {
-    //   async asyncData ({ params }) {
-    //     let { data } = await axios.get(`https://my-api/posts/${params.id}`)
-    //     return { title: data.title }
-    //   }
-    // }
-    import session from '../../../store/api/session';
+   
+    import session from '../../store/api/session';
+    import Guestrsvp from '~/components/Guestrsvp';
     export default {
-        components: {},
+        components: {
+            Guestrsvp
+        },
         data() {
             return {
                 loading: false,
-                party: null,
+                guests: null,
                 error: null
             }
         },
@@ -75,13 +53,13 @@
             getParty() {
                 this.error = this.party = null
                 this.loading = true
-                const url = this.$route.params.uuid
+                const url = this.$route.params.uuid + '/guests'
                 console.log(url)
                 return session.get(url)
                     .then((res) => {
                         if (res.data) {
                             this.loading = false
-                            this.party = res.data
+                            this.guests = res.data
                         } else {
                             context.error()
                         }

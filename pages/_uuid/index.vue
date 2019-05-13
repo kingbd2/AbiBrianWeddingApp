@@ -6,8 +6,11 @@
                     width="400" height="427" />
             </figure>
             <h1 class="title">
-                This is the guest RSVP page to RSVP all guests in a party.
+                We're getting married!
             </h1>
+            <h2 class="subtitle">
+                And we want to celebrate with you.
+            </h2>
             <div class="party">
                 <div class="loading" v-if="loading">
                     Loading...
@@ -17,48 +20,28 @@
                     {{ error }}
                 </div>
 
-                <div v-if="guests" class="content">
-
-                    <div class="container" v-for="guest in guests" :key="guest.id">
-                        <h1 class="title">
-                            {{ guest.first_name }} {{ guest.last_name }}
-                        </h1>
-                    </div>
-                    <p></p>
-                    <p></p>
-                    <!-- <p>{{ party.email }}</p> -->
+                <div v-if="party" class="content">
+                    <h2>{{ party.name }}</h2>
+                    <p>{{ party.email }}</p>
+                </div>
+                <div>
+                    <nuxt-link v-bind:to="url + '/guests'">RSVP for your guests</nuxt-link>
                 </div>
             </div>
-            <!-- <section class="hero is-primary">
-        <div class="hero-body">
-          <div class="container">
-            <h1 class="title">
-              Primary title
-            </h1>
-            <h2 class="subtitle">
-              Primary subtitle
-            </h2>
-          </div>
-        </div>
-      </section> -->
         </div>
     </section>
 </template>
 
 <script>
-    // export default {
-    //   async asyncData ({ params }) {
-    //     let { data } = await axios.get(`https://my-api/posts/${params.id}`)
-    //     return { title: data.title }
-    //   }
-    // }
-    import session from '../../../store/api/session';
+
+    import session from '../../store/api/session';
     export default {
         components: {},
         data() {
             return {
+                url: '',
                 loading: false,
-                guests: null,
+                party: null,
                 error: null
             }
         },
@@ -75,13 +58,14 @@
             getParty() {
                 this.error = this.party = null
                 this.loading = true
-                const url = this.$route.params.uuid + '/guests'
+                this.url = this.$route.params.uuid
+                const url = this.$route.params.uuid
                 console.log(url)
                 return session.get(url)
                     .then((res) => {
                         if (res.data) {
                             this.loading = false
-                            this.guests = res.data
+                            this.party = res.data
                         } else {
                             context.error()
                         }
