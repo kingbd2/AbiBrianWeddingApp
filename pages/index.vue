@@ -1,14 +1,14 @@
 <template>
   <div>
-    <navbar></navbar>
+
     <section class="hero is-primary">
       <div class="hero-body">
         <div class="container">
-          <h1 class="title">
-            Primary title
+          <h1 class="title has-text-info">
+            Abiella & Brian
           </h1>
-          <h2 class="subtitle">
-            Primary subtitle
+          <h2 class="subtitle has-text-info">
+            August 24, 2019 • 5850 Rokeby Line, Petrolia, ON
           </h2>
         </div>
       </div>
@@ -36,12 +36,10 @@
 
 <script>
   import Logo from '~/components/Logo.vue'
-  import Navbar from '~/components/Navbar.vue'
 
   export default {
     components: {
       Logo,
-      Navbar
     },
     mounted() {
       console.log(this.$route.params.slug);
@@ -49,7 +47,7 @@
   }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   @import url('https://fonts.googleapis.com/css?family=Karla|Source+Serif+Pro');
 
   .title {
@@ -78,5 +76,13 @@
 
   .container {
     margin-top: 5%;
+  }
+
+  .hero.is-primary {
+    background: linear-gradient(rgba(255, 255, 255, .8), rgba(255, 255, 255, .6)), url('../assets/images/front.png') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
   }
 </style>

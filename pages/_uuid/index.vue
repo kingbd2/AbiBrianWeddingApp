@@ -21,11 +21,14 @@
                 </div>
 
                 <div v-if="party" class="content">
-                    <h2>{{ party.name }}</h2>
+                    <h2>Thanks for dropping by, {{ partytext }}! </h2>
                     <p>{{ party.email }}</p>
+                    <p>{{ partytext }}</p>
                 </div>
                 <div>
-                    <nuxt-link v-bind:to="url + '/guests'">RSVP for your guests</nuxt-link>
+                    <nuxt-link v-bind:to="partyurl + '/guests'">
+                    <div class="button is-primary">
+                    RSVP for your guests</div></nuxt-link>
                 </div>
             </div>
         </div>
@@ -33,22 +36,31 @@
 </template>
 
 <script>
-
     import session from '../../store/api/session';
     export default {
         components: {},
+        validate({
+            params
+        }) {
+            // Must be a uuid
+            return /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(params.uuid)
+        },
         data() {
             return {
-                url: '',
+                guesturl: '',
+                partyurl: '',
                 loading: false,
                 party: null,
-                error: null
+                guests: [],
+                error: null,
+                partytext: ''
             }
         },
         created() {
             // fetch the data when the view is created and the data is
             // already being observed
             this.getParty()
+            this.getGuests()
         },
         watch: {
             // call again the method if the route changes
@@ -58,10 +70,10 @@
             getParty() {
                 this.error = this.party = null
                 this.loading = true
-                this.url = this.$route.params.uuid
-                const url = this.$route.params.uuid
-                console.log(url)
-                return session.get(url)
+                this.partyurl = this.$route.params.uuid
+                const partyurl = this.$route.params.uuid
+                // console.log(partyurl)
+                return session.get(partyurl)
                     .then((res) => {
                         if (res.data) {
                             this.loading = false
@@ -76,6 +88,44 @@
                         this.error = "Please go to your wedding invitation email and try again."
                     })
             },
+            getGuests() {
+                this.error = this.party = null
+                this.loading = true
+                this.guesturl = this.$route.params.uuid + '/guests'
+                const guesturl = this.$route.params.uuid + '/guests'
+                return session.get(guesturl)
+                    .then((res) => {
+                        if (res.data) {
+
+                            this.loading = false
+                            this.guests = res.data
+                            var i;
+                            var chorus = 'Because I\'m happy. ';
+                            for (i = 0; i < this.guests.length; i++) {
+                                if (i === this.guests.length - 2) {
+                                    this.partytext += this.guests[i].first_name + ' and ';
+                                }
+                                else {
+                                    this.partytext += this.guests[i].first_name;
+                                }
+                                
+                            }
+                        } else {
+                            context.error()
+                        }
+                    })
+                    .catch(error => {
+                        console.log(error)
+                        this.loading = false
+                        this.error = "Please go to your wedding invitation email and try again."
+                    })
+            },
+            computed: {
+                // partyText() {
+                //     for
+                //     return
+                // }
+            }
         }
         // 
 
