@@ -10,7 +10,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **kwargs):
         # data = Party.objects.all()
-        data = list(Party.objects.values('name','email', 'invitation_id'))
+        data = list(Party.objects.values('name', 'email', 'invitation_id'))
         i = 0
         for item in data:
             invitation_id = item['invitation_id']
@@ -29,9 +29,17 @@ class Command(BaseCommand):
                     first_name[1]['first_name']
                 print(first_name_text)
             else:
+                j = 0
+                first_name_text = ''
                 for name in first_name:
-                    first_name_text = ", ".join(name)
-                    print(first_name_text)
+                    if j == (len(first_name)-1):
+                        first_name_text = first_name_text + \
+                            'and ' + first_name[j]['first_name']
+                    else:
+                        first_name_text = first_name_text + \
+                            first_name[j]['first_name'] + ', '
+                    j = j + 1
+                    # print(first_name_text)
 
             c = {
                 'first_name_text': first_name_text,
@@ -42,4 +50,3 @@ class Command(BaseCommand):
             i = i+1
             if i == 10:
                 break
-
