@@ -1,12 +1,12 @@
 <template>
     <section class="container">
         <div>
-            <figure>
+            <!-- <figure>
                 <img src="https://berqdg.bn.files.1drv.com/y4ml13TGhWP7VNsb9cqUVcto_Hhmb7uVQPhLI5fIwKd1Qf2NvqOZBdu6W65bMcTil5UGo3u9gVcT2XW6FO46skmjMn1yNxcgdQ7UjlHAUvn_PxUJZqd3m-qE97IhsPyYVup3n64PmvaRCmrMCqsflCUu7Mahd4nEdiD2fPbn1U0bifT_WHc8dGPRJBzaBMVbwDrPwYjwBRduvMAgOV0sjQE-w?width=2428&height=1366&cropmode=none"
                     width="400" height="427" />
-            </figure>
+            </figure> -->
             <h1 class="title">
-                This is the guest RSVP page to RSVP all guests in a party.
+                Please RSVP for your guests.
             </h1>
             <div class="party">
                 <div class="loading" v-if="loading">
@@ -43,17 +43,17 @@
         created() {
             // fetch the data when the view is created and the data is
             // already being observed
-            this.getParty()
+            this.getGuests()
         },
         watch: {
             // call again the method if the route changes
             '$route': 'fetchData'
         },
         methods: {
-            getParty() {
+            getGuests() {
                 this.error = this.party = null
                 this.loading = true
-                const url = this.$route.params.uuid + '/guests'
+                const url = this.$route.params.uuid + '/guests/'
                 console.log(url)
                 return session.get(url)
                     .then((res) => {

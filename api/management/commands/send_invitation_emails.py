@@ -39,7 +39,7 @@ class Command(BaseCommand):
                         first_name_text = first_name_text + \
                             first_name[j]['first_name'] + ', '
                     j = j + 1
-                    # print(first_name_text)
+                    print(first_name_text)
 
             c = {
                 'first_name_text': first_name_text,
@@ -48,5 +48,5 @@ class Command(BaseCommand):
             send_invitation(c)
             print("Email sent")
             i = i+1
-            if i == 10:
-                break
+            # if i == 10:
+            #     break

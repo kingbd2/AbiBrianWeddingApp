@@ -67,6 +67,9 @@ class Guest(models.Model):
         is_attending = models.NullBooleanField(default=None)
         role = models.ForeignKey(
                 Role, on_delete=models.CASCADE, null=True)
+        has_dietary_restrictions = models.BooleanField(default=False)
+        dietary_restrictions = models.TextField(null=True, blank=True)
+                
         objects = CopyManager()
 
         def __str__(self):

@@ -1,7 +1,7 @@
 <template>
     <section class="container">
         <div>
-            <figure>
+            <!-- <figure>
                 <img src="https://berqdg.bn.files.1drv.com/y4ml13TGhWP7VNsb9cqUVcto_Hhmb7uVQPhLI5fIwKd1Qf2NvqOZBdu6W65bMcTil5UGo3u9gVcT2XW6FO46skmjMn1yNxcgdQ7UjlHAUvn_PxUJZqd3m-qE97IhsPyYVup3n64PmvaRCmrMCqsflCUu7Mahd4nEdiD2fPbn1U0bifT_WHc8dGPRJBzaBMVbwDrPwYjwBRduvMAgOV0sjQE-w?width=2428&height=1366&cropmode=none"
                     width="400" height="427" />
             </figure>
@@ -10,7 +10,7 @@
             </h1>
             <h2 class="subtitle">
                 And we want to celebrate with you.
-            </h2>
+            </h2> -->
             <div class="party">
                 <div class="loading" v-if="loading">
                     Loading...
@@ -96,20 +96,18 @@
                 return session.get(guesturl)
                     .then((res) => {
                         if (res.data) {
-
+                            var i;
                             this.loading = false
                             this.guests = res.data
-                            var i;
-                            var chorus = 'Because I\'m happy. ';
-                            for (i = 0; i < this.guests.length; i++) {
-                                if (i === this.guests.length - 2) {
-                                    this.partytext += this.guests[i].first_name + ' and ';
+                            for (i = 0; i <this.guests.length; i++) {
+                                if (this.guests[i].is_primarycontact === true) {
+                                    this.partytext = this.guests[i].first_name;
                                 }
                                 else {
-                                    this.partytext += this.guests[i].first_name;
+                                    continue
                                 }
-                                
                             }
+                        
                         } else {
                             context.error()
                         }
@@ -120,12 +118,12 @@
                         this.error = "Please go to your wedding invitation email and try again."
                     })
             },
-            computed: {
+            // computed: {
                 // partyText() {
                 //     for
                 //     return
                 // }
-            }
+            // }
         }
         // 
 
