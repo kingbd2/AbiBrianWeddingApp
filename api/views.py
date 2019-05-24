@@ -81,3 +81,17 @@ def party_guests(request, invitation_id):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+@csrf_exempt
+@api_view(['PUT'])
+def rsvp_guest(request, invitation_id, id):
+    """
+    RSVP for guests in party.
+    """
+    guest = Guest.objects.get(id=id)
+    serializer = GuestSerializer(guest, data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

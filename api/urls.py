@@ -19,6 +19,7 @@ urlpatterns = [
     path('guests/', views.guest_list),
     path('<uuid:invitation_id>', views.party_detail),
     path('<uuid:invitation_id>/guests/', views.party_guests),
+    path('<uuid:invitation_id>/guests/<int:id>/', views.rsvp_guest)
 
     # TEST URLS BELOW
     # path('example/', views.ExampleView.as_view()),
