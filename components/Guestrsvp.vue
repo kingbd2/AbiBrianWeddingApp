@@ -1,15 +1,13 @@
 <template>
     <div>
-        <div class="container" v-for="guest in guests" :key="guest.id">
-            <p class="title is-4 has-text-primary">
-                <!-- {{ guest.first_name }} {{ guest.last_name }} {{ guest.id }} -->
-            </p>
+        
             <table class="table">
                 <thead>
                     <tr>
                         <th>Guest</th>
                         <th>Attending?</th>
                         <th>Dietary Restrictions?</th>
+                        <th>Dietary Restrictions Details</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -21,23 +19,27 @@
                         <td>
                             <div class="button" v-bind:class="{ 'is-success': has_dietary_restrictions }" @click='toggle_dietary_restrictions()'>{{ yes_no_dietary_restrictions }}</div>
                         </td>
+                        <td>
+                        <input class="input" type="text" placeholder="Text input" v-model="dietary_restrictions">
+                        </td>
                     </tr>
                 </tbody>
             </table>
             <div class="button is-primary" @click='Rsvp(guest.id)'>Submit</div>
         </div>
-    </div>
+
 </template>
 
 <script>
     import session from '../store/api/session';
     export default {
-        props: ['guests'],
+        props: ['guest'],
         data() {
             return {
                 loading: false,
                 is_attending: false,
                 has_dietary_restrictions: false,
+                dietary_restrictions: '',
                 error: null,
                 response: null,
                 party_guests: this.guests,
@@ -51,7 +53,10 @@
                 const url = this.$route.params.uuid + '/guests/' + id + '/'
                 console.log(url)
                 return session.put(url, {
-                        is_attending: true,
+                        is_attending: this.is_attending,
+                        has_dietary_restrictions: this.has_dietary_restrictions,
+                        dietary_restrictions: this.dietary_restrictions
+
                     })
                     // .then((res) => {
                     //     if (res.data) {

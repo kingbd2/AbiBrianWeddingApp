@@ -18,15 +18,19 @@
                 </div>
 
                 <div v-if="guests" class="content">
-                    <guestrsvp v-bind:guests="guests"></guestrsvp>
+                    <div class="container" v-for="guest in guests" :key="guest.id">
+                        <guestrsvp v-bind:guest="guest"></guestrsvp>
+                        <!-- <div class="button is-primary" @click='Rsvp(guest.id)'>Submit</div> -->
+                    </div>
                 </div>
+                
             </div>
+        </div>
         </div>
     </section>
 </template>
 
 <script>
-   
     import session from '../../store/api/session';
     import Guestrsvp from '~/components/Guestrsvp';
     export default {
