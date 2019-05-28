@@ -17,7 +17,7 @@ urlpatterns = [
         template_name='api_instructions.html'), name='api_instructions'),
     # path('users/<str:username>/', views.user_detail),
     path('guests/', views.guest_list),
-    path('<uuid:invitation_id>', views.party_detail),
+    path('<uuid:invitation_id>/', views.party_detail),
     path('<uuid:invitation_id>/guests/', views.party_guests),
     path('<uuid:invitation_id>/guests/<int:id>/', views.rsvp_guest)
 

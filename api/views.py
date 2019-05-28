@@ -84,14 +84,20 @@ def party_guests(request, invitation_id):
 
 
 @csrf_exempt
-@api_view(['PUT'])
+@api_view(['GET', 'PUT'])
 def rsvp_guest(request, invitation_id, id):
     """
-    RSVP for guests in party.
+    View RSVP status and RSVP for guests in party.
     """
-    guest = Guest.objects.get(id=id)
-    serializer = GuestSerializer(guest, data=request.data)
-    if serializer.is_valid():
-        serializer.save()
-        return Response(serializer.data, status=status.HTTP_201_CREATED)
-    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    if request.method == 'GET':
+        guest = Guest.objects.get(id=id)
+        serializer = GuestSerializer(guest)
+        return JsonResponse(serializer.data, safe=False)
+
+    elif request.method == 'PUT':
+        guest = Guest.objects.get(id=id)
+        serializer = GuestSerializer(guest, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

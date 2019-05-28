@@ -26,7 +26,7 @@
                     <p>{{ partytext }}</p>
                 </div>
                 <div>
-                    <nuxt-link v-bind:to="partyurl + '/guests'">
+                    <nuxt-link :to="{name: 'uuid-guests', params: { uuid:guesturl } }">
                     <div class="button is-primary">
                     RSVP for your guests</div></nuxt-link>
                 </div>
@@ -70,9 +70,8 @@
             getParty() {
                 this.error = this.party = null
                 this.loading = true
-                this.partyurl = this.$route.params.uuid
-                const partyurl = this.$route.params.uuid
-                // console.log(partyurl)
+                this.partyurl = this.$route.params.uuid + '/'
+                const partyurl = this.$route.params.uuid + '/'
                 return session.get(partyurl)
                     .then((res) => {
                         if (res.data) {
@@ -91,8 +90,8 @@
             getGuests() {
                 this.error = this.party = null
                 this.loading = true
-                this.guesturl = this.$route.params.uuid + '/guests'
-                const guesturl = this.$route.params.uuid + '/guests'
+                this.guesturl = this.$route.params.uuid
+                const guesturl = this.$route.params.uuid + '/guests/'
                 return session.get(guesturl)
                     .then((res) => {
                         if (res.data) {
@@ -118,15 +117,7 @@
                         this.error = "Please go to your wedding invitation email and try again."
                     })
             },
-            // computed: {
-                // partyText() {
-                //     for
-                //     return
-                // }
-            // }
         }
-        // 
-
     }
 </script>
 

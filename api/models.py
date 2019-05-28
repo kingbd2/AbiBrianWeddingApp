@@ -64,7 +64,7 @@ class Guest(models.Model):
         group = models.CharField(blank=True, null=True, max_length=50)
         first_name = models.CharField(blank=True, null=True, max_length=50)
         last_name = models.CharField(blank=True, null=True, max_length=50)
-        is_attending = models.NullBooleanField(default=None)
+        is_attending = models.BooleanField(default=False)
         role = models.ForeignKey(
                 Role, on_delete=models.CASCADE, null=True)
         has_dietary_restrictions = models.BooleanField(default=False)

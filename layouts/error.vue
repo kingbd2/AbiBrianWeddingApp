@@ -7,7 +7,7 @@
             This page does not exist!
           </h1>
           <h2 class="subtitle">
-            <nuxt-link to="/">Go back home.</nuxt-link>
+            <nuxt-link to="/">Please go to your invitation email and try again.</nuxt-link>
           </h2>
         </div>
       </div>

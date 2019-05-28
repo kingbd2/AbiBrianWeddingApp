@@ -6,17 +6,12 @@
 </template>
 
 <script>
-  import Logo from '~/components/Logo.vue'
   import Navbar from '~/components/Navbar.vue'
 
   export default {
     components: {
-      Logo,
       Navbar
     },
-    mounted() {
-      console.log(this.$route.params.slug);
-    }
   }
 </script>
 
