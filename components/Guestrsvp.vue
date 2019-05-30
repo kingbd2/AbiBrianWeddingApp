@@ -1,5 +1,6 @@
 <template>
     <div>
+        
         <div v-if="error" class="error">
             {{ error }}
         </div>
@@ -12,9 +13,13 @@
                         <th>Guest</th>
                         <th>Attending?</th>
                         <th>Dietary Restrictions?</th>
-                        <div v-if="has_dietary_restrictions === true" class="success">
-                        <th>
-                            Dietary Restrictions Details</th></div>
+                        <th v-if="has_dietary_restrictions === true">
+                            Dietary Restrictions Details
+                        </th>
+
+                        <th v-else class="has-text-light">
+                            Dietary Restrictions Details
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -28,25 +33,32 @@
                             <div class="button" v-bind:class="{ 'is-success': has_dietary_restrictions }"
                                 @click='toggle_dietary_restrictions()'>{{ yes_no_dietary_restrictions }}</div>
                         </td>
-                        
-                        <td>
-                            <div v-if="has_dietary_restrictions === true" class="success">
+
+                        <td v-if="has_dietary_restrictions === true">
+
                             <input class="input" type="text" placeholder="Please provide your dietary restriction."
                                 v-model="dietary_restrictions">
-                            </div>
+                        <td v-else>
+                            <input class="input" type="text" placeholder="Please provide your dietary restriction." disabled>
                         </td>
+                        
                     </tr>
                 </tbody>
             </table>
 
             <div v-if="has_changed === true" class="success">
                 <div class="button is-primary" @click='Rsvp(guest.id)'>Submit</div>
-                Please submit your changes.
+                <div class="p has-text-weight-bold has-text-success">Please submit your changes.</div>
             </div>
+            <div v-else>
+                <!-- <div class="p has-text-primary">Please submit your changes.</div> -->
+                <div class="button is-primary" disabled>Submit</div>
+            </div>
+            <div v-if="has_submitted === true" class="success">
+             <div class="p has-text-weight-bold has-text-success">Thanks for letting us know!</div>
         </div>
-        <div v-if="has_submitted === true" class="success">
-            Thanks for letting us know!
         </div>
+        
     </div>
 
 </template>
