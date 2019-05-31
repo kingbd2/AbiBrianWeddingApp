@@ -1,38 +1,34 @@
 <template>
-    <section class="container">
-        <div>
-            <!-- <figure>
-                <img src="https://berqdg.bn.files.1drv.com/y4ml13TGhWP7VNsb9cqUVcto_Hhmb7uVQPhLI5fIwKd1Qf2NvqOZBdu6W65bMcTil5UGo3u9gVcT2XW6FO46skmjMn1yNxcgdQ7UjlHAUvn_PxUJZqd3m-qE97IhsPyYVup3n64PmvaRCmrMCqsflCUu7Mahd4nEdiD2fPbn1U0bifT_WHc8dGPRJBzaBMVbwDrPwYjwBRduvMAgOV0sjQE-w?width=2428&height=1366&cropmode=none"
-                    width="400" height="427" />
-            </figure>
-            <h1 class="title">
-                We're getting married!
-            </h1>
-            <h2 class="subtitle">
-                And we want to celebrate with you.
-            </h2> -->
-            <div class="party">
-                <div class="loading" v-if="loading">
-                    Loading...
-                </div>
+    <div>
+        <section class="hero is-primary is-fullheight is-background">
+            <div class="hero-body">
+                <div class="container">
+                    <div class="party">
+                        <div class="loading" v-if="loading">
+                            Loading...
+                        </div>
 
-                <div v-if="error" class="error">
-                    {{ error }}
-                </div>
+                        <div v-if="error" class="error">
+                            {{ error }}
+                        </div>
 
-                <div v-if="party" class="content">
-                    <h2>Thanks for dropping by, {{ partytext }}! </h2>
-                    <p>{{ party.email }}</p>
-                    <p>{{ partytext }}</p>
-                </div>
-                <div>
-                    <nuxt-link :to="{name: 'uuid-guests', params: { uuid:guesturl } }">
-                    <div class="button is-primary">
-                    RSVP for your guests</div></nuxt-link>
+                        <div v-if="party" class="content">
+                            <h2>Thanks for dropping by, {{ partytext }}! </h2>
+                            <p>{{ party.email }}</p>
+                            <p>{{ partytext }}</p>
+                        </div>
+                        <div>
+                            <nuxt-link :to="{name: 'uuid-guests', params: { uuid:guesturl } }">
+                                <div class="button is-primary">
+                                    RSVP for your guests</div>
+                            </nuxt-link>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
+
 </template>
 
 <script>
@@ -98,15 +94,14 @@
                             var i;
                             this.loading = false
                             this.guests = res.data
-                            for (i = 0; i <this.guests.length; i++) {
+                            for (i = 0; i < this.guests.length; i++) {
                                 if (this.guests[i].is_primarycontact === true) {
                                     this.partytext = this.guests[i].first_name;
-                                }
-                                else {
+                                } else {
                                     continue
                                 }
                             }
-                        
+
                         } else {
                             context.error()
                         }
@@ -121,7 +116,7 @@
     }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     @import url('https://fonts.googleapis.com/css?family=Karla|Source+Serif+Pro');
 
     .title {
@@ -150,5 +145,17 @@
 
     .container {
         margin-top: 5%;
+    }
+
+    .hero.is-primary.is-background {
+        background: linear-gradient(rgba(255, 255, 255, .6), rgba(255, 255, 255, .8)), url('../../assets/images/background-grey.png') no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        image-rendering: -webkit-optimize-contrast;
+        // -webkit-filter: grayscale(100%);
+        /* Chrome, Safari, Opera */
+        // filter: grayscale(100%);
     }
 </style>

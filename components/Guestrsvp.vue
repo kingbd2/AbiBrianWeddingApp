@@ -1,13 +1,26 @@
 <template>
     <div>
-        
+
         <div v-if="error" class="error">
             {{ error }}
         </div>
 
 
         <div v-if="guest" class="content">
-            <table class="table">
+            <div class="card">
+                <header class="card-header">
+                    <p class="card-header-title">
+                        Component
+                    </p>
+                    <a href="#" class="card-header-icon" aria-label="more options">
+                        <span class="icon">
+                            <i class="fas fa-angle-down" aria-hidden="true"></i>
+                        </span>
+                    </a>
+                </header>
+                <div class="card-content">
+                    <div class="content">
+                        <table class="table">
                 <thead>
                     <tr>
                         <th>Guest</th>
@@ -39,14 +52,14 @@
                             <input class="input" type="text" placeholder="Please provide your dietary restriction."
                                 v-model="dietary_restrictions">
                         <td v-else>
-                            <input class="input" type="text" placeholder="Please provide your dietary restriction." disabled>
+                            <input class="input" type="text" placeholder="Please provide your dietary restriction."
+                                disabled>
                         </td>
-                        
+
                     </tr>
                 </tbody>
             </table>
-
-            <div v-if="has_changed === true" class="success">
+             <div v-if="has_changed === true" class="success">
                 <div class="button is-primary" @click='Rsvp(guest.id)'>Submit</div>
                 <div class="p has-text-weight-bold has-text-success">Please submit your changes.</div>
             </div>
@@ -55,10 +68,21 @@
                 <div class="button is-primary" disabled>Submit</div>
             </div>
             <div v-if="has_submitted === true" class="success">
-             <div class="p has-text-weight-bold has-text-success">Thanks for letting us know!</div>
+                <div class="p has-text-weight-bold has-text-success">Thanks for letting us know!</div>
+            </div>
+                    </div>
+                </div>
+                <!-- <footer class="card-footer">
+                    <a href="#" class="card-footer-item">Save</a>
+                    <a href="#" class="card-footer-item">Edit</a>
+                    <a href="#" class="card-footer-item">Delete</a>
+                </footer> -->
+            </div>
+            
+
+           
         </div>
-        </div>
-        
+
     </div>
 
 </template>

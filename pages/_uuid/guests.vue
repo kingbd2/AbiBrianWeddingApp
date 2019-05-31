@@ -4,7 +4,7 @@
             <div class="hero-body">
                 <div class="container">
                     <div>
-                        <h1 class="title">
+                        <h1 class="title is-4 has-text-info">
                                     Please RSVP for your guests.
                                 </h1>
                         <div class="tile is-ancestor">

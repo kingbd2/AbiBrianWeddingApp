@@ -1,71 +1,37 @@
 <template>
     <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
-            <a class="navbar-item" href="https://bulma.io">
-                <!-- <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28"> -->
-            </a>
 
-            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
-                data-target="navbarBasicExample">
+            <a class="navbar-burger" @click="showNav = !showNav" :class="{ 'is-active': showNav }">
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
             </a>
         </div>
 
-        <div id="navbarBasicExample" class="navbar-menu">
+        <div id="navbarBasicExample" class="navbar-menu" :class="{ 'is-active': showNav }">
             <div class="navbar-start is-uppercase" style="flex-grow: 1; justify-content: center;">
-                <a class="navbar-item">
+                <a class="navbar-item" @click="showNav = !showNav">
                     <nuxt-link to="/">
-                    Our Wedding
+                        Our Wedding
                     </nuxt-link>
                 </a>
-                
-                    <a class="navbar-item">
-                        <nuxt-link to="/accomodations">
+                <a class="navbar-item" @click="showNav = !showNav">
+                    <nuxt-link to="/accomodations">
                         Guest Accomodations
-                        </nuxt-link>
-                    </a>
-                
-                <a class="navbar-item has-text-primary">
-                    RSVP
+                    </nuxt-link>
                 </a>
-
-                <div class="navbar-item has-dropdown is-hoverable">
-                    <a class="navbar-link">
+                <a class="navbar-item has-text-primary" @click="showNav = !showNav">
+                    <nuxt-link to="/rsvp" >
+                        RSVP
+                    </nuxt-link>
+                </a>
+                <a class="navbar-item" @click="showNav = !showNav">
+                    <nuxt-link to="/photos">
                         Photos
-                    </a>
-
-                    <div class="navbar-dropdown">
-                        <a class="navbar-item">
-                            About
-                        </a>
-                        <a class="navbar-item">
-                            Jobs
-                        </a>
-                        <a class="navbar-item">
-                            Contact
-                        </a>
-                        <hr class="navbar-divider">
-                        <a class="navbar-item">
-                            Report an issue
-                        </a>
-                    </div>
-                </div>
+                    </nuxt-link>
+                </a>
             </div>
-
-            <!-- <div class="navbar-end">
-                <div class="navbar-item">
-                    <div class="buttons">
-                        <a class="button is-primary">
-                            <strong>Sign up</strong>
-                        </a>
-                        <a class="button is-light">
-                            Log in
-                        </a>
-                    </div>
-                </div>
-            </div> -->
         </div>
     </nav>
 </template>
@@ -74,36 +40,9 @@
     export default {
         data() {
             return {
-                url: '',
-                loading: false,
-                party: null,
-                error: null
+                showNav: false
             }
         },
-        methods: {
-            getParty() {
-                this.error = this.party = null
-                this.loading = true
-                // this.url = this.$route.params.uuid
-                // const url = this.$route.params.uuid
-            //     console.log(url)
-            //     return session.get(url)
-            //         .then((res) => {
-            //             if (res.data) {
-            //                 this.loading = false
-            //                 this.party = res.data
-            //             } else {
-            //                 context.error()
-            //             }
-            //         })
-            //         .catch(error => {
-            //             console.log(error)
-            //             this.loading = false
-            //             this.error = "Please go to your wedding invitation email and try again."
-            //         })
-            },
-        }
-
     }
 </script>
 
