@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-npm run build
+npm run generate
 
 echo "Removing previous distribution build..."
 sudo rm -rd /var/www/html/Vue/dist/

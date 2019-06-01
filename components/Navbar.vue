@@ -1,7 +1,11 @@
 <template>
     <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
-
+            <nuxt-link to="/">
+            <a class="navbar-item">
+                <img src="../assets/images/logo.svg" width="200" height="50">
+            </a>
+            </nuxt-link>
             <a class="navbar-burger" @click="showNav = !showNav" :class="{ 'is-active': showNav }">
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
@@ -22,7 +26,7 @@
                     </nuxt-link>
                 </a>
                 <a class="navbar-item has-text-primary" @click="showNav = !showNav">
-                    <nuxt-link to="/rsvp" >
+                    <nuxt-link to="/rsvp">
                         RSVP
                     </nuxt-link>
                 </a>
