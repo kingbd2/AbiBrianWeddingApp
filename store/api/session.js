@@ -4,7 +4,7 @@ import axios from 'axios';
 // const slashes = protocol_result.concat('//');
 // const host = slashes.concat(window.location.hostname);
 // const host_with_port = host.concat(':8000');
-const host_with_port = 'http://localhost:8000';
+const host_with_port = 'http://127.0.0.1:8000';
 const base_path = host_with_port.concat('/api/v1/');
 
 const CSRF_COOKIE_NAME = 'csrftoken';
