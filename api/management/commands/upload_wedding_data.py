@@ -11,6 +11,9 @@ class Command(BaseCommand):
         # Insert Guest data
         insert_count_guest = Guest.objects.from_csv(
             'data/guest_data.csv',
+            static_mapping={
+                'is_attending': False,
+            }
             )
         print("{} guest records inserted".format(insert_count_guest))
 
