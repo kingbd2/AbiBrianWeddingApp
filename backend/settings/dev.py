@@ -110,9 +110,16 @@ MIDDLEWARE = [
     'livereload.middleware.LiveReloadScript',
     'silk.middleware.SilkyMiddleware',
 ]
+
+CORS_ORIGIN_WHITELIST = [
+    "https://abiellaandbriangetmarried.ca",
+    "https://www.abiellaandbriangetmarried.ca",
+    "http://localhost:8080",
+    "http://127.0.0.1:8080"
+]
 # Set this appropriately in production!
-CORS_ORIGIN_ALLOW_ALL = True
-CORS_ALLOW_CREDENTIALS = True
+# CORS_ORIGIN_ALLOW_ALL = True
+# CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOW_HEADERS = (
     'accept',
     'accept-encoding',
