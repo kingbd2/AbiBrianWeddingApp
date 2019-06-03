@@ -114,7 +114,7 @@
                 this.error = this.response = null
                 this.loading = true
                 const STATUS_URL = this.$route.params.uuid + '/guests/' + this.id + '/'
-                return session.get(STATUS_URL)
+                return session.get(STATUS_URL, { crossdomain: true })
                     .then((res) => {
                         if (res.data) {
                             this.has_dietary_restrictions = res.data.has_dietary_restrictions

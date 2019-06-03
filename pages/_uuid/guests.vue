@@ -70,7 +70,7 @@
                 this.loading = true
                 const url = this.$route.params.uuid + '/guests/'
                 console.log(url)
-                return session.get(url)
+                return session.get(url, { crossdomain: true })
                     .then((res) => {
                         if (res.data) {
                             this.loading = false

@@ -68,7 +68,7 @@
                 this.loading = true
                 this.partyurl = this.$route.params.uuid + '/'
                 const partyurl = this.$route.params.uuid + '/'
-                return session.get(partyurl)
+                return session.get(partyurl, { crossdomain: true })
                     .then((res) => {
                         if (res.data) {
                             this.loading = false
