@@ -13,7 +13,7 @@
                 <h4 class="p is-4 has-text-info">42338 Fruit Ridge Line, St. Thomas, ON</h4>
               </div>
             </div>
-            <div class="section has-text-info">
+            <!-- <div class="section has-text-info">
               <div class="tabs is-centered">
                 <ul>
                   <li class="is-active"><a href="index.html">Home</a></li>
@@ -24,7 +24,7 @@
                   <li><a href="about.html">About</a></li>
                 </ul>
               </div>
-            </div>
+            </div> -->
           </div>
         </header>
       </div>
@@ -59,7 +59,7 @@
 
   .title {
     font-family: 'Karla', sans-serif;
-    // padding-top: 5%;
+    padding-top: 10%;
     padding-bottom: 2%;
   }
 
