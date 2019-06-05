@@ -5,15 +5,15 @@
                 <div class="container has-text-centered">
                     <div class="columns is-vcentered">
                         <div class="column is-5">
-                            <figure class="image">
-                                <img src="https://axisya.bn.files.1drv.com/y4mTNWo6kutfQ1dEuy9Oc-kCFAVYl9dj3rUly1lPI7CE3WS37cqyzTRq-U_HKDGWbcXD-BHvQ5jtVjKX830Y2vU95IT8x733X77mMqkDQ1XIQ7Km9Jd-ifGAOh2MaRfrxorEbkDVbw-5b1X9ezAfANEXThStzIXUFdbpKslo8tq8acQ2UItkVuJFq3PBBlILNXWmUdLf2x7LeyiUkeTEynh7Q?width=640&height=427&cropmode=none"
-                                    alt="Description">
-                            </figure>
+                            <h1 class="title is-4 has-text-info">
+                                Please see below for registry details:
+                            </h1>
+                            <br>
                         </div>
                         <div class="column is-6 is-offset-1">
-                            <h1 class="title is-4 has-text-info">
-                                Please go to your invitation email to RSVP for your guests.
-                            </h1>
+                            <!-- <h1 class="title is-4 has-text-info">
+                                Please see below for registry details:
+                            </h1> -->
                             <br>
                         </div>
                     </div>

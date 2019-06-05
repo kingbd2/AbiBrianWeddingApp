@@ -15,7 +15,7 @@
 
         <div id="navbarBasicExample" class="navbar-menu" :class="{ 'is-active': showNav }">
             <div class="navbar-start is-uppercase" style="flex-grow: 1; justify-content: center;">
-                <a class="navbar-item" @click="showNav = !showNav">
+                <a class="navbar-item has-text-primary" @click="showNav = !showNav">
                     <nuxt-link to="/">
                         Our Wedding
                     </nuxt-link>
@@ -25,12 +25,17 @@
                         Guest Accomodations
                     </nuxt-link>
                 </a>
-                <a class="navbar-item has-text-primary" @click="showNav = !showNav">
+                <a class="navbar-item has-text-info" @click="showNav = !showNav">
                     <nuxt-link to="/rsvp">
                         RSVP
                     </nuxt-link>
                 </a>
-                <a class="navbar-item" @click="showNav = !showNav">
+                <a class="navbar-item has-text-info" @click="showNav = !showNav">
+                    <nuxt-link to="/registry">
+                        Registry
+                    </nuxt-link>
+                </a>
+                <a class="navbar-item has-text-info" @click="showNav = !showNav">
                     <nuxt-link to="/photos">
                         Photos
                     </nuxt-link>
