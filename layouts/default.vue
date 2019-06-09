@@ -2,21 +2,24 @@
   <div>
     <navbar></navbar>
     <nuxt />
+    <bottom></bottom>
   </div>
 </template>
 
 <script>
   import Navbar from '~/components/Navbar.vue'
+  import Bottom from '~/components/Bottom.vue'
 
   export default {
     components: {
-      Navbar
+      Navbar,
+      Bottom
     },
   }
 </script>
 
 <style>
-/* html {
+  /* html {
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     Roboto, 'Helvetica Neue', Arial, sans-serif;
   font-size: 16px;

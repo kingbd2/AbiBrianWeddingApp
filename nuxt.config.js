@@ -1,4 +1,5 @@
 import pkg from './package'
+const webpack = require('webpack')
 
 export default {
   mode: 'spa',
@@ -7,15 +8,24 @@ export default {
   ** Headers of the page
   */
   head: {
-    title: 'Abiella and Brian are Committed',
+    title: 'Abiella and Brian are Getting Married!',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: pkg.description }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: 'favicon.ico' },
+      // {
+      //   rel: 'stylesheet',
+      //   href: 'https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css'
+      // },
     ]
+  },
+  render: {
+    static: {
+      maxAge: 1000 * 60 * 60 * 24 * 7
+    }
   },
 
   /*
@@ -30,9 +40,7 @@ export default {
   */
   css: [
     // Load a Node.js module directly (here it's a Sass file)
-    'bulma',
-    // CSS file in the project
-    // '@/assets/css/main.css',
+    // 'bulma',
     // SCSS file in the project
     '@/assets/css/main.scss',
   ],
@@ -52,11 +60,13 @@ export default {
     '@nuxtjs/axios',
     // Doc:https://github.com/nuxt-community/modules/tree/master/packages/bulma
     // '@nuxtjs/bulma',
-    
+    ['@nuxtjs/google-analytics', {
+      id: 'UA-141695537-1'
+    }]
   ],
-  sassResources: [
-    '@/assets/css/main.scss',
-  ],
+  // sassResources: [
+  //   '@/assets/css/main.scss',
+  // ],
   /*
   ** Axios module configuration
   */
@@ -75,6 +85,11 @@ export default {
         }
       }
     },
+    plugins: [
+      new webpack.ProvidePlugin({
+        mapboxgl: 'mapbox-gl'
+      })
+    ],
     /*
     ** You can extend webpack config here
     */

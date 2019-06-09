@@ -5,8 +5,53 @@
             {{ error }}
         </div>
 
+        <div class="card large">
+            <div class="card-content">
+                <div class="media">
+                    <div class="media-content">
+                        <h1 class="title is-4 no-padding has-text-primary">{{ guest.first_name }} {{ guest.last_name }}
+                        </h1>
+                        <div class="columns">
+                            <div class="column">
+                                <p class="no-padding has-text-info">Attending?</p>
+                                <div class="button" v-bind:class="{ 'is-success': is_attending }"
+                                    @click='toggle_is_attending()'>{{ yes_no_is_attending }}</div>
+                                    <div class="button" v-bind:class="{ 'is-success': !is_attending }"
+                                    @click='toggle_is_attending()'>{{ yes_no_is_attending }}</div>
+                            </div>
+                            <div class="column">
+                                <p class="no-padding has-text-info">Any dietary restrictions?</p>
+                                <div class="button" v-bind:class="{ 'is-success': has_dietary_restrictions }"
+                                    @click='toggle_dietary_restrictions()'>{{ yes_no_dietary_restrictions }}</div>
+                            </div>
+                        </div>
 
-        <div v-if="guest" class="content">
+                        </br>
+                        <div v-if="has_dietary_restrictions === true">
+                            <input class="input" type="text" placeholder="Please provide your dietary restriction."
+                                v-model="dietary_restrictions">
+                        </div>
+                        <div v-else>
+                            <input class="input" type="text" placeholder="Please provide your dietary restriction."
+                                disabled>
+                        </div>
+                        </br>
+                        <div v-if="has_changed === true" class="success">
+                            <div class="button is-primary" @click='Rsvp(guest.id)'>Submit</div>
+                            <div class="p has-text-weight-bold has-text-success">Please submit your changes.</div>
+                        </div>
+                        <div v-else>
+                            <!-- <div class="p has-text-primary">Please submit your changes.</div> -->
+                            <div class="button is-primary" disabled>Submit</div>
+                        </div>
+                        <div v-if="has_submitted === true" class="success">
+                            <div class="p has-text-weight-bold has-text-success">Thanks for letting us know!</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div v-if="guest" class="content">
             <div class="card">
                 <header class="card-header">
                     <p class="card-header-title">
@@ -21,70 +66,62 @@
                 <div class="card-content">
                     <div class="content">
                         <table class="table">
-                <thead>
-                    <tr>
-                        <th>Guest</th>
-                        <th>Attending?</th>
-                        <th>Dietary Restrictions?</th>
-                        <th v-if="has_dietary_restrictions === true">
-                            Dietary Restrictions Details
-                        </th>
+                            <thead>
+                                <tr>
+                                    <th>Guest</th>
+                                    <th>Attending?</th>
+                                    <th>Dietary Restrictions?</th>
+                                    <th v-if="has_dietary_restrictions === true">
+                                        Dietary Restrictions Details
+                                    </th>
 
-                        <th v-else class="has-text-light">
-                            Dietary Restrictions Details
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>{{ guest.first_name }} {{ guest.last_name }}</td>
-                        <td>
-                            <div class="button" v-bind:class="{ 'is-success': is_attending }"
-                                @click='toggle_is_attending()'>{{ yes_no_is_attending }}</div>
-                        </td>
-                        <td>
-                            <div class="button" v-bind:class="{ 'is-success': has_dietary_restrictions }"
-                                @click='toggle_dietary_restrictions()'>{{ yes_no_dietary_restrictions }}</div>
-                        </td>
+                                    <th v-else class="has-text-light">
+                                        Dietary Restrictions Details
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{{ guest.first_name }} {{ guest.last_name }}</td>
+                                    <td>
+                                        <div class="button" v-bind:class="{ 'is-success': is_attending }"
+                                            @click='toggle_is_attending()'>{{ yes_no_is_attending }}</div>
+                                    </td>
+                                    <td>
+                                        <div class="button" v-bind:class="{ 'is-success': has_dietary_restrictions }"
+                                            @click='toggle_dietary_restrictions()'>{{ yes_no_dietary_restrictions }}
+                                        </div>
+                                    </td>
 
-                        <td v-if="has_dietary_restrictions === true">
+                                    <td v-if="has_dietary_restrictions === true">
 
-                            <input class="input" type="text" placeholder="Please provide your dietary restriction."
-                                v-model="dietary_restrictions">
-                        <td v-else>
-                            <input class="input" type="text" placeholder="Please provide your dietary restriction."
-                                disabled>
-                        </td>
+                                        <input class="input" type="text"
+                                            placeholder="Please provide your dietary restriction."
+                                            v-model="dietary_restrictions">
+                                    <td v-else>
+                                        <input class="input" type="text"
+                                            placeholder="Please provide your dietary restriction." disabled>
+                                    </td>
 
-                    </tr>
-                </tbody>
-            </table>
-             <div v-if="has_changed === true" class="success">
-                <div class="button is-primary" @click='Rsvp(guest.id)'>Submit</div>
-                <div class="p has-text-weight-bold has-text-success">Please submit your changes.</div>
-            </div>
-            <div v-else>
-                <!-- <div class="p has-text-primary">Please submit your changes.</div> -->
-                <div class="button is-primary" disabled>Submit</div>
-            </div>
-            <div v-if="has_submitted === true" class="success">
-                <div class="p has-text-weight-bold has-text-success">Thanks for letting us know!</div>
-            </div>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div v-if="has_changed === true" class="success">
+                            <div class="button is-primary" @click='Rsvp(guest.id)'>Submit</div>
+                            <div class="p has-text-weight-bold has-text-success">Please submit your changes.</div>
+                        </div>
+                        <div v-else>
+                            <div class="button is-primary" disabled>Submit</div>
+                        </div>
+                        <div v-if="has_submitted === true" class="success">
+                            <div class="p has-text-weight-bold has-text-success">Thanks for letting us know!</div>
+                        </div>
                     </div>
                 </div>
-                <!-- <footer class="card-footer">
-                    <a href="#" class="card-footer-item">Save</a>
-                    <a href="#" class="card-footer-item">Edit</a>
-                    <a href="#" class="card-footer-item">Delete</a>
-                </footer> -->
             </div>
-            
-
-           
-        </div>
+        </div> -->
 
     </div>
-
 </template>
 
 <script>
@@ -114,7 +151,9 @@
                 this.error = this.response = null
                 this.loading = true
                 const STATUS_URL = this.$route.params.uuid + '/guests/' + this.id + '/'
-                return session.get(STATUS_URL, { crossdomain: true })
+                return session.get(STATUS_URL, {
+                        crossdomain: true
+                    })
                     .then((res) => {
                         if (res.data) {
                             this.has_dietary_restrictions = res.data.has_dietary_restrictions

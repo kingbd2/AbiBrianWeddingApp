@@ -11,7 +11,6 @@
                 <h4 class="subtitle is-4 has-text-info">September 1st, 2019</h4>
                 <h4 class="p is-4 has-text-info">Wildflowers Farm</h4>
                 <h4 class="p is-4 has-text-info">42338 Fruit Ridge Line, St. Thomas, ON</h4>
-
               </div>
             </div>
           </div>
@@ -29,23 +28,136 @@
               <h4 class="subtitle is-3 has-text-info">
                 <Countdown class="has-text-info" deadline="September 1, 2019"></Countdown>
               </h4>
-              <!-- <h4 class="p is-4 has-text-info">Wildflowers Farm</h4>
-              <h4 class="p is-4 has-text-info">42338 Fruit Ridge Line, St. Thomas, ON</h4> -->
             </div>
           </div>
         </div>
       </div>
     </section>
 
+    <div v-if="showMap === true">
+      <section class="hero is-small is-primary is-background">
+        <div class="hero-body">
+          <div class="container">
+            <h1 class="title is-2 has-text-success">Our Wedding</h1>
+            <p class="has-text-info">September 1st, 2019</p>
+            <p class="has-text-info">Ceremony starts at 4:00 pm</p>
+            <p class="has-text-info">Attire: Formal</p>
+            <div class="columns is-vcentered">
+              <div class="column is-one-half">
+                <h1 class="title is-4 has-text-success">Ceremony and Reception</h1>
+                <a href="https://wildflowers.farm/weddings">
+                  <h3 class="button is-primary">Wildflowers Farm</h3>
+                </a>
+                <p class="has-text-info">42338 Fruit Ridge Line, St Thomas, Ontario, Canada N5P 3S9</p>
+                </br>
+                <p class="has-text-info">Come celebrate with us as we unite the Schneider-Friedman-King clans! The wedding will take place at Wildflower Tea Farm in St. Thomas. Dress code is cocktail chic, and the ceremony and cockails will be outside, weather permitting, so choose footwear accordingly. Plenty of parking is availabe on-site, but should you prefer not to drive, we have shuttles leaving from the Schneider-Friedman home, Delta Armories Downtown London, and the Windermere Manor. Check back here for exact times. 
+                </p>
+                </br>
+                <p class="has-text-info">Schedule of Events (subject to change):</p>
+                <ul class="has-text-info">
+                  <li>
+                    <p class="has-text-info">3:30 pm - Arrive at Wildflowers Tea Farm and enjoy a cool drink while you wander the grounds</p>
+                  </li>
+                  <li>
+                    <p class="has-text-info">4:00 pm - Ceremony </p>
+                  </li>
+                  <li>
+                    <p class="has-text-info">4:45 pm - Cocktails</p>
+                  </li>
+                  <li>
+                    <p class="has-text-info">6:00 pm - Dinner and Dancing</p>
+                  </li>
+                  <li>
+                    <p class="has-text-info">12:30 am - Last Shuttle Leaves</p>
+                  </li>
+                </ul>
+                </br>
+                <p class="has-text-info">Please RSVP by July 15th, 2019.</p>
+              </div>
+              <div class="column">
+                <location-map></location-map>
+              </div>
+            </div>
+            </br>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div v-else>
+      <section class="hero is-small is-primary is-background">
+        <div class="hero-body">
+          <div class="container">
+            <h1 class="title is-2 has-text-success">Our Wedding</h1>
+            <p class="has-text-info">September 1st, 2019</p>
+            <p class="has-text-info">Ceremony starts at 4:00 pm</p>
+            <p class="has-text-info">Attire: Formal</p>
+            <div class="columns is-vcentered">
+              <div class="column is-one-half">
+                <h1 class="title is-4 has-text-success">Ceremony and Reception</h1>
+                <a href="https://wildflowers.farm/weddings">
+                  <h3 class="button is-primary">Wildflowers Farm</h3>
+                </a>
+                <p class="has-text-info">42338 Fruit Ridge Line, St Thomas, Ontario, Canada N5P 3S9</p>
+                </br>
+                <p class="has-text-info">Come celebrate with us as we unite the Schneider-Friedman-King clans! The wedding will take place at Wildflower Tea Farm in St. Thomas. Dress code is cocktail chic, and the ceremony and cockails will be outside, weather permitting, so choose footwear accordingly. Plenty of parking is availabe on-site, but should you prefer not to drive, we have shuttles leaving from the Schneider-Friedman home, Delta Armories Downtown London, and the Windermere Manor. Check back here for exact times. 
+                </p>
+                </br>
+                <p class="has-text-info">Schedule of Events (subject to change):</p>
+                <ul class="has-text-info">
+                  <li>
+                    <p class="has-text-info">3:30 pm - Arrive at Wildflowers Tea Farm and enjoy a cool drink while you wander the grounds</p>
+                  </li>
+                  <li>
+                    <p class="has-text-info">4:00 pm - Ceremony </p>
+                  </li>
+                  <li>
+                    <p class="has-text-info">4:45 pm - Cocktails</p>
+                  </li>
+                  <li>
+                    <p class="has-text-info">6:00 pm - Dinner and Dancing</p>
+                  </li>
+                  <li>
+                    <p class="has-text-info">12:30 am - Last Shuttle Leaves</p>
+                  </li>
+                </ul>
+                </br>
+                <p class="has-text-info">Please RSVP by July 15th, 2019.</p>
+              </div>
+              <div class="column">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2931.112544048068!2d-81.2022724!3d42.7225086!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xf8dd3f88028a4425!2sWildflowers+Farm!5e0!3m2!1sen!2sca!4v1560112295041!5m2!1sen!2sca" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+              </div>
+            </div>
+            </br>
+          </div>
+        </div>
+      </section>
+    </div>
+
   </div>
 </template>
 
 <script>
   import Countdown from '../components/Countdown'
+  import LocationMap from '../components/LocationMap'
+
   export default {
     components: {
-      Countdown
+      Countdown,
+      LocationMap,
     },
+    data: function () {
+      return {
+        showMap: 'false'
+      }
+    },
+    mounted: function () {
+      if (!mapboxgl.supported()) {
+        this.showMap = false;
+      } else {
+        this.showMap = true;
+      }
+    }
   }
 </script>
 
@@ -81,7 +193,7 @@
   }
 
   .hero.is-primary.is-background {
-    background: linear-gradient(rgba(255, 255, 255, .5), rgba(255, 255, 255, .99)), url('../assets/images/background-grey.png') no-repeat center center fixed;
+    background: linear-gradient(rgba(255, 255, 255, .5), rgba(255, 255, 255, .99)), url('https://b0rtdg.bn.files.1drv.com/y4mUKhWv84jRu2sffpC_unLOD1mj7KsVbvKBnvKcXsgvHA54Vf4f1An1wG31t6yJnqKDYP3aUclf-b4s3bbD8JpmKMVY73vGJesWbp09zpMh96z1JPEb_1nS8jpCuXWn8uIArzw3I6iTShKuhnqcx9sxmfCogjKxNQI7fmzmnzVB_fKT_3L-7wwN4IpSBsJLJPkM_OwVjGIfbJJPnz4W4ahEg?width=1500&height=2000&cropmode=none') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;

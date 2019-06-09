@@ -1,19 +1,19 @@
 <template>
     <div class="card">
         <div class="card-image">
-            <figure class="image is-3by2">
-                <img :src="photo.url" alt="Brian and Abi">
+            <figure class="image">
+                <img :src="photo.url" alt="Brian and Abi's photos"/>
             </figure>
-            <div class="card-content is-overlay is-clipped">
+            <!-- <div class="card-content is-overlay is-clipped">
                 <span class="tag is-info">
                     {{ photo.caption }}
                 </span>
-            </div>
+            </div> -->
         </div>
         <footer class="card-footer">
-            <a class="card-footer-item">
+            <div class="card-footer-item">
                 {{ photo.caption }}
-            </a>
+            </div>
         </footer>
     </div>
 </template>

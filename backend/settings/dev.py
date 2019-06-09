@@ -43,7 +43,7 @@ except NameError:
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = [".abiellaandbriangetmarried.ca", "localhost", "127.0.0.1"]
 
 
 # Application definition
@@ -66,7 +66,7 @@ INSTALLED_APPS = [
     'rest_auth.registration',
     # Third party
     'silk',
-    'livereload', 
+    'livereload',
     'mjml',
     # 'huey.contrib.djhuey',
     'django_extensions',
@@ -101,7 +101,7 @@ AUTH_USER_MODEL = 'api.Customuser'
 
 # Set this appropriately in production!
 CORS_ORIGIN_ALLOW_ALL = True
-CORS_ALLOW_CREDENTIALS = False
+CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOW_HEADERS = (
     'accept',
     'accept-encoding',
@@ -124,16 +124,15 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'livereload.middleware.LiveReloadScript',
-    'silk.middleware.SilkyMiddleware',
-    
+    'silk.middleware.SilkyMiddleware', 
 ]
 
-# CORS_ORIGIN_WHITELIST = [
-#     "https://abiellaandbriangetmarried.ca",
-#     "https://www.abiellaandbriangetmarried.ca",
-#     "http://localhost:8080",
-#     "http://127.0.0.1:8080"
-# ]
+CORS_ORIGIN_WHITELIST = [
+    "https://abiellaandbriangetmarried.ca",
+    "https://www.abiellaandbriangetmarried.ca",
+    "http://localhost:8080",
+    "http://127.0.0.1:8080"
+]
 
 ROOT_URLCONF = 'backend.urls'
 
