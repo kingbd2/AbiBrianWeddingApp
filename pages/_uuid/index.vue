@@ -9,7 +9,7 @@
                         </div>
 
                         <div v-if="error" class="error">
-                            {{ error }}
+                            <h1 class="title has-text-info"> {{ error }}</h1>
                         </div>
 
                         <div v-if="party" class="content">

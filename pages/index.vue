@@ -18,16 +18,27 @@
       </div>
     </section>
 
-    <section class="hero is-info is-fullheight is-background">
-      <div class="hero-head">
-        <div class="container">
-          <div class="section">
-            <div class="has-text-centered">
+    <section class="hero is-fullheight is-primary is-background">
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <div class="columns is-vcentered">
+            <div class="column is-5">
+              <figure class="image">
+                <img
+                  src="../assets/images/front.png"
+                  style="border-radius:50%"
+                  alt="Description">
+              </figure>
+            </div>
+            <div class="column is-6 is-offset-1">
+              <div class="has-text-centered">
               <h1 class="title is-1 is-spaced has-text-info">We are very excited to celebrate with you!</h1>
               <h4 class="p is-4 has-text-info">Time until marriage:</h4>
               <h4 class="subtitle is-3 has-text-info">
                 <Countdown class="has-text-info" deadline="September 1, 2019"></Countdown>
               </h4>
+            </div>
+              <br>
             </div>
           </div>
         </div>
@@ -50,13 +61,19 @@
                 </a>
                 <p class="has-text-info">42338 Fruit Ridge Line, St Thomas, Ontario, Canada N5P 3S9</p>
                 </br>
-                <p class="has-text-info">Come celebrate with us as we unite the Schneider-Friedman-King clans! The wedding will take place at Wildflower Tea Farm in St. Thomas. Dress code is cocktail chic, and the ceremony and cockails will be outside, weather permitting, so choose footwear accordingly. Plenty of parking is availabe on-site, but should you prefer not to drive, we have shuttles leaving from the Schneider-Friedman home, Delta Armories Downtown London, and the Windermere Manor. Check back here for exact times. 
+                <p class="has-text-info">Come celebrate with us as we unite the Schneider-Friedman-King clans! The
+                  wedding will take place at Wildflower Tea Farm in St. Thomas. Dress code is cocktail chic, and the
+                  ceremony and cockails will be outside, weather permitting, so choose footwear accordingly. Plenty of
+                  parking is availabe on-site, but should you prefer not to drive, we have shuttles leaving from the
+                  Schneider-Friedman home, Delta Armories Downtown London, and the Windermere Manor. Check back here for
+                  exact times.
                 </p>
                 </br>
                 <p class="has-text-info">Schedule of Events (subject to change):</p>
                 <ul class="has-text-info">
                   <li>
-                    <p class="has-text-info">3:30 pm - Arrive at Wildflowers Tea Farm and enjoy a cool drink while you wander the grounds</p>
+                    <p class="has-text-info">3:30 pm - Arrive at Wildflowers Tea Farm and enjoy a cool drink while you
+                      wander the grounds</p>
                   </li>
                   <li>
                     <p class="has-text-info">4:00 pm - Ceremony </p>
@@ -72,7 +89,7 @@
                   </li>
                 </ul>
                 </br>
-                <p class="has-text-info">Please RSVP by July 15th, 2019.</p>
+                <p class="has-text-info has-text-weight-bold">To RSVP, use your invitation email sent from abiella.and.brian@gmail.com. Please RSVP by July 15th, 2019. </p>
               </div>
               <div class="column">
                 <location-map></location-map>
@@ -100,13 +117,19 @@
                 </a>
                 <p class="has-text-info">42338 Fruit Ridge Line, St Thomas, Ontario, Canada N5P 3S9</p>
                 </br>
-                <p class="has-text-info">Come celebrate with us as we unite the Schneider-Friedman-King clans! The wedding will take place at Wildflower Tea Farm in St. Thomas. Dress code is cocktail chic, and the ceremony and cockails will be outside, weather permitting, so choose footwear accordingly. Plenty of parking is availabe on-site, but should you prefer not to drive, we have shuttles leaving from the Schneider-Friedman home, Delta Armories Downtown London, and the Windermere Manor. Check back here for exact times. 
+                <p class="has-text-info">Come celebrate with us as we unite the Schneider-Friedman-King clans! The
+                  wedding will take place at Wildflower Tea Farm in St. Thomas. Dress code is cocktail chic, and the
+                  ceremony and cockails will be outside, weather permitting, so choose footwear accordingly. Plenty of
+                  parking is availabe on-site, but should you prefer not to drive, we have shuttles leaving from the
+                  Schneider-Friedman home, Delta Armories Downtown London, and the Windermere Manor. Check back here for
+                  exact times.
                 </p>
                 </br>
                 <p class="has-text-info">Schedule of Events (subject to change):</p>
                 <ul class="has-text-info">
                   <li>
-                    <p class="has-text-info">3:30 pm - Arrive at Wildflowers Tea Farm and enjoy a cool drink while you wander the grounds</p>
+                    <p class="has-text-info">3:30 pm - Arrive at Wildflowers Tea Farm and enjoy a cool drink while you
+                      wander the grounds</p>
                   </li>
                   <li>
                     <p class="has-text-info">4:00 pm - Ceremony </p>
@@ -122,10 +145,12 @@
                   </li>
                 </ul>
                 </br>
-                <p class="has-text-info">Please RSVP by July 15th, 2019.</p>
+                <p class="has-text-info has-text-weight-bold">To RSVP, use your invitation email sent from abiella.and.brian@gmail.com. Please RSVP by July 15th, 2019. </p>
               </div>
               <div class="column">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2931.112544048068!2d-81.2022724!3d42.7225086!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xf8dd3f88028a4425!2sWildflowers+Farm!5e0!3m2!1sen!2sca!4v1560112295041!5m2!1sen!2sca" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2931.112544048068!2d-81.2022724!3d42.7225086!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xf8dd3f88028a4425!2sWildflowers+Farm!5e0!3m2!1sen!2sca!4v1560112295041!5m2!1sen!2sca"
+                  width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
               </div>
             </div>
             </br>
@@ -177,6 +202,9 @@
 
   p {
     font-family: 'Karla', sans-serif;
+  }
+  .button {
+    margin-bottom: 5%;
   }
 
   .subtitle.quote {

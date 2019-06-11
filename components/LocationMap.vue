@@ -5,7 +5,7 @@
         <mapbox access-token="pk.eyJ1Ijoia2luZ2JkMiIsImEiOiJjam96MDIxOGQwNDQzM3BwOTBja2ExbmRwIn0.F1hx0bbEkNrblMCKVOQM5A"
             @map-load="mapLoaded" :map-options="{
           style: 'mapbox://styles/mapbox/light-v9',
-          center: [-80.44, 43.15],
+          center: [-80.44, 43.10],
           zoom: 7
         }" :geolocate-control="{
   show: true,

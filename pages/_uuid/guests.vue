@@ -23,6 +23,8 @@
                                             <guestrsvp v-bind:guest="guest"></guestrsvp>
                                             <!-- <div class="button is-primary" @click='Rsvp(guest.id)'>Submit</div> -->
                                         </div>
+                                        <input class="input" type="text" placeholder="Please leave a message for the bride and groom!"
+                                v-model="party_comment">
                                     </div>
                                 </div>
                             </div>
@@ -46,7 +48,9 @@
             return {
                 loading: false,
                 guests: null,
-                error: null
+                error: null,
+                party_id: this.$route.params.uuid,
+                party_comment: '',
             }
         },
         created() {

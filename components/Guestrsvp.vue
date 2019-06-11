@@ -195,6 +195,32 @@
                         this.error = "Please go to your wedding invitation email and try again."
                     })
             },
+            submitComment(id) {
+                this.error = this.response = null
+                this.loading = true
+                const RSVP_URL = this.$route.params.uuid + '/guests/' + id + '/'
+                return session.put(RSVP_URL, {
+                        is_attending: this.is_attending,
+                        has_dietary_restrictions: this.has_dietary_restrictions,
+                        dietary_restrictions: this.dietary_restrictions
+
+                    })
+                    .then((res) => {
+                        if (res.data) {
+                            this.has_submitted = true
+                            this.has_changed = false
+                            this.loading = false
+                            this.guests = res.data
+                        } else {
+                            context.error()
+                        }
+                    })
+                    .catch(error => {
+                        console.log(error)
+                        this.loading = false
+                        this.error = "Please go to your wedding invitation email and try again."
+                    })
+            },
             toggle_is_attending: function () {
                 this.is_attending = !this.is_attending
                 this.has_submitted = false
