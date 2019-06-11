@@ -4,9 +4,8 @@
             <div class="hero-body">
                 <div class="container">
                     <div>
-                        <h1 class="title is-4 has-text-info">
-                            Please RSVP for your guests.
-                        </h1>
+                        <!-- <h1 class="title has-text-info"> {{ error }}</h1> -->
+
                         <div class="tile is-ancestor">
                             <div class="tile is-vertical is-8">
                                 <div class="party">
@@ -16,6 +15,10 @@
 
                                     <div v-if="error" class="error">
                                         <h1 class="title has-text-info"> {{ error }}</h1>
+                                        <h2 class="subtitle has-text-info">
+                                            If this doesn't work, <nuxt-link class="has-text-primary" to="/">check out
+                                                the rest of our wedding site!</nuxt-link>
+                                        </h2>
                                     </div>
 
                                     <div v-if="guests" class="content">
@@ -23,8 +26,9 @@
                                             <guestrsvp v-bind:guest="guest"></guestrsvp>
                                             <!-- <div class="button is-primary" @click='Rsvp(guest.id)'>Submit</div> -->
                                         </div>
-                                        <input class="input" type="text" placeholder="Please leave a message for the bride and groom!"
-                                v-model="party_comment">
+                                        <input class="input" type="text"
+                                            placeholder="Please leave a message for the bride and groom!"
+                                            v-model="party_comment">
                                     </div>
                                 </div>
                             </div>

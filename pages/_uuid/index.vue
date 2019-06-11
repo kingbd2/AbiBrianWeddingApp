@@ -10,6 +10,10 @@
 
                         <div v-if="error" class="error">
                             <h1 class="title has-text-info"> {{ error }}</h1>
+                            <h2 class="subtitle has-text-info">
+                                If this doesn't work, <nuxt-link class="has-text-primary" to="/">check out the rest of our wedding site!</nuxt-link>
+                            </h2>
+
                         </div>
 
                         <div v-if="party" class="content">
@@ -34,7 +38,8 @@
                                     <a href="https://wildflowers.farm/weddings">
                                         <div class="button is-info">Wildflowers Farm</div>
                                     </a>
-                                    <p class="is-size-4 has-text-info">42338 Fruit Ridge Line, St Thomas, Ontario, Canada N5P 3S9
+                                    <p class="is-size-4 has-text-info">42338 Fruit Ridge Line, St Thomas, Ontario,
+                                        Canada N5P 3S9
                                     </p>
                                 </div>
                             </div>
@@ -176,6 +181,7 @@
         /* Chrome, Safari, Opera */
         // filter: grayscale(100%);
     }
+
     .button.rsvp {
         margin-bottom: 15%;
     }

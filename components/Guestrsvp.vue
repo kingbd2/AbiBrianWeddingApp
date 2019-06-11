@@ -1,9 +1,9 @@
 <template>
     <div>
 
-        <div v-if="error" class="error">
+        <!-- <div v-if="error" class="error">
             {{ error }}
-        </div>
+        </div> -->
 
         <div class="card large">
             <div class="card-content">
