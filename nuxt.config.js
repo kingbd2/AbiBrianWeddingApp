@@ -60,9 +60,9 @@ export default {
     '@nuxtjs/axios',
     // Doc:https://github.com/nuxt-community/modules/tree/master/packages/bulma
     // '@nuxtjs/bulma',
-    ['@nuxtjs/google-analytics', {
-      id: 'UA-141695537-1'
-    }]
+    // ['@nuxtjs/google-analytics', {
+    //   id: 'UA-141695537-1'
+    // }]
   ],
   // sassResources: [
   //   '@/assets/css/main.scss',
