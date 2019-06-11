@@ -11,11 +11,11 @@
                             <div class="tile is-vertical is-8">
                                 <div class="party">
                                     <div class="loading" v-if="loading">
-                                        Loading...
+                                        <h1 class="title has-text-info"> Loading...</h1>
                                     </div>
 
                                     <div v-if="error" class="error">
-                                        {{ error }}
+                                        <h1 class="title has-text-info"> {{ error }}</h1>
                                     </div>
 
                                     <div v-if="guests" class="content">

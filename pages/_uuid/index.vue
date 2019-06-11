@@ -5,7 +5,7 @@
                 <div class="container">
                     <div class="party">
                         <div class="loading" v-if="loading">
-                            Loading...
+                            <h1 class="title has-text-info"> Loading...</h1>
                         </div>
 
                         <div v-if="error" class="error">
