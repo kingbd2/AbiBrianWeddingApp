@@ -15,10 +15,10 @@ import os
 DEBUG = False
 
 # Set to your Domain here (eg. 'django-vue-template-demo.herokuapp.com')
-CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_ALLOW_ALL = True
 ALLOWED_HOSTS = [".abiellaandbriangetmarried.ca", "localhost", "127.0.0.1"]
 
-SECURE_CONTENT_TYPE_NOSNIFF = True
-SECURE_SSL_REDIRECT = True
-SECURE_BROWSER_XSS_FILTER = True
-SECURE_HSTS_SECONDS = 60
+# SECURE_CONTENT_TYPE_NOSNIFF = True
+# SECURE_SSL_REDIRECT = True
+# SECURE_BROWSER_XSS_FILTER = True
+# SECURE_HSTS_SECONDS = 60
