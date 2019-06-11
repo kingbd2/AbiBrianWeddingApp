@@ -16,7 +16,7 @@ DEBUG = False
 
 # Set to your Domain here (eg. 'django-vue-template-demo.herokuapp.com')
 CORS_ORIGIN_ALLOW_ALL = True
-# ALLOWED_HOSTS = [".abiellaandbriangetmarried.ca", "localhost", "127.0.0.1"]
+ALLOWED_HOSTS = [".abiellaandbriangetmarried.ca", "localhost", "127.0.0.1"]
 
 SECURE_CONTENT_TYPE_NOSNIFF = True
 SECURE_SSL_REDIRECT = True
