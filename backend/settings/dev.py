@@ -127,12 +127,12 @@ MIDDLEWARE = [
     'silk.middleware.SilkyMiddleware', 
 ]
 
-CORS_ORIGIN_WHITELIST = [
-    "https://abiellaandbriangetmarried.ca",
-    "https://www.abiellaandbriangetmarried.ca",
-    "http://localhost:8080",
-    "http://127.0.0.1:8080"
-]
+# CORS_ORIGIN_WHITELIST = [
+#     "https://abiellaandbriangetmarried.ca",
+#     "https://www.abiellaandbriangetmarried.ca",
+#     "http://localhost:8080",
+#     "http://127.0.0.1:8080"
+# ]
 
 ROOT_URLCONF = 'backend.urls'
 
