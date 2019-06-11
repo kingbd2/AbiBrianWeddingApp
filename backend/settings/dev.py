@@ -100,7 +100,7 @@ REST_AUTH_SERIALIZERS = {
 AUTH_USER_MODEL = 'api.Customuser'
 
 # Set this appropriately in production!
-# CORS_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOW_HEADERS = (
     'accept',
@@ -113,6 +113,13 @@ CORS_ALLOW_HEADERS = (
     'x-csrftoken',
     'x-requested-with',
 )
+
+
+
+SECURE_CONTENT_TYPE_NOSNIFF = False
+# SECURE_SSL_REDIRECT = True
+SECURE_BROWSER_XSS_FILTER = False
+# SECURE_HSTS_SECONDS = 60
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
@@ -127,12 +134,6 @@ MIDDLEWARE = [
     'silk.middleware.SilkyMiddleware', 
 ]
 
-CORS_ORIGIN_WHITELIST = [
-    "https://abiellaandbriangetmarried.ca",
-    "https://www.abiellaandbriangetmarried.ca",
-    "http://localhost:8080",
-    "http://127.0.0.1:8080"
-]
 
 ROOT_URLCONF = 'backend.urls'
 
