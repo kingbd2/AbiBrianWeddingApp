@@ -15,18 +15,18 @@ import os
 DEBUG = False
 
 # Set to your Domain here (eg. 'django-vue-template-demo.herokuapp.com')
-CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_ALLOW_ALL = True
 
-CORS_ORIGIN_WHITELIST = [
-    "https://abiellaandbriangetmarried.ca",
-    "https://www.abiellaandbriangetmarried.ca",
-    "http://localhost:8080",
-    "http://127.0.0.1:8080"
-]
+# CORS_ORIGIN_WHITELIST = [
+#     "https://abiellaandbriangetmarried.ca",
+#     "https://www.abiellaandbriangetmarried.ca",
+#     "http://localhost:8080",
+#     "http://127.0.0.1:8080"
+# ]
 
 ALLOWED_HOSTS = [".abiellaandbriangetmarried.ca", "localhost", "127.0.0.1"]
 
-SECURE_CONTENT_TYPE_NOSNIFF = True
+# SECURE_CONTENT_TYPE_NOSNIFF = True
 # SECURE_SSL_REDIRECT = True
-SECURE_BROWSER_XSS_FILTER = True
-SECURE_HSTS_SECONDS = 60
+# SECURE_BROWSER_XSS_FILTER = True
+# SECURE_HSTS_SECONDS = 60
