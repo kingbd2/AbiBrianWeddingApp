@@ -89,7 +89,7 @@
                   </li>
                 </ul>
                 </br>
-                <p class="has-text-info has-text-weight-bold">To RSVP, use your invitation email sent from abiella.and.brian@gmail.com. Please RSVP by July 15th, 2019. </p>
+                <p class="has-text-info has-text-weight-bold">To RSVP, use the link in the email you received from abiella.and.brian@gmail.com. Please RSVP by July 15th, 2019. </p>
               </div>
               <div class="column">
                 <location-map></location-map>
@@ -145,7 +145,7 @@
                   </li>
                 </ul>
                 </br>
-                <p class="has-text-info has-text-weight-bold">To RSVP, use your invitation email sent from abiella.and.brian@gmail.com. Please RSVP by July 15th, 2019. </p>
+                <p class="has-text-info has-text-weight-bold">To RSVP, use the link in the email you received from abiella.and.brian @ gmail.com. Please RSVP by July 15th, 2019. </p>
               </div>
               <div class="column">
                 <iframe

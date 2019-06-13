@@ -22,13 +22,112 @@
                                     </div>
 
                                     <div v-if="guests" class="content">
+                                        <p class="is-size-3 has-text-success has-text-left has-text-weight-bold">Please
+                                            RSVP for your guests below, and
+                                            don't forget to leave a comment below!</p>
                                         <div class="container" v-for="guest in guests" :key="guest.id">
-                                            <guestrsvp v-bind:guest="guest"></guestrsvp>
-                                            <!-- <div class="button is-primary" @click='Rsvp(guest.id)'>Submit</div> -->
+                                            <guestrsvp v-bind:guest="guest" v-on:childToParent="onChildClick">
+                                            </guestrsvp>
                                         </div>
-                                        <input class="input" type="text"
-                                            placeholder="Please leave a message for the bride and groom!"
-                                            v-model="party_comment">
+
+
+                                        <div class="container" v-if="commentSubmitted === false">
+                                            <div class="card large has-background-link">
+                                                <div class="card-content">
+                                                    <div class="media">
+                                                        <div class="media-content">
+                                                            <p class="is-size-4 has-text-info">We would love to hear
+                                                                from you.
+                                                            </p>
+                                                            <div class="columns">
+                                                                <div class="column">
+                                                                    <textarea class="textarea"
+                                                                        placeholder="Please leave a message for the bride and groom!"
+                                                                        v-model="party_comment"></textarea>
+                                                                    <div class="column">
+                                                                        <div class="button is-primary"
+                                                                            @click='SubmitComment()'>
+                                                                            Submit Comment</div>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="container" v-else>
+                                            <div class="card large has-background-primary">
+                                                <div class="card-content">
+                                                    <div class="media">
+                                                        <div class="media-content">
+                                                            <div class="columns">
+                                                                <div class="column">
+                                                                    <p class="title is-size-4 has-text-white">Thanks, we
+                                                                        will see you soon!
+                                                                    </p>
+
+                                                                    <p class="is-size-4 has-text-white">Love, Abiella
+                                                                        and Brian :)</p>
+                                                                </div>
+                                                                <div class="column is-8">
+                                                                    <div class="box has-background-light">
+                                                                        <p class="is-size-5 has-text-danger">If you need
+                                                                            to change your responses, please go back to
+                                                                            your emailed invitation and click on the
+                                                                            link provided. Please RSVP by July 15th, 2019. 
+                                                                        </p>
+                                                                        <p class="is-size-5">Check out other parts of
+                                                                            our site!</p>
+                                                                        <ul>
+                                                                            <nuxt-link to="/">
+                                                                                <a class="button navbar-item has-text-primary"
+                                                                                    @click="showNav = !showNav">
+
+                                                                                    Our Wedding
+
+                                                                                </a>
+                                                                            </nuxt-link>
+                                                                            <nuxt-link to="/accomodations">
+                                                                                <a class="button navbar-item"
+                                                                                    @click="showNav = !showNav">
+
+                                                                                    Guest Accomodations
+
+                                                                                </a>
+                                                                            </nuxt-link>
+
+                                                                            <nuxt-link to="/registry">
+                                                                                <a class="button navbar-item has-text-info"
+                                                                                    @click="showNav = !showNav">
+
+                                                                                    Registry
+
+                                                                                </a>
+                                                                            </nuxt-link>
+                                                                            <nuxt-link to="/photos">
+                                                                                <a class="button navbar-item has-text-info"
+                                                                                    @click="showNav = !showNav">
+
+                                                                                    Photos
+
+                                                                                </a>
+                                                                            </nuxt-link>
+                                                                        </ul>
+
+                                                                    </div>
+                                                                </div>
+
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -50,17 +149,21 @@
         },
         data() {
             return {
+                commentSubmitted: false,
                 loading: false,
                 guests: null,
                 error: null,
                 party_id: this.$route.params.uuid,
                 party_comment: '',
+                IDfromChild: '',
+                party: null,
             }
         },
         created() {
             // fetch the data when the view is created and the data is
             // already being observed
             this.getGuests()
+            this.getParty()
         },
         watch: {
             // call again the method if the route changes
@@ -89,6 +192,63 @@
                         this.error = "Please go to your wedding invitation email and try again."
                     })
             },
+            getParty() {
+                this.error = this.party = null
+                this.loading = true
+                this.partyurl = this.$route.params.uuid + '/'
+                const partyurl = this.$route.params.uuid + '/'
+                return session.get(partyurl, {
+                        crossdomain: true
+                    })
+                    .then((res) => {
+                        if (res.data) {
+                            this.loading = false
+                            this.party = res.data
+                        } else {
+                            context.error()
+                        }
+                    })
+                    .catch(error => {
+                        console.log(error)
+                        this.loading = false
+                        this.error = "Please go to your wedding invitation email and try again."
+                    })
+            },
+            onChildClick(value) {
+                this.fromChild = value
+            },
+            SubmitComment() {
+                this.loading = true
+                const COMMENT_URL = this.$route.params.uuid + '/'
+                return session.put(COMMENT_URL, {
+                        comments: this.party_comment,
+                        email: this.party.email,
+                        name: this.party.name      
+
+                    })
+                    .then((res) => {
+                        if (res.data) {
+                            this.commentSubmitted = true
+                            this.loading = false
+                        } else {
+                            context.error()
+                        }
+                    })
+                    .catch(error => {
+                        console.log(error)
+                        this.loading = false
+                        this.error = "Please go to your wedding invitation email and try again."
+                    })
+            }
+        },
+        computed: {
+            yes_no_is_attending: function () {
+                if (this.is_attending === true) {
+                    return "Yes"
+                } else {
+                    return "No"
+                }
+            },
         }
         // 
 
@@ -111,6 +271,11 @@
 
     p {
         font-family: 'Source Serif Pro', serif;
+        // padding-top: 5%;
+    }
+
+    .is-size-3 {
+        padding-top: 5%;
     }
 
     .subtitle.quote {

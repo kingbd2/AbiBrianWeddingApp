@@ -43,15 +43,23 @@ def guest_list(request, format=None):
 
 
 @csrf_exempt
-@api_view(['GET'])
+@api_view(['GET', 'PUT'])
 def party_detail(request, invitation_id):
     """
     List party details.
     """
-    party = Party.objects.get(
-        invitation_id=invitation_id)
-    serializer = PartySerializer(party)
-    return JsonResponse(serializer.data, safe=False)
+    if request.method == 'GET':
+        party = Party.objects.get(
+            invitation_id=invitation_id)
+        serializer = PartySerializer(party)
+        return JsonResponse(serializer.data, safe=False)
+    elif request.method == 'PUT':
+        party = Party.objects.get(invitation_id=invitation_id)
+        serializer = PartySerializer(party, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 @csrf_exempt
