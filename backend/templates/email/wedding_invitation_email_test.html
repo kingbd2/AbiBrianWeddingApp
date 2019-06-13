@@ -1,0 +1,52 @@
+{% load mjml %}
+{% mjml %}
+{% autoescape off %}
+{% load i18n %}
+
+<mjml>
+    <mj-head>
+        <mj-font name="Montserrat" href="https://fonts.googleapis.com/css?family=Montserrat:400,700" />
+        <mj-preview>Click the link inside to RSVP to Abiella and Brian's wedding!</mj-preview>
+
+        <mj-attributes>
+            <mj-text font-size="16px" line-height="24px" padding="0px 48px 16px" />
+            <mj-button font-weight="bold" font-size="16px" background-color="#8CA0D7" />
+            <mj-divider border-color="#8CA0D7" />
+            <mj-all font-family="Montserrat, Helvetica, Arial, sans-serif" />
+        </mj-attributes>
+    </mj-head>
+    <mj-body>
+        <mj-section background-color="white">
+            <mj-column>
+                <mj-image width="200px"
+                    src="https://berpdg.bn.files.1drv.com/y4mDlvyuV-cINTRA4bbxgqMRVvo98gGLmMiHabn0A4-doj4hdwYeBBDJxATRgkCjIyf8K1w8WixMSSrIGBvEZtIJUjLjABM2BeufYEgkEaSoVFKWMN5L2qdvbjrtcZrzvVUFcVi3jGdqk0qecvHHevj7BbnYN9N4M4XUOpNA7kZ7pYP7zg_HzaTnggMhqnVtcqQlQXqx4I3u1tCRwMAeDwNaw?width=493&height=441&cropmode=none" />
+            </mj-column>
+        </mj-section>
+        <mj-section background-color="#fafafa">
+            <mj-column>
+                <mj-text font-size="30px" color="#8CA0D7">
+                    Hi, {{ first_name_text }}
+                </mj-text>
+                <mj-text font-style="italic" font-size="30px" color="#8CA0D7">
+                    Abiella and Brian are getting married!
+                </mj-text>
+                <mj-text font-size="20px" color="#8CA0D7">
+                    And they want to celebrate with you!
+                </mj-text>
+                <mj-text font-size="20px" color="#8CA0D7">You're receiving this
+                    e-mail because you are invited to Abiella and Brian's wedding on September 1st, 2019.</mj-text>
+                <mj-text font-size="20px" color="#8CA0D7">Click below to RSVP and find
+                    information about accommodation. We have arranged limited room holds at two London hotels.
+                </mj-text>
+                <mj-text font-size="20px" color="#8CA0D7">
+                    Please RSVP before July 15th.</mj-text>
+                <mj-button background-color="#8CA0D7" href="https://abiellaandbriangetmarried.ca/{{ invitation_id }}/">
+                    Click here to RSVP</mj-button>
+
+            </mj-column>
+        </mj-section>
+
+    </mj-body>
+</mjml>
+{% endautoescape %}
+{% endmjml %}

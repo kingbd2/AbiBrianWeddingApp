@@ -17,6 +17,7 @@ Matt,Barrett,Barett,Wedding Guest,FALSE,FALSE,TRUE,FALSE,FALSE
 Anna,Barett,Barett,Wedding Guest,FALSE,FALSE,FALSE,FALSE,FALSE
 Evan,Marsh,Marsh,Wedding Guest,TRUE,FALSE,TRUE,FALSE,FALSE
 Kyle,Lubieniecki,Lubieniecki,Wedding Guest,TRUE,FALSE,TRUE,FALSE,FALSE
+Victoria (Rose),Findlay,Lubieniecki,Wedding Guest,FALSE,FALSE,FALSE,FALSE,FALSE
 Katie,McRae,D'Ortenzio,Wedding Guest,FALSE,FALSE,FALSE,FALSE,FALSE
 Rob,D'Ortenzio,D'Ortenzio,Wedding Guest,FALSE,FALSE,TRUE,FALSE,FALSE
 Alex,Blumenstein,Blumenstein,Wedding Guest,TRUE,FALSE,TRUE,FALSE,FALSE
@@ -47,6 +48,7 @@ Ben,Dickie,Dickie,Wedding Guest,FALSE,FALSE,TRUE,FALSE,FALSE
 Marianne,Panneton,JMBreuer,Wedding Guest,FALSE,FALSE,FALSE,FALSE,FALSE
 Jake,Breuer ,JMBreuer,Wedding Guest,FALSE,FALSE,TRUE,FALSE,FALSE
 Daniela,Pico,Pico,Wedding Guest,FALSE,FALSE,TRUE,FALSE,FALSE
+Jaxson ,Khan ,Pico,Wedding Guest,FALSE,FALSE,FALSE,FALSE,FALSE
 Ashley,Tse,Tse,Wedding Guest,FALSE,FALSE,TRUE,FALSE,FALSE
 Derrick,Tse,Tse,Wedding Guest,FALSE,FALSE,FALSE,FALSE,FALSE
 Marty,King,Bride-Groom,Bride-Groom,FALSE,FALSE,TRUE,TRUE,FALSE
@@ -111,7 +113,7 @@ Norm,Rosenblum,Small-Rosenblum,Wedding Guest,FALSE,FALSE,FALSE,FALSE,FALSE
 Tami,Cleitman,Cleitman-Blackstein,Wedding Guest,FALSE,FALSE,TRUE,FALSE,FALSE
 Garry,Blackstein,Cleitman-Blackstein,Wedding Guest,FALSE,FALSE,FALSE,FALSE,FALSE
 Dick,Lyke,Lyke,Wedding Guest,FALSE,FALSE,TRUE,FALSE,FALSE
-Martine,,Lyke,Wedding Guest,FALSE,FALSE,FALSE,FALSE,FALSE
+Martine,Bracey-Hoffman,Lyke,Wedding Guest,FALSE,FALSE,FALSE,FALSE,FALSE
 Debbie,Gilbert,Gilbert-Lefkowich,Wedding Guest,FALSE,FALSE,TRUE,FALSE,FALSE
 Dave,Lefkowich ,Gilbert-Lefkowich,Wedding Guest,FALSE,FALSE,FALSE,FALSE,FALSE
 Jaime,McGrail,McGrail,Wedding Guest,FALSE,FALSE,TRUE,FALSE,FALSE

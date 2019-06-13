@@ -12,15 +12,23 @@ class Command(BaseCommand):
         # data = Party.objects.all()
         data = list(Party.objects.values('name', 'email', 'invitation_id'))
         i = 0
-        for item in data:
-            email = item['email']
+        test_emails = ['kingbd2@gmail.com']
+        # test_emails = ['alison_king_85@hotmail.com', 'kingbd2@gmail.com']
+        # data = list(Party.objects.filter(blog_id=4))
+
+        for item in test_emails:
+            test_data = list(Party.objects.filter(
+                email=item).values('name', 'email', 'invitation_id'))
+            print(test_data)
+
+            email = test_data[0]['email']
             print(email)
-            invitation_id = item['invitation_id']
+            invitation_id = test_data[0]['invitation_id']
             # print(invitation_id)
             first_name = list(Guest.objects.filter(
-                party=item['name']).values('first_name'))
+                party=test_data[0]['name']).values('first_name'))
             last_name = list(Guest.objects.filter(
-                party=item['name']).values('last_name'))
+                party=test_data[0]['name']).values('last_name'))
 
             if len(first_name) == 1:
                 first_name_text = first_name[0]['first_name']
@@ -49,6 +57,6 @@ class Command(BaseCommand):
                 'invitation_id': invitation_id}
             send_invitation(c, email)
             print("Email sent")
-            # i = i+1
-            # if i == 2:
-            #     break
+            i = i+1
+            if i == 2:
+                break
