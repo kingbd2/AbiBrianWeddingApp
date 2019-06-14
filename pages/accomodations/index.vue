@@ -28,7 +28,7 @@
                         dates: 'Dates: Friday August 30 - Monday September 2, 2019',
                         price: '$160-$180/ night',
                         bookby: 'Book by: Friday July 19, 2019',
-                        location: '325 Dundas St, London, ON N6B 1T9 (40 minute drive to Wedding Venue, 15 minute drive to Schneider-Friedma house)',
+                        location: '325 Dundas St, London, ON N6B 1T9 (40 minute drive to Wedding Venue, 15 minute drive to Schneider-Friedman house)',
                         transportation: 'Transportation will be provided from the hotel to and from the wedding by bus.',
                         website: '',
                         bookhere: '',
