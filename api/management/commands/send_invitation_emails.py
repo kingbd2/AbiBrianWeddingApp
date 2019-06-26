@@ -14,6 +14,7 @@ class Command(BaseCommand):
         i = 0
         for item in data:
             email = item['email']
+            # email = 'kingbd2@gmail.com'
             print(email)
             invitation_id = item['invitation_id']
             # print(invitation_id)

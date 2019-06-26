@@ -28,6 +28,12 @@
                                                 RSVP for your guests</div>
                                         </nuxt-link>
                                     </div>
+                                    <div>
+                                        <nuxt-link :to="{name: 'uuid-events', params: { uuid:guesturl } }">
+                                            <div class="button is-success rsvp">
+                                                Go to your events</div>
+                                        </nuxt-link>
+                                    </div>
                                 </div>
                                 <div class="column is-5 is-offset-2">
                                     <h1 class="title has-text-info">Wedding details</h1>

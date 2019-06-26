@@ -1,7 +1,7 @@
 # api/views.py
 # Import local objects
-from api.models import Guest, Party
-from api.serializers import GuestSerializer, PartySerializer
+from api.models import Guest, Party, Event, Location
+from api.serializers import GuestSerializer, PartySerializer, LocationSerializer, EventSerializer
 
 # Import Django packages
 from django.shortcuts import render, get_object_or_404
@@ -36,6 +36,25 @@ def guest_list(request, format=None):
 
     elif request.method == 'POST':
         serializer = GuestSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+@csrf_exempt
+@api_view(['GET', 'POST'])
+def party_list(request, format=None):
+    """
+    List all parties, or create a new party.
+    """
+    if request.method == 'GET':
+        parties = Party.objects.all()
+        serializer = PartySerializer(parties, many=True)
+        return JsonResponse(serializer.data, safe=False)
+
+    elif request.method == 'POST':
+        serializer = PartySerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
@@ -105,6 +124,94 @@ def rsvp_guest(request, invitation_id, id):
     elif request.method == 'PUT':
         guest = Guest.objects.get(id=id)
         serializer = GuestSerializer(guest, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+@csrf_exempt
+@api_view(['GET', 'POST'])
+def events(request):
+    """
+    Get or create events.
+    """
+    if request.method == 'GET':
+        events = Event.objects.all()
+        serializer = EventSerializer(events, many=True)
+        return JsonResponse(serializer.data, safe=False)
+
+    elif request.method == 'POST':
+        # guest = Event.objects.get(id=id)
+        serializer = EventSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    # elif request.method == 'PUT':
+    #     event = Event.objects.get(id=id)
+    #     serializer = EventSerializer(event, data=request.data)
+    #     if serializer.is_valid():
+    #         serializer.save()
+    #         return Response(serializer.data, status=status.HTTP_201_CREATED)
+    #     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+@csrf_exempt
+@api_view(['GET', 'PUT'])
+def event_detail(request, id):
+    """
+    Get or create locations.
+    """
+    if request.method == 'GET':
+        event = Event.objects.get(id=id)
+        serializer = EventSerializer(event)
+        return JsonResponse(serializer.data, safe=False)
+
+    elif request.method == 'PUT':
+        event = Event.objects.get(id=id)
+        serializer = EventSerializer(event, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+@csrf_exempt
+@api_view(['GET', 'POST'])
+def locations(request):
+    """
+    Get or create locations.
+    """
+    if request.method == 'GET':
+        locations = Location.objects.all()
+        serializer = LocationSerializer(locations, many=True)
+        return JsonResponse(serializer.data, safe=False)
+
+    elif request.method == 'POST':
+        # guest = Event.objects.get(id=id)
+        serializer = LocationSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+@csrf_exempt
+@api_view(['GET', 'PUT'])
+def location_detail(request, id):
+    """
+    Get or create locations.
+    """
+    if request.method == 'GET':
+        location = Location.objects.get(id=id)
+        serializer = LocationSerializer(location)
+        return JsonResponse(serializer.data, safe=False)
+
+    elif request.method == 'PUT':
+        location = Location.objects.get(id=id)
+        serializer = LocationSerializer(location, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
