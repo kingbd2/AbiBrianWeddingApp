@@ -17,64 +17,18 @@
                         </div>
 
                         <div v-if="guests" class="content">
-                            <div class="button" @click="createReport()">Generate Report</div>
+                            <!-- <div class="button" @click="createReport()">Generate Report</div>
                             <div class="has-text-info">Guests attending: {{ is_attending_count }} / {{ guestcount }}
                             </div>
                             <div class="has-text-info">Number of kids: {{ kids_attending_count }} / {{ guestcount }}
-                            </div>
-                            <div class="has-text-info">Invited to brunch: {{ brunch_count }} / {{ guestcount }}
-                            </div>
-                            <div class="has-text-info">Invited to rehearsal: {{ rehearsal_count }} / {{ guestcount }}
-                            </div>
-                            <div class="has-text-info">Invited to shabbat: {{ shabbat_count }} / {{ guestcount }}
-                            </div>
-                            <div class="card large">
-                                <div class="card-content">
-                                    <div class="media">
-                                        <div class="media-content">
-                                            <div class="columns has-text-primary">
-                                                <div class="column is-1">
-                                                    <div>Number</div>
-                                                </div>
-                                                <div class="column">
-                                                    <div>Name</div>
-                                                </div>
-                                                <div class="column">
-                                                    <div>Party</div>
-                                                </div>
-                                                <div class="column is-2">
-                                                    <div>Group
-                                                    </div>
-                                                </div>
-                                                <div class="column">
-                                                    <div>Is Attending?</div>
-                                                </div>
-                                                <div class="column">
-                                                    <div>Dietary Restrictions</div>
-                                                </div>
-                                                <div class="column">
-                                                    <div>Kid?</div>
-                                                </div>
-                                                <div class="column">
-                                                    <div>Brunch?</div>
-                                                </div>
-                                                <div class="column">
-                                                    <div>Shabbat?</div>
-                                                </div>
-                                                <div class="column">
-                                                    <div>Rehearsal?</div>
-                                                </div>
-                                                <div class="column">
-                                                    <div>Submit</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                            </div> -->
+                            <h1 class="title has-text-primary">Here are all the comments!</h1>
+                            <div v-for="item in party" :key="item.id">
+                                <div v-if="item.comments">
+                                    <p class="has-text-info">{{ item.name }}: "{{ item.comments }}"</p>
                                 </div>
-                            </div>
-                            <div v-for="item in guest_list" :key="item.id">
-                                <change-card :guest="item"></change-card>
-                            </div>
+                            </div> 
+                            
                         </div>
                     </div>
                 </div>
@@ -85,20 +39,16 @@
 </template>
 
 <script>
-    import _ from 'lodash';
-    import ChangeCard from '../../../components/ChangeCard';
     import session from '../../../store/api/session';
     export default {
-        components: {
-            ChangeCard
-        },
-        validate({
-            params
-        }) {
-            // Must be the password
-            var pass = /EjCPkUFKe0ZLhr8GR2wMhNGoO3rIANpD3uqmyykWd9aBRvnwmGD456anu8yq/g;
-            return pass.test(params.password)
-        },
+        components: {},
+        // validate({
+        //     params
+        // }) {
+        //     // Must be the password
+        //     var pass = /EjCPkUFKe0ZLhr8GR2wMhNGoO3rIANpD3uqmyykWd9aBRvnwmGD456anu8yq/g;
+        //     return pass.test(params.password)
+        // },
         data() {
             return {
                 guesturl: '',
@@ -111,9 +61,6 @@
                 partytext: '',
                 is_attending_count: 0,
                 kids_attending_count: 0,
-                shabbat_count: 0,
-                rehearsal_count: 0,
-                brunch_count:0,
 
             }
         },
@@ -177,10 +124,6 @@
                 var i;
                 var count = 0;
                 var count_kid = 0;
-                var count_shabbat = 0;
-                var count_rehearsal = 0;
-                var count_brunch = 0;
-
                 for (i = 0; i < this.guests.length; i++) {
                     if (this.guests[i].is_attending === true) {
                         count++;
@@ -188,28 +131,11 @@
                     if (this.guests[i].iskid === true) {
                         count_kid++;
                     }
-                    if (this.guests[i].shabbat === true) {
-                        count_shabbat++;
-                    }
-                    if (this.guests[i].rehearsal_dinner === true) {
-                        count_rehearsal++;
-                    }
-                    if (this.guests[i].brunch === true) {
-                        count_brunch++;
-                    }
                 }
                 this.is_attending_count = count;
                 this.kids_attending_count = count_kid;
-                this.shabbat_count = count_shabbat;
-                this.rehearsal_count = count_rehearsal;
-                this.brunch_count = count_brunch;
             }
         },
-        computed: {
-            guest_list: function () {
-                return _.orderBy(this.guests, 'id')
-            }
-        }
     }
 </script>
 

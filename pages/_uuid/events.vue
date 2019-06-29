@@ -21,47 +21,64 @@
                                         </h2>
                                     </div>
 
-                                    <div class="content">
-                                        <h1 class="is-size-3 has-text-success has-text-left has-text-weight-bold">We
-                                            hope
-                                            to see you at the following wedding weekend events:</h1>
-                                        <div class="card large">
-                                            <div class="card-image">
-                                                <figure class="image">
-                                                    <!-- <img :src="details.image" alt="Image"> -->
-                                                </figure>
-                                            </div>
-                                            <div class="card-content">
-                                                <div class="media">
-                                                    <div class="media-content">
-                                                        <div v-if="showMap === true">
-                                                            <location-map v-bind:center="[-80.44, 43.10]">
-                                                            </location-map>
-                                                        </div>
-                                                        <div v-for="event in events" :key="event.id">
-                                                            <div class="card-content">
-                                                                <div class="media">
-                                                                    <div class="media-content">
-                                                                        <h2 class="has-text-primary">
-                                                                            {{ event.event_name }}</h2>
-                                                                        <p class="has-text-info">{{ event.date }}</p>
-                                                                        <p>{{ event.details }}</p>
-                                                                        <div class="box">
-                                                                            <div v-for="location in locations"
-                                                                                :key="location.id">
-                                                                                <div
-                                                                                    v-if="event.location_id===location.id">
-                                                                                    <p class="has-text-primary">
-                                                                                        {{ location.location_name }}</p>
-                                                                                    <p class="has-text-info">
-                                                                                        {{ location.street_num }}
-                                                                                        {{ location.street_name}}</p>
-                                                                                    <p class="has-text-info">
-                                                                                        {{ location.city }},
-                                                                                        {{ location.province }}</p>
-                                                                                    <p class="has-text-info">
-                                                                                        {{ location.postal_code }}</p>
+                                    <div class="loading" v-if="guests">
+                                        <div class="content">
+                                            <h1 class="is-size-3 has-text-success has-text-left has-text-weight-bold">We
+                                                hope
+                                                to see you at the following wedding weekend events:</h1>
+                                            <div class="card large">
+                                                <div class="card-image">
+                                                    <figure class="image">
+                                                        <!-- <img :src="details.image" alt="Image"> -->
+                                                    </figure>
+                                                </div>
+                                                <div class="card-content">
+                                                    <div class="media">
+                                                        <div class="media-content">
+                                                            <div v-if="showMap === true">
+                                                                <location-map v-bind:center="[-80.44, 43.10]">
+                                                                </location-map>
+                                                            </div>
+                                                            <div v-if="guests[0].shabbat === true">
+                                                                <div class="card-content">
+                                                                    <div class="media">
+                                                                        <div class="media-content">
+                                                                            <h1 class="has-text-primary">SHABBAT EVENT
+                                                                            </h1>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
 
+                                                            <div v-for="event in events" :key="event.id">
+                                                                <div class="card-content">
+                                                                    <div class="media">
+                                                                        <div class="media-content">
+                                                                            <h2 class="has-text-primary">
+                                                                                {{ event.event_name }}</h2>
+                                                                            <p class="has-text-info">{{ event.date }}
+                                                                            </p>
+                                                                            <p>{{ event.details }}</p>
+                                                                            <div class="box">
+                                                                                <div v-for="location in locations"
+                                                                                    :key="location.id">
+                                                                                    <div
+                                                                                        v-if="event.location_id===location.id">
+                                                                                        <p class="has-text-primary">
+                                                                                            {{ location.location_name }}
+                                                                                        </p>
+                                                                                        <p class="has-text-info">
+                                                                                            {{ location.street_num }}
+                                                                                            {{ location.street_name}}
+                                                                                        </p>
+                                                                                        <p class="has-text-info">
+                                                                                            {{ location.city }},
+                                                                                            {{ location.province }}</p>
+                                                                                        <p class="has-text-info">
+                                                                                            {{ location.postal_code }}
+                                                                                        </p>
+
+                                                                                    </div>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -69,8 +86,8 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
 
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -112,6 +129,7 @@
         created() {
             // fetch the data when the view is created and the data is
             // already being observed
+            this.getGuests()
             this.getEvents()
             this.getLocations()
         },
@@ -123,6 +141,28 @@
             }
         },
         methods: {
+            getGuests() {
+                this.error = this.party = null
+                this.loading = true
+                const url = this.$route.params.uuid + '/guests/'
+                console.log(url)
+                return session.get(url, {
+                        crossdomain: true
+                    })
+                    .then((res) => {
+                        if (res.data) {
+                            this.loading = false
+                            this.guests = res.data
+                        } else {
+                            context.error()
+                        }
+                    })
+                    .catch(error => {
+                        console.log(error)
+                        this.loading = false
+                        this.error = "Please go to your wedding invitation email and try again."
+                    })
+            },
             getEvents() {
                 this.error = this.events = null
                 this.loading = true
