@@ -65,6 +65,9 @@ class Guest(models.Model):
         first_name = models.CharField(blank=True, null=True, max_length=50)
         last_name = models.CharField(blank=True, null=True, max_length=50)
         is_attending = models.BooleanField(default=False)
+        shabbat = models.BooleanField(default=False)
+        brunch = models.BooleanField(default=False)
+        rehearsal_dinner = models.BooleanField(default=False)
         role = models.ForeignKey(
                 Role, on_delete=models.CASCADE, null=True)
         has_dietary_restrictions = models.BooleanField(default=False)
