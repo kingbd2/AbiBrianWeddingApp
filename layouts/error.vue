@@ -4,7 +4,7 @@
       <div class="hero-body">
         <div class="container">
           <h1 class="title">
-            This page does not exist.
+            Something went wrong :(
           </h1>
           </br>
           <h2 class="subtitle">

@@ -92,7 +92,7 @@
                 <p class="has-text-info has-text-weight-bold">To RSVP, use the link in the email you received from abiella.and.brian@gmail.com. Please RSVP by July 15th, 2019. </p>
               </div>
               <div class="column">
-                <location-map></location-map>
+                <location-map v-bind:center="[-80.44, 43.10]"></location-map>
               </div>
             </div>
             </br>

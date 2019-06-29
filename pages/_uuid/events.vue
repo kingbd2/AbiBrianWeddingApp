@@ -22,7 +22,58 @@
                                     </div>
 
                                     <div class="content">
-                                        <p class="is-size-3 has-text-success has-text-left has-text-weight-bold">We hope to see you at the following wedding weekend events:</p>
+                                        <h1 class="is-size-3 has-text-success has-text-left has-text-weight-bold">We
+                                            hope
+                                            to see you at the following wedding weekend events:</h1>
+                                        <div class="card large">
+                                            <div class="card-image">
+                                                <figure class="image">
+                                                    <!-- <img :src="details.image" alt="Image"> -->
+                                                </figure>
+                                            </div>
+                                            <div class="card-content">
+                                                <div class="media">
+                                                    <div class="media-content">
+                                                        <div v-if="showMap === true">
+                                                            <location-map v-bind:center="[-80.44, 43.10]">
+                                                            </location-map>
+                                                        </div>
+                                                        <div v-for="event in events" :key="event.id">
+                                                            <div class="card-content">
+                                                                <div class="media">
+                                                                    <div class="media-content">
+                                                                        <h2 class="has-text-primary">
+                                                                            {{ event.event_name }}</h2>
+                                                                        <p class="has-text-info">{{ event.date }}</p>
+                                                                        <p>{{ event.details }}</p>
+                                                                        <div class="box">
+                                                                            <div v-for="location in locations"
+                                                                                :key="location.id">
+                                                                                <div
+                                                                                    v-if="event.location_id===location.id">
+                                                                                    <p class="has-text-primary">
+                                                                                        {{ location.location_name }}</p>
+                                                                                    <p class="has-text-info">
+                                                                                        {{ location.street_num }}
+                                                                                        {{ location.street_name}}</p>
+                                                                                    <p class="has-text-info">
+                                                                                        {{ location.city }},
+                                                                                        {{ location.province }}</p>
+                                                                                    <p class="has-text-info">
+                                                                                        {{ location.postal_code }}</p>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -35,7 +86,89 @@
 </template>
 
 <script>
+    import session from '../../store/api/session';
+    import LocationMap from '../../components/LocationMap'
     export default {
+        components: {
+            LocationMap
+        },
+        data() {
+            return {
+                guesturl: '',
+                partyurl: '',
+                loading: false,
+                party: null,
+                guestcount: 0,
+                guests: null,
+                error: null,
+                partytext: '',
+                is_attending_count: 0,
+                kids_attending_count: 0,
+                events: null,
+                locations: null,
+                showMap: 'false',
+            }
+        },
+        created() {
+            // fetch the data when the view is created and the data is
+            // already being observed
+            this.getEvents()
+            this.getLocations()
+        },
+        mounted: function () {
+            if (!mapboxgl.supported()) {
+                this.showMap = false;
+            } else {
+                this.showMap = true;
+            }
+        },
+        methods: {
+            getEvents() {
+                this.error = this.events = null
+                this.loading = true
+                this.events = 'events/'
+                const eventsurl = 'events/'
+                return session.get(eventsurl, {
+                        crossdomain: true
+                    })
+                    .then((res) => {
+                        if (res.data) {
+                            this.loading = false
+                            this.events = res.data
+                            // this.guestcount = res.data.length
+                        } else {
+                            context.error()
+                        }
+                    })
+                    .catch(error => {
+                        console.log(error)
+                        this.loading = false
+                        this.error = "Please go to your wedding invitation email and try again."
+                    })
+            },
+            getLocations() {
+                this.error = this.locations = null
+                this.loading = true
+                this.locationurl = 'locations/'
+                const locationurl = 'locations/'
+                return session.get(locationurl, {
+                        crossdomain: true
+                    })
+                    .then((res) => {
+                        if (res.data) {
+                            this.loading = false
+                            this.locations = res.data
+                        } else {
+                            context.error()
+                        }
+                    })
+                    .catch(error => {
+                        console.log(error)
+                        this.loading = false
+                        this.error = "Please go to your wedding invitation email and try again."
+                    })
+            },
+        }
 
     }
 </script>

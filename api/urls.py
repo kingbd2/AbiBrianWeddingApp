@@ -19,7 +19,7 @@ urlpatterns = [
     path('guests/', views.guest_list),
     path('parties/', views.party_list),
     path('events/', views.events),
-    path('location/', views.locations),
-    path('location/<int:id>/', views.location_detail),
+    path('locations/', views.locations),
+    path('locations/<int:id>/', views.location_detail),
     path('events/<int:id>/', views.event_detail),
 ]

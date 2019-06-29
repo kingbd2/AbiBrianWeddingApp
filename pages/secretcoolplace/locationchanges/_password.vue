@@ -62,15 +62,15 @@
 </template>
 
 <script>
-    import session from '../../store/api/session';
+    import session from '../../../store/api/session';
     export default {
         components: {},
         validate({
             params
         }) {
-            // Must be the password
-            var pass = /extracoolarmadillo!1/g;
-            return pass.test(params.report)
+            // Must be the passworde
+            var pass = /4CkHYk1JDNg2vjXCdTYohnzbscXR7MV0CMHb4zPiLW7Wr1EuiQWPjRnyRc3Z/g;
+            return pass.test(params.password)
         },
         data() {
             return {
