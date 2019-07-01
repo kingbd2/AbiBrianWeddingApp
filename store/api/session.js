@@ -6,8 +6,8 @@ import axios from 'axios';
 // const host_with_port = host.concat(':8000');
 const dev_host_with_port = '//localhost:8000';
 const prod_host_with_port = '//abiellaandbriangetmarried.ca';
-const base_path = dev_host_with_port.concat('/api/v1/');
-// const base_path = prod_host_with_port.concat('/api/v1/');
+// const base_path = dev_host_with_port.concat('/api/v1/');
+const base_path = prod_host_with_port.concat('/api/v1/');
 
 const CSRF_COOKIE_NAME = 'csrftoken';
 const CSRF_HEADER_NAME = 'X-CSRFToken';
