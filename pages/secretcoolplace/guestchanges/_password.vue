@@ -24,7 +24,9 @@
                             </div>
                             <div class="has-text-info">Invited to brunch: {{ brunch_count }} / {{ guestcount }}
                             </div>
-                            <div class="has-text-info">Invited to rehearsal: {{ rehearsal_count }} / {{ guestcount }}
+                            <div class="has-text-info">Invited to wedding rehearsal: {{ wedding_rehearsal_count }} / {{ guestcount }}
+                            </div>
+                            <div class="has-text-info">Invited to rehearsal dinner: {{ rehearsal_dinner_count }} / {{ guestcount }}
                             </div>
                             <div class="has-text-info">Invited to shabbat: {{ shabbat_count }} / {{ guestcount }}
                             </div>
@@ -62,7 +64,10 @@
                                                     <div>Shabbat?</div>
                                                 </div>
                                                 <div class="column">
-                                                    <div>Rehearsal?</div>
+                                                    <div>Wedding Rehearsal?</div>
+                                                </div>
+                                                <div class="column">
+                                                    <div>Rehearsal Dinner?</div>
                                                 </div>
                                                 <div class="column">
                                                     <div>Submit</div>
@@ -73,7 +78,7 @@
                                 </div>
                             </div>
                             <div v-for="item in guest_list" :key="item.id">
-                                <change-card :guest="item"></change-card>
+                                <guest-change-card :guest="item"></guest-change-card>
                             </div>
                         </div>
                     </div>
@@ -86,11 +91,11 @@
 
 <script>
     import _ from 'lodash';
-    import ChangeCard from '../../../components/ChangeCard';
+    import GuestChangeCard from '../../../components/GuestChangeCard';
     import session from '../../../store/api/session';
     export default {
         components: {
-            ChangeCard
+            GuestChangeCard
         },
         validate({
             params
@@ -112,7 +117,8 @@
                 is_attending_count: 0,
                 kids_attending_count: 0,
                 shabbat_count: 0,
-                rehearsal_count: 0,
+                wedding_rehearsal_count: 0,
+                rehearsal_dinner_count:0,
                 brunch_count:0,
 
             }
@@ -121,7 +127,7 @@
             // fetch the data when the view is created and the data is
             // already being observed
             this.getGuests()
-            this.getParties()
+            // this.getParties()
         },
         watch: {
             // call again the method if the route changes
@@ -151,34 +157,35 @@
                         this.error = "Please go to your wedding invitation email and try again."
                     })
             },
-            getParties() {
-                this.error = this.party = null
-                this.loading = true
-                this.partylisturl = 'parties/'
-                const partylisturl = 'parties/'
-                return session.get(partylisturl, {
-                        crossdomain: true
-                    })
-                    .then((res) => {
-                        if (res.data) {
-                            this.loading = false
-                            this.party = res.data
-                        } else {
-                            context.error()
-                        }
-                    })
-                    .catch(error => {
-                        console.log(error)
-                        this.loading = false
-                        this.error = "Please go to your wedding invitation email and try again."
-                    })
-            },
+            // getParties() {
+            //     this.error = this.party = null
+            //     this.loading = true
+            //     this.partylisturl = 'parties/'
+            //     const partylisturl = 'parties/'
+            //     return session.get(partylisturl, {
+            //             crossdomain: true
+            //         })
+            //         .then((res) => {
+            //             if (res.data) {
+            //                 this.loading = false
+            //                 this.party = res.data
+            //             } else {
+            //                 context.error()
+            //             }
+            //         })
+            //         .catch(error => {
+            //             console.log(error)
+            //             this.loading = false
+            //             this.error = "Please go to your wedding invitation email and try again."
+            //         })
+            // },
             createReport() {
                 var i;
                 var count = 0;
                 var count_kid = 0;
                 var count_shabbat = 0;
-                var count_rehearsal = 0;
+                var count_wedding_rehearsal = 0;
+                var count_rehearsal_dinner = 0;
                 var count_brunch = 0;
 
                 for (i = 0; i < this.guests.length; i++) {
@@ -191,8 +198,11 @@
                     if (this.guests[i].shabbat === true) {
                         count_shabbat++;
                     }
+                    if (this.guests[i].wedding_rehearsal === true) {
+                        count_wedding_rehearsal++;
+                    }
                     if (this.guests[i].rehearsal_dinner === true) {
-                        count_rehearsal++;
+                        count_rehearsal_dinner++;
                     }
                     if (this.guests[i].brunch === true) {
                         count_brunch++;
@@ -201,7 +211,8 @@
                 this.is_attending_count = count;
                 this.kids_attending_count = count_kid;
                 this.shabbat_count = count_shabbat;
-                this.rehearsal_count = count_rehearsal;
+                this.rehearsal_dinner_count = count_rehearsal_dinner;
+                this.wedding_rehearsal_count = count_wedding_rehearsal;
                 this.brunch_count = count_brunch;
             }
         },

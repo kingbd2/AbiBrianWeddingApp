@@ -18,39 +18,41 @@
 
                         <h1 class="title has-text-primary">Edit events</h1>
                         <div v-if="events" class="content">
-                            <!-- <div class="button" @click="createReport()">Generate Report</div> -->
-                            <!-- <div class="has-text-info">Guests attending: {{ is_attending_count }} / {{ guestcount }}
+                            <div class="card large">
+                                <div class="card-content">
+                                    <div class="media">
+                                        <div class="media-content">
+                                            <div class="columns has-text-primary">
+                                                <div class="column is-1">
+                                                    <div>ID</div>
+                                                </div>
+                                                <div class="column">
+                                                    <div>Date</div>
+                                                </div>
+                                                <div class="column">
+                                                    <div>Title</div>
+                                                </div>
+                                                <div class="column is-2">
+                                                    <div>Details
+                                                    </div>
+                                                </div>
+                                                <div class="column">
+                                                    <div>Location ID</div>
+                                                </div>
+                                                <div class="column">
+                                                    <div>Submit</div>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="has-text-info">Number of kids: {{ kids_attending_count }} / {{ guestcount }}
-                            </div> -->
-                            <!-- <div v-for="item in events" :key="item.id">
-                                <p class="has-text-info">{{ item.comments }}</p>
-                            </div>  -->
-                            <table class="table is-striped is-hoverable is-fullwidth">
-                                <thead>
-                                    <tr>
-                                        <th>Date</th>
-                                        <th>Event Name</th>
-                                        <th>Details</th>
-                                        <th>Location ID</th>
-                                        <!-- <th>Start Time</th>
-                                        <th>End Time</th> -->
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr v-for="item in events" :key="item.id">
-                                        <th>{{ item.date }}</th>
-                                        <td><input class="input" type="text" placeholder="Event name"
-                                v-model="item.event_name"></td>
-                                        <td><textarea class="textarea" type="text" placeholder="Details"
-                                v-model="item.details"></textarea></td>
-                                        <td>{{ item.location_id }}</td>
-                                        <!-- <td>{{ item.start_time }}</td>
-                                        <td>{{ item.end_time }}</td> -->
-                                        <td><div class="button is-primary" @click="Submit(item.id)">Submit changes</div></td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                                    <div v-for="item in events" :key="item.id">
+                                        <event-change-card :event="item"></event-change-card>
+                                    </div>
+                                
+                            
                         </div>
                     </div>
                 </div>
@@ -62,8 +64,11 @@
 
 <script>
     import session from '../../../store/api/session';
+    import EventChangeCard from '../../../components/EventChangeCard';
     export default {
-        components: {},
+        components: {
+            EventChangeCard
+        },
         validate({
             params
         }) {

@@ -30,7 +30,7 @@ def guest_list(request, format=None):
     List all users, or create a new user.
     """
     if request.method == 'GET':
-        guests = Guest.objects.all()
+        guests = Guest.objects.all().order_by('id')
         serializer = GuestSerializer(guests, many=True)
         return JsonResponse(serializer.data, safe=False)
 
@@ -49,7 +49,7 @@ def party_list(request, format=None):
     List all parties, or create a new party.
     """
     if request.method == 'GET':
-        parties = Party.objects.all()
+        parties = Party.objects.all().order_by('id')
         serializer = PartySerializer(parties, many=True)
         return JsonResponse(serializer.data, safe=False)
 
@@ -137,7 +137,7 @@ def events(request):
     Get or create events.
     """
     if request.method == 'GET':
-        events = Event.objects.all()
+        events = Event.objects.all().order_by('id')
         serializer = EventSerializer(events, many=True)
         return JsonResponse(serializer.data, safe=False)
 
@@ -185,7 +185,7 @@ def locations(request):
     Get or create locations.
     """
     if request.method == 'GET':
-        locations = Location.objects.all()
+        locations = Location.objects.all().order_by('id')
         serializer = LocationSerializer(locations, many=True)
         return JsonResponse(serializer.data, safe=False)
 

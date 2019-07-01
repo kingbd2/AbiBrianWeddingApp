@@ -36,7 +36,10 @@
                                 <dropdown :value="guest.shabbat" @child-to-parent="changeshabbat"></dropdown>
                             </div>
                             <div class="column">
-                                <dropdown :value="guest.rehearsal_dinner" @child-to-parent="changerehearsal"></dropdown>
+                                <dropdown :value="guest.wedding_rehearsal" @child-to-parent="changeweddingrehearsal"></dropdown>
+                            </div>
+                            <div class="column">
+                                <dropdown :value="guest.rehearsal_dinner" @child-to-parent="changerehearsaldinner"></dropdown>
                             </div>
                             <div class="column">
                                 <div>
@@ -76,8 +79,8 @@
                         iskid: this.details.iskid,
                         shabbat: this.details.shabbat,
                         brunch: this.details.brunch,
-                        rehearsal_dinner: this.details.rehearsal
-
+                        rehearsal_dinner: this.details.rehearsal_dinner,
+                        wedding_rehearsal: this.details.wedding_rehearsal
                     })
                     .then((res) => {
                         if (res.data) {
@@ -104,8 +107,11 @@
             changebrunch(payload) {
                 this.details.brunch = payload
             },
-            changerehearsal(payload) {
-                this.details.rehearsal = payload
+            changerehearsaldinner(payload) {
+                this.details.rehearsal_dinner = payload
+            },
+            changeweddingrehearsal(payload) {
+                this.details.wedding_rehearsal = payload
             }
         }
 

@@ -67,6 +67,7 @@ class Guest(models.Model):
         is_attending = models.BooleanField(default=False)
         shabbat = models.BooleanField(default=False)
         brunch = models.BooleanField(default=False)
+        wedding_rehearsal = models.BooleanField(default=False)
         rehearsal_dinner = models.BooleanField(default=False)
         role = models.ForeignKey(
                 Role, on_delete=models.CASCADE, null=True)
