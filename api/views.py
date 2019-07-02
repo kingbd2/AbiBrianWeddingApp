@@ -49,7 +49,7 @@ def party_list(request, format=None):
     List all parties, or create a new party.
     """
     if request.method == 'GET':
-        parties = Party.objects.all().order_by('id')
+        parties = Party.objects.all()
         serializer = PartySerializer(parties, many=True)
         return JsonResponse(serializer.data, safe=False)
 

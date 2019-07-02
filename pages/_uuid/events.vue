@@ -4,8 +4,6 @@
             <div class="hero-body">
                 <div class="container">
                     <div>
-                        <!-- <h1 class="title has-text-info"> {{ error }}</h1> -->
-
                         <div class="tile is-ancestor">
                             <div class="tile is-vertical is-8">
                                 <div class="party">
@@ -35,17 +33,18 @@
                                                 <div class="card-content">
                                                     <div class="media">
                                                         <div class="media-content">
-                                                            <div v-if="showMap === true">
+                                                            <!-- <div v-if="showMap === true">
                                                                 <location-map v-bind:center="[-80.44, 43.10]">
                                                                 </location-map>
-                                                            </div>
+                                                            </div> -->
                                                             <div v-if="guests[0].shabbat === true">
                                                                 <div class="card-content">
                                                                     <div class="media">
                                                                         <div class="media-content">
                                                                             <h2 class="has-text-primary">
                                                                                 {{ events[0].event_name }}</h2>
-                                                                            <p class="has-text-info">{{ events[0].date }}
+                                                                            <p class="has-text-info">
+                                                                                {{ events[0].date }}
                                                                             </p>
                                                                             <p>{{ events[0].details }}</p>
                                                                             <div class="box">
@@ -75,20 +74,21 @@
                                                                 </div>
                                                             </div>
 
-                                                            <div v-if="guests[0].rehearsal === true">
+                                                            <div v-if="guests[0].wedding_rehearsal === true">
                                                                 <div class="card-content">
                                                                     <div class="media">
                                                                         <div class="media-content">
                                                                             <h2 class="has-text-primary">
-                                                                                {{ events[0].event_name }}</h2>
-                                                                            <p class="has-text-info">{{ events[0].date }}
+                                                                                {{ events[1].event_name }}</h2>
+                                                                            <p class="has-text-info">
+                                                                                {{ events[1].date }}
                                                                             </p>
-                                                                            <p>{{ events[0].details }}</p>
+                                                                            <p>{{ events[1].details }}</p>
                                                                             <div class="box">
                                                                                 <div v-for="location in locations"
                                                                                     :key="location.id">
                                                                                     <div
-                                                                                        v-if="events[0].location_id===location.id">
+                                                                                        v-if="events[1].location_id===location.id">
                                                                                         <p class="has-text-primary">
                                                                                             {{ location.location_name }}
                                                                                         </p>
@@ -111,22 +111,92 @@
                                                                 </div>
                                                             </div>
 
-
-
-                                                            <div v-for="event in events" :key="event.id">
+                                                            <div v-if="guests[0].rehearsal_dinner === true">
                                                                 <div class="card-content">
                                                                     <div class="media">
                                                                         <div class="media-content">
                                                                             <h2 class="has-text-primary">
-                                                                                {{ event.event_name }}</h2>
-                                                                            <p class="has-text-info">{{ event.date }}
+                                                                                {{ events[2].event_name }}</h2>
+                                                                            <p class="has-text-info">
+                                                                                {{ events[2].date }}
                                                                             </p>
-                                                                            <p>{{ event.details }}</p>
+                                                                            <p>{{ events[2].details }}</p>
                                                                             <div class="box">
                                                                                 <div v-for="location in locations"
                                                                                     :key="location.id">
                                                                                     <div
-                                                                                        v-if="event.location_id===location.id">
+                                                                                        v-if="events[2].location_id===location.id">
+                                                                                        <p class="has-text-primary">
+                                                                                            {{ location.location_name }}
+                                                                                        </p>
+                                                                                        <p class="has-text-info">
+                                                                                            {{ location.street_num }}
+                                                                                            {{ location.street_name}}
+                                                                                        </p>
+                                                                                        <p class="has-text-info">
+                                                                                            {{ location.city }},
+                                                                                            {{ location.province }}</p>
+                                                                                        <p class="has-text-info">
+                                                                                            {{ location.postal_code }}
+                                                                                        </p>
+
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="card-content">
+                                                                <div class="media">
+                                                                    <div class="media-content">
+                                                                        <h2 class="has-text-primary">
+                                                                            {{ events[3].event_name }}</h2>
+                                                                        <p class="has-text-info">{{ events[3].date }}
+                                                                        </p>
+                                                                        <p>{{ events[3].details }}</p>
+                                                                        <div class="box">
+                                                                            <div v-for="location in locations"
+                                                                                :key="location.id">
+                                                                                <div
+                                                                                    v-if="events[3].location_id===location.id">
+                                                                                    <p class="has-text-primary">
+                                                                                        {{ location.location_name }}
+                                                                                    </p>
+                                                                                    <p class="has-text-info">
+                                                                                        {{ location.street_num }}
+                                                                                        {{ location.street_name}}
+                                                                                    </p>
+                                                                                    <p class="has-text-info">
+                                                                                        {{ location.city }},
+                                                                                        {{ location.province }}</p>
+                                                                                    <p class="has-text-info">
+                                                                                        {{ location.postal_code }}
+                                                                                    </p>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div v-if="guests[0].brunch === true">
+                                                                <div class="card-content">
+                                                                    <div class="media">
+                                                                        <div class="media-content">
+                                                                            <h2 class="has-text-primary">
+                                                                                {{ events[4].event_name }}</h2>
+                                                                            <p class="has-text-info">
+                                                                                {{ events[4].date }}
+                                                                            </p>
+                                                                            <p>{{ events[4].details }}</p>
+                                                                            <div class="box">
+                                                                                <div v-for="location in locations"
+                                                                                    :key="location.id">
+                                                                                    <div
+                                                                                        v-if="events[4].location_id===location.id">
                                                                                         <p class="has-text-primary">
                                                                                             {{ location.location_name }}
                                                                                         </p>
@@ -149,7 +219,6 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-
                                                     </div>
                                                 </div>
                                             </div>
@@ -167,10 +236,10 @@
 
 <script>
     import session from '../../store/api/session';
-    import LocationMap from '../../components/LocationMap'
+    // import LocationMap from '../../components/LocationMap'
     export default {
         components: {
-            LocationMap
+            // LocationMap
         },
         data() {
             return {
@@ -196,13 +265,13 @@
             this.getEvents()
             this.getLocations()
         },
-        mounted: function () {
-            if (!mapboxgl.supported()) {
-                this.showMap = false;
-            } else {
-                this.showMap = true;
-            }
-        },
+        // mounted: function () {
+        //     if (!mapboxgl.supported()) {
+        //         this.showMap = false;
+        //     } else {
+        //         this.showMap = true;
+        //     }
+        // },
         methods: {
             getGuests() {
                 this.error = this.party = null

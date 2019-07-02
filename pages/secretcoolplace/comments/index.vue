@@ -16,7 +16,7 @@
                             </h2>
                         </div>
 
-                        <div v-if="guests" class="content">
+                        <div v-if="party" class="content">
                             <!-- <div class="button" @click="createReport()">Generate Report</div>
                             <div class="has-text-info">Guests attending: {{ is_attending_count }} / {{ guestcount }}
                             </div>
@@ -67,7 +67,7 @@
         created() {
             // fetch the data when the view is created and the data is
             // already being observed
-            this.getGuests()
+            // this.getGuests()
             this.getParties()
         },
         watch: {
@@ -75,29 +75,7 @@
             '$route': 'fetchData'
         },
         methods: {
-            getGuests() {
-                this.error = this.guests = null
-                this.loading = true
-                this.guestlisturl = 'guests/'
-                const guestlisturl = 'guests/'
-                return session.get(guestlisturl, {
-                        crossdomain: true
-                    })
-                    .then((res) => {
-                        if (res.data) {
-                            this.loading = false
-                            this.guests = res.data
-                            this.guestcount = res.data.length
-                        } else {
-                            context.error()
-                        }
-                    })
-                    .catch(error => {
-                        console.log(error)
-                        this.loading = false
-                        this.error = "Please go to your wedding invitation email and try again."
-                    })
-            },
+
             getParties() {
                 this.error = this.party = null
                 this.loading = true
@@ -120,21 +98,7 @@
                         this.error = "Please go to your wedding invitation email and try again."
                     })
             },
-            createReport() {
-                var i;
-                var count = 0;
-                var count_kid = 0;
-                for (i = 0; i < this.guests.length; i++) {
-                    if (this.guests[i].is_attending === true) {
-                        count++;
-                    }
-                    if (this.guests[i].iskid === true) {
-                        count_kid++;
-                    }
-                }
-                this.is_attending_count = count;
-                this.kids_attending_count = count_kid;
-            }
+            
         },
     }
 </script>

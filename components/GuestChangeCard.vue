@@ -5,7 +5,7 @@
                 <div class="media">
                     <div class="media-content">
                         <div class="columns">
-                            <div class="column is-1">
+                            <div class="column">
                                 <div>{{ guest.id }}</div>
                             </div>
                             <div class="column">
@@ -14,32 +14,52 @@
                             <div class="column">
                                 <div>{{ guest.party }}</div>
                             </div>
-                            <div class="column is-2">
+                            <div class="column">
                                 <div><input class="input" type="text" placeholder="Group" v-model="guest.group">
                                 </div>
                             </div>
                             <div class="column">
-                                <div>{{ guest.is_attending }}</div>
+                                <div v-if="guest.is_attending===true">
+                                    <div class="has-text-weight-bold has-text-primary">Yes!</div>
+                                </div>
+                                <div v-else>
+                                    <div class="">No</div>
+                                </div>
                             </div>
                             <div class="column">
-                                <div>{{ guest.has_dietary_restrictions }} {{ guest.dietary_restrictions }}</div>
+                                <div v-if="guest.has_dietary_restrictions===true">
+                                    <div class="has-text-weight-bold has-text-danger">Yes: {{ guest.dietary_restrictions }}</div>
+                                </div>
+                                <div v-else>
+                                    <div class="">No</div>
+                                </div>
+                                
                             </div>
                             <div class="column">
-                                <dropdown :value="guest.iskid" @child-to-parent="changekid"></dropdown>
-                                <!-- <div>{{ guest.iskid }}</div> -->
+                                <!-- <dropdown :value="guest.iskid" @child-to-parent="changekid"></dropdown> -->
+                                <div class="button" v-bind:class="{ 'is-success': details.iskid }"
+                                    @click='toggle_iskid()'>Is kid?</div>
                             </div>
                             <div class="column">
-                                <dropdown :value="guest.brunch" @child-to-parent="changebrunch"></dropdown>
-                                <!-- <div>{{ guest.brunch }}</div> -->
+                                <!-- <dropdown :value="guest.shabbat" @child-to-parent="changeshabbat"></dropdown> -->
+                                <div class="button" v-bind:class="{ 'is-success': details.shabbat }"
+                                    @click='toggle_shabbat()'>Shabbat</div>
+                            </div>
+                            
+                            <div class="column">
+                                <!-- <dropdown :value="guest.wedding_rehearsal" @child-to-parent="changeweddingrehearsal"></dropdown> -->
+                            <div class="button" v-bind:class="{ 'is-success': details.wedding_rehearsal }"
+                                    @click='toggle_wedding_rehearsal()'>Wedding Rehearsal</div>
                             </div>
                             <div class="column">
-                                <dropdown :value="guest.shabbat" @child-to-parent="changeshabbat"></dropdown>
+                                <!-- <dropdown :value="guest.rehearsal_dinner" @child-to-parent="changerehearsaldinner"></dropdown> -->
+                            <div class="button" v-bind:class="{ 'is-success': details.rehearsal_dinner }"
+                                    @click='toggle_rehearsal_dinner()'>Rehearsal Dinner</div>
                             </div>
                             <div class="column">
-                                <dropdown :value="guest.wedding_rehearsal" @child-to-parent="changeweddingrehearsal"></dropdown>
-                            </div>
-                            <div class="column">
-                                <dropdown :value="guest.rehearsal_dinner" @child-to-parent="changerehearsaldinner"></dropdown>
+                                <!-- <dropdown :value="guest.shabbat" @child-to-parent="changeshabbat"></dropdown> -->
+                                <div class="button" v-bind:class="{ 'is-success': details.brunch }"
+                                    @click='toggle_brunch()'>Brunch</div>
                             </div>
                             <div class="column">
                                 <div>
@@ -67,6 +87,8 @@
                 details: this.guest,
                 error: null,
                 loading: false,
+                has_submitted: false,
+                has_changed: false,
             }
         },
         methods: {
@@ -98,6 +120,32 @@
                         this.error = "Please go to your wedding invitation email and try again."
                     })
             },
+            toggle_iskid: function () {
+                this.details.iskid = !this.details.iskid
+                this.has_submitted = false
+                this.has_changed = true
+            },
+            toggle_shabbat: function () {
+                this.details.shabbat = !this.details.shabbat
+                this.has_submitted = false
+                this.has_changed = true
+            },
+            toggle_brunch: function () {
+                this.details.brunch = !this.details.brunch
+                this.has_submitted = false
+                this.has_changed = true
+            },
+            toggle_wedding_rehearsal: function () {
+                this.details.wedding_rehearsal = !this.details.wedding_rehearsal
+                this.has_submitted = false
+                this.has_changed = true
+            },
+            toggle_rehearsal_dinner: function () {
+                this.details.rehearsal_dinner = !this.details.rehearsal_dinner
+                this.has_submitted = false
+                this.has_changed = true
+            },
+            
             changekid(payload) {
                 this.details.iskid = payload
             },

@@ -17,25 +17,53 @@
                         </div>
 
                         <div v-if="guests" class="content">
-                            <div class="button" @click="createReport()">Generate Report</div>
-                            <div class="has-text-info">Guests attending: {{ is_attending_count }} / {{ guestcount }}
+                            <div class="button is-info is-large" @click="createReport()">Generate Report</div>
+                            <div class="box">
+                            <div class="columns">
+                                <div class="column">
+                                    <div class="has-text-info has-text-weight-bold">Guests attending: 
+                                    </div>
+                                    <div class="has-text-info">{{ is_attending_count }} /
+                                        {{ guestcount }}
+                                    </div>
+                                </div>
+                                <div class="column">
+                                    <div class="has-text-info has-text-weight-bold">Number of kids: 
+                                    </div>
+                                    <div class="has-text-info">{{ kids_attending_count }} /
+                                        {{ guestcount }}</div>
+                                </div>
+                                <div class="column">
+                                    <div class="has-text-info has-text-weight-bold">Invited to brunch: 
+                                    </div>
+                                    <div class="has-text-info">{{ brunch_count }} / {{ guestcount }}</div>
+
+                                </div>
+                                <div class="column">
+                                    <div class="has-text-info has-text-weight-bold">Invited to wedding rehearsal:
+                                    </div>
+                                    <div class="has-text-info">{{ wedding_rehearsal_count }} / {{ guestcount }}</div>
+                                </div>
+                                <div class="column">
+                                    <div class="has-text-info has-text-weight-bold">Invited to rehearsal dinner: 
+                                    </div>
+                                    <div class="has-text-info">{{ rehearsal_dinner_count }}
+                                        / {{ guestcount }}</div>
+                                </div>
+                                <div class="column">
+                                    <div class="has-text-info has-text-weight-bold">Invited to shabbat: 
+                                    </div>
+                                    <div class="has-text-info">{{ shabbat_count }} /
+                                        {{ guestcount }}</div>
+                                </div>
                             </div>
-                            <div class="has-text-info">Number of kids: {{ kids_attending_count }} / {{ guestcount }}
-                            </div>
-                            <div class="has-text-info">Invited to brunch: {{ brunch_count }} / {{ guestcount }}
-                            </div>
-                            <div class="has-text-info">Invited to wedding rehearsal: {{ wedding_rehearsal_count }} / {{ guestcount }}
-                            </div>
-                            <div class="has-text-info">Invited to rehearsal dinner: {{ rehearsal_dinner_count }} / {{ guestcount }}
-                            </div>
-                            <div class="has-text-info">Invited to shabbat: {{ shabbat_count }} / {{ guestcount }}
                             </div>
                             <div class="card large">
                                 <div class="card-content">
                                     <div class="media">
                                         <div class="media-content">
                                             <div class="columns has-text-primary">
-                                                <div class="column is-1">
+                                                <div class="column">
                                                     <div>Number</div>
                                                 </div>
                                                 <div class="column">
@@ -44,7 +72,7 @@
                                                 <div class="column">
                                                     <div>Party</div>
                                                 </div>
-                                                <div class="column is-2">
+                                                <div class="column">
                                                     <div>Group
                                                     </div>
                                                 </div>
@@ -58,9 +86,6 @@
                                                     <div>Kid?</div>
                                                 </div>
                                                 <div class="column">
-                                                    <div>Brunch?</div>
-                                                </div>
-                                                <div class="column">
                                                     <div>Shabbat?</div>
                                                 </div>
                                                 <div class="column">
@@ -68,6 +93,9 @@
                                                 </div>
                                                 <div class="column">
                                                     <div>Rehearsal Dinner?</div>
+                                                </div>
+                                                <div class="column">
+                                                    <div>Brunch?</div>
                                                 </div>
                                                 <div class="column">
                                                     <div>Submit</div>
@@ -118,8 +146,8 @@
                 kids_attending_count: 0,
                 shabbat_count: 0,
                 wedding_rehearsal_count: 0,
-                rehearsal_dinner_count:0,
-                brunch_count:0,
+                rehearsal_dinner_count: 0,
+                brunch_count: 0,
 
             }
         },
