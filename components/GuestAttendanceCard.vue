@@ -12,13 +12,6 @@
                                 <div>{{ guest.first_name }} {{ guest.last_name }}</div>
                             </div>
                             <div class="column">
-                                <div>{{ guest.party }}</div>
-                            </div>
-                            <div class="column">
-                                <div><input class="input" type="text" placeholder="Group" v-model="guest.group">
-                                </div>
-                            </div>
-                            <div class="column">
                                 <div v-if="guest.is_attending===true">
                                     <div class="has-text-weight-bold has-text-primary">Yes!</div>
                                 </div>
@@ -27,51 +20,44 @@
                                 </div>
                             </div>
                             <div class="column">
-                                <div v-if="guest.has_dietary_restrictions===true">
-                                    <div class="has-text-weight-bold has-text-danger">Yes:
-                                        {{ guest.dietary_restrictions }}</div>
+                                <div v-if="guest.is_attending_shabbat===true">
+                                    <div class="has-text-weight-bold has-text-primary">Yes!</div>
                                 </div>
                                 <div v-else>
                                     <div class="">No</div>
                                 </div>
+                            </div>
+                            <div class="column">
+                                <div v-if="guest.is_attending_wedding_rehearsal===true">
+                                    <div class="has-text-weight-bold has-text-primary">Yes!</div>
+                                </div>
+                                <div v-else>
+                                    <div class="">No</div>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div v-if="guest.is_attending_rehearsal_dinner===true">
+                                    <div class="has-text-weight-bold has-text-primary">Yes!</div>
+                                </div>
+                                <div v-else>
+                                    <div class="">No</div>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div v-if="guest.is_attending_brunch===true">
+                                    <div class="has-text-weight-bold has-text-primary">Yes!</div>
+                                </div>
+                                <div v-else>
+                                    <div class="">No</div>
+                                </div>
+                            </div>
 
-                            </div>
-                            <div class="column">
-                                <!-- <dropdown :value="guest.iskid" @child-to-parent="changekid"></dropdown> -->
-                                <div class="button" v-bind:class="{ 'is-success': details.iskid }"
-                                    @click='toggle_iskid()'>Is kid?</div>
-                            </div>
-                            <div class="column">
-                                <!-- <dropdown :value="guest.shabbat" @child-to-parent="changeshabbat"></dropdown> -->
-                                <div class="button" v-bind:class="{ 'is-success': details.shabbat }"
-                                    @click='toggle_shabbat()'>Shabbat</div>
-                            </div>
-
-                            <div class="column">
-                                <!-- <dropdown :value="guest.wedding_rehearsal" @child-to-parent="changeweddingrehearsal"></dropdown> -->
-                                <div class="button" v-bind:class="{ 'is-success': details.wedding_rehearsal }"
-                                    @click='toggle_wedding_rehearsal()'>Wedding Rehearsal</div>
-                            </div>
-                            <div class="column">
-                                <!-- <dropdown :value="guest.rehearsal_dinner" @child-to-parent="changerehearsaldinner"></dropdown> -->
-                                <div class="button" v-bind:class="{ 'is-success': details.rehearsal_dinner }"
-                                    @click='toggle_rehearsal_dinner()'>Rehearsal Dinner</div>
-                            </div>
-                            <div class="column">
-                                <!-- <dropdown :value="guest.shabbat" @child-to-parent="changeshabbat"></dropdown> -->
-                                <div class="button" v-bind:class="{ 'is-success': details.brunch }"
-                                    @click='toggle_brunch()'>Brunch</div>
-                            </div>
-                            <div class="column">
-
-                                <div class="button is-primary" @click="Submit(guest.id)">Submit</div>
-
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </template>
 

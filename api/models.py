@@ -65,6 +65,10 @@ class Guest(models.Model):
         first_name = models.CharField(blank=True, null=True, max_length=50)
         last_name = models.CharField(blank=True, null=True, max_length=50)
         is_attending = models.BooleanField(default=False)
+        is_attending_brunch = models.BooleanField(default=False)
+        is_attending_shabbat = models.BooleanField(default=False)
+        is_attending_wedding_rehearsal = models.BooleanField(default=False)
+        is_attending_rehearsal_dinner = models.BooleanField(default=False)
         shabbat = models.BooleanField(default=False)
         brunch = models.BooleanField(default=False)
         wedding_rehearsal = models.BooleanField(default=False)
@@ -99,6 +103,7 @@ class Event(models.Model):
         role = models.ForeignKey(
             Role, on_delete=models.CASCADE, null=True, blank=True)
         event_name = models.CharField(blank=True, max_length=100)
+        fancy_date = models.CharField(blank=True, max_length=100)
         date = models.DateField()
         start_time = models.DateTimeField()
         end_time = models.DateTimeField()

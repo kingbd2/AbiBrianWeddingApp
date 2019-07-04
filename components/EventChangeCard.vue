@@ -10,8 +10,13 @@
                             </div>
                             <div class="column">
                                 
-                                <div><input class="input" type="text" placeholder="Event name"
+                                <div><input class="input" type="text" placeholder="Date"
                                         v-model="details.date"></div>
+                            </div>
+                            <div class="column">
+                                
+                                <div><input class="input" type="text" placeholder="Fancy Date"
+                                        v-model="details.fancy_date"></div>
                             </div>
                             <div class="column is-2">
                                 <div><input class="input" type="text" placeholder="Event name"
@@ -63,6 +68,7 @@
                 console.log(id)
                 const EVENT_URL = '/events/' + id + '/'
                 return session.put(EVENT_URL, {
+                        fancy_date: this.details.fancy_date,
                         date: this.details.date,
                         end_time: this.details.end_time,
                         start_time: this.details.start_time,

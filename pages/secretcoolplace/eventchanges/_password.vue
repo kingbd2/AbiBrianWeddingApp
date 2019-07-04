@@ -30,6 +30,9 @@
                                                     <div>Date</div>
                                                 </div>
                                                 <div class="column">
+                                                    <div>Fancy Date</div>
+                                                </div>
+                                                <div class="column">
                                                     <div>Title</div>
                                                 </div>
                                                 <div class="column is-2">

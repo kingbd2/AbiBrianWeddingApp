@@ -17,7 +17,7 @@
                         </div>
 
                         <div v-if="guests" class="content">
-                            <div class="button is-info is-large" @click="createReport()">Generate Report</div>
+                            <div class="button is-info is-large" @click="createReport()">Generate Report of Attendance:</div>
                             <div class="box">
                             <div class="columns">
                                 <div class="column">
@@ -28,34 +28,34 @@
                                     </div>
                                 </div>
                                 <div class="column">
-                                    <div class="has-text-info has-text-weight-bold">Number of kids: 
+                                    <div class="has-text-info has-text-weight-bold">Attending Shabbat: 
                                     </div>
-                                    <div class="has-text-info">{{ kids_attending_count }} /
+                                    <div class="has-text-info">{{ attending_shabbat_count }} /
                                         {{ guestcount }}</div>
                                 </div>
                                 <div class="column">
-                                    <div class="has-text-info has-text-weight-bold">Invited to brunch: 
+                                    <div class="has-text-info has-text-weight-bold">Attending brunch: 
                                     </div>
-                                    <div class="has-text-info">{{ brunch_count }} / {{ guestcount }}</div>
+                                    <div class="has-text-info">{{ attending_brunch_count }} / {{ guestcount }}</div>
 
                                 </div>
                                 <div class="column">
-                                    <div class="has-text-info has-text-weight-bold">Invited to wedding rehearsal:
+                                    <div class="has-text-info has-text-weight-bold">Attending wedding rehearsal:
                                     </div>
-                                    <div class="has-text-info">{{ wedding_rehearsal_count }} / {{ guestcount }}</div>
+                                    <div class="has-text-info">{{ attending_wedding_rehearsal_count }} / {{ guestcount }}</div>
                                 </div>
                                 <div class="column">
-                                    <div class="has-text-info has-text-weight-bold">Invited to rehearsal dinner: 
+                                    <div class="has-text-info has-text-weight-bold">Attending rehearsal dinner: 
                                     </div>
-                                    <div class="has-text-info">{{ rehearsal_dinner_count }}
+                                    <div class="has-text-info">{{ attending_rehearsal_dinner_count }}
                                         / {{ guestcount }}</div>
                                 </div>
-                                <div class="column">
+                                <!-- <div class="column">
                                     <div class="has-text-info has-text-weight-bold">Invited to shabbat: 
                                     </div>
-                                    <div class="has-text-info">{{ shabbat_count }} /
+                                    <div class="has-text-info">{{ attending_shabbat_count }} /
                                         {{ guestcount }}</div>
-                                </div>
+                                </div> -->
                             </div>
                             </div>
                             <div class="card large">
@@ -70,43 +70,32 @@
                                                     <div>Name</div>
                                                 </div>
                                                 <div class="column">
-                                                    <div>Party</div>
+                                                    <div>Attending Wedding?</div>
                                                 </div>
-                                                <div class="column">
-                                                    <div>Group
+                                                <!-- <div class="column">
+                                                    <div>Dietary Restrictions?
                                                     </div>
+                                                </div> -->
+                                                <div class="column">
+                                                    <div>Attending Shabbat?</div>
                                                 </div>
                                                 <div class="column">
-                                                    <div>Is Attending?</div>
+                                                    <div>Attending Wedding Rehearsal?</div>
                                                 </div>
                                                 <div class="column">
-                                                    <div>Dietary Restrictions</div>
+                                                    <div>Attending Rehearsal Dinner?</div>
                                                 </div>
                                                 <div class="column">
-                                                    <div>Kid?</div>
+                                                    <div>Attending Brunch?</div>
                                                 </div>
-                                                <div class="column">
-                                                    <div>Shabbat?</div>
-                                                </div>
-                                                <div class="column">
-                                                    <div>Wedding Rehearsal?</div>
-                                                </div>
-                                                <div class="column">
-                                                    <div>Rehearsal Dinner?</div>
-                                                </div>
-                                                <div class="column">
-                                                    <div>Brunch?</div>
-                                                </div>
-                                                <div class="column">
-                                                    <div>Submit</div>
-                                                </div>
+                                               
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div v-for="item in guest_list" :key="item.id">
-                                <guest-change-card :guest="item"></guest-change-card>
+                                <guest-attendance-card :guest="item"></guest-attendance-card>
                             </div>
                         </div>
                     </div>
@@ -120,10 +109,12 @@
 <script>
     import _ from 'lodash';
     import GuestChangeCard from '../../../components/GuestChangeCard';
+    import GuestAttendanceCard from '../../../components/GuestAttendanceCard';
     import session from '../../../store/api/session';
     export default {
         components: {
-            GuestChangeCard
+            GuestChangeCard,
+            GuestAttendanceCard,
         },
         validate({
             params
@@ -144,10 +135,10 @@
                 partytext: '',
                 is_attending_count: 0,
                 kids_attending_count: 0,
-                shabbat_count: 0,
-                wedding_rehearsal_count: 0,
-                rehearsal_dinner_count: 0,
-                brunch_count: 0,
+                attending_shabbat_count: 0,
+                attending_wedding_rehearsal_count: 0,
+                attending_rehearsal_dinner_count: 0,
+                attending_brunch_count: 0,
 
             }
         },
@@ -210,7 +201,7 @@
             createReport() {
                 var i;
                 var count = 0;
-                var count_kid = 0;
+                // var count_kid = 0;
                 var count_shabbat = 0;
                 var count_wedding_rehearsal = 0;
                 var count_rehearsal_dinner = 0;
@@ -220,28 +211,28 @@
                     if (this.guests[i].is_attending === true) {
                         count++;
                     }
-                    if (this.guests[i].iskid === true) {
-                        count_kid++;
-                    }
-                    if (this.guests[i].shabbat === true) {
+                    // if (this.guests[i].iskid === true) {
+                    //     count_kid++;
+                    // }
+                    if (this.guests[i].is_attending_shabbat === true) {
                         count_shabbat++;
                     }
-                    if (this.guests[i].wedding_rehearsal === true) {
+                    if (this.guests[i].is_attending_wedding_rehearsal === true) {
                         count_wedding_rehearsal++;
                     }
-                    if (this.guests[i].rehearsal_dinner === true) {
+                    if (this.guests[i].is_attending_rehearsal_dinner === true) {
                         count_rehearsal_dinner++;
                     }
-                    if (this.guests[i].brunch === true) {
+                    if (this.guests[i].is_attending_brunch === true) {
                         count_brunch++;
                     }
                 }
                 this.is_attending_count = count;
-                this.kids_attending_count = count_kid;
-                this.shabbat_count = count_shabbat;
-                this.rehearsal_dinner_count = count_rehearsal_dinner;
-                this.wedding_rehearsal_count = count_wedding_rehearsal;
-                this.brunch_count = count_brunch;
+                // this.kids_attending_count = count_kid;
+                this.attending_shabbat_count = count_shabbat;
+                this.attending_rehearsal_dinner_count = count_rehearsal_dinner;
+                this.attending_wedding_rehearsal_count = count_wedding_rehearsal;
+                this.attending_brunch_count = count_brunch;
             }
         },
         computed: {
