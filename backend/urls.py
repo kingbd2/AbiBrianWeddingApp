@@ -9,4 +9,4 @@ urlpatterns = [
     path('api/v1/', include('api.urls')),
 ]
 
-urlpatterns += [path('silk/', include('silk.urls', namespace='silk'))]
+urlpatterns += [path('api/v1/silk/', include('silk.urls', namespace='silk'))]
