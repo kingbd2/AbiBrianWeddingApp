@@ -22,229 +22,190 @@
                                     <div class="loading" v-if="guests">
                                         <div class="content">
 
-                                            <h1 class="is-size-3 has-text-success has-text-left has-text-weight-bold">We
-                                                hope
-                                                to see you at the following wedding weekend events:</h1>
+
                                             <div class="card large">
                                                 <div class="card-content">
-                                                    <div class="media">
-                                                        <div class="media-content">
-                                                            <!-- <div v-if="showMap === true">
-                                                                <location-map v-bind:center="[-80.44, 43.10]">
-                                                                </location-map>
-                                                            </div> -->
-                                                            <div v-if="guests[0].shabbat === true">
-                                                                <div class="card-content">
-                                                                    <div class="media">
-                                                                        <div class="media-content">
-                                                                            <h2 class="has-text-primary">
-                                                                                {{ events[0].event_name }}</h2>
-                                                                            <p
-                                                                                class="has-text-info has-text-weight-bold">
-                                                                                {{ events[0].fancy_date }}
-                                                                            </p>
-                                                                            <p>{{ events[0].details }}</p>
-                                                                            <div class="columns">
-                                                                                <div class="column">
-                                                                                    <div class="box">
+                                                    <p class="has-text-5">To RSVP to the wedding, click the button
+                                                        below:</p>
+                                                    <div>
+                                                        <nuxt-link
+                                                            :to="{name: 'uuid-guests', params: { uuid:guesturl } }">
+                                                            <div class="button is-primary rsvp">
+                                                                RSVP for the wedding</div>
+                                                        </nuxt-link>
+                                                    </div>
+                                                    <p
+                                                        class="is-size-3 has-text-success has-text-left has-text-weight-bold">
+                                                        We
+                                                        hope
+                                                        to see you at the following wedding weekend events:</p>
+                                                    <div v-if="guests[0].shabbat === true">
+                                                        <div class="box has-background-light">
+                                                            <h2 class="has-text-primary">
+                                                                {{ events[0].event_name }}</h2>
+                                                            <p class="has-text-info has-text-weight-bold">
+                                                                {{ events[0].fancy_date }}
+                                                            </p>
+                                                            <p>{{ events[0].details }}</p>
+                                                            <div class="columns">
+                                                                <div class="column">
+                                                                    <div class="box">
 
-                                                                                        <div v-for="location in locations"
-                                                                                            :key="location.id">
-                                                                                            <div
-                                                                                                v-if="events[0].location_id===location.id">
-                                                                                                <p
-                                                                                                    class="has-text-primary">
-                                                                                                    {{ location.location_name }}
-                                                                                                </p>
-                                                                                                <p
-                                                                                                    class="has-text-info">
-                                                                                                    {{ location.street_num }}
-                                                                                                    {{ location.street_name}}
-                                                                                                </p>
-                                                                                                <p
-                                                                                                    class="has-text-info">
-                                                                                                    {{ location.city }},
-                                                                                                    {{ location.province }}
-                                                                                                </p>
-                                                                                                <p
-                                                                                                    class="has-text-info">
-                                                                                                    {{ location.postal_code }}
-                                                                                                </p>
+                                                                        <div v-for="location in locations"
+                                                                            :key="location.id">
+                                                                            <div
+                                                                                v-if="events[0].location_id===location.id">
+                                                                                <p class="has-text-primary">
+                                                                                    {{ location.location_name }}
+                                                                                </p>
+                                                                                <p class="has-text-info">
+                                                                                    {{ location.street_num }}
+                                                                                    {{ location.street_name}}
+                                                                                </p>
+                                                                                <p class="has-text-info">
+                                                                                    {{ location.city }},
+                                                                                    {{ location.province }}
+                                                                                </p>
+                                                                                <p class="has-text-info">
+                                                                                    {{ location.postal_code }}
+                                                                                </p>
 
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="column">
-                                                                                    <eventrsvp :guest="guests"
-                                                                                        :eventType="shabbat">
-                                                                                    </eventrsvp>
-                                                                                </div>
                                                                             </div>
-                                                                        </div>
-
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <div v-if="guests[0].wedding_rehearsal === true">
-                                                                <div class="card-content">
-                                                                    <div class="media">
-                                                                        <div class="media-content">
-                                                                            <h2 class="has-text-primary">
-                                                                                {{ events[1].event_name }}</h2>
-                                                                            <p
-                                                                                class="has-text-info has-text-weight-bold">
-                                                                                {{ events[1].fancy_date }}
-                                                                            </p>
-                                                                            <p>{{ events[1].details }}</p>
-                                                                            <div class="columns">
-                                                                                <div class="column">
-                                                                                    <div class="box">
-
-                                                                                        <div v-for="location in locations"
-                                                                                            :key="location.id">
-                                                                                            <div
-                                                                                                v-if="events[1].location_id===location.id">
-                                                                                                <p
-                                                                                                    class="has-text-primary">
-                                                                                                    {{ location.location_name }}
-                                                                                                </p>
-                                                                                                <p
-                                                                                                    class="has-text-info">
-                                                                                                    {{ location.street_num }}
-                                                                                                    {{ location.street_name}}
-                                                                                                </p>
-                                                                                                <p
-                                                                                                    class="has-text-info">
-                                                                                                    {{ location.city }},
-                                                                                                    {{ location.province }}
-                                                                                                </p>
-                                                                                                <p
-                                                                                                    class="has-text-info">
-                                                                                                    {{ location.postal_code }}
-                                                                                                </p>
-
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="column">
-                                                                                    <eventrsvp :guest="guests"
-                                                                                        :eventType="wedding_rehearsal">
-                                                                                    </eventrsvp>
-                                                                                </div>
-                                                                            </div>
-
                                                                         </div>
                                                                     </div>
                                                                 </div>
+                                                                <div class="column">
+                                                                    <eventrsvp :guest="guests" :eventType="shabbat">
+                                                                    </eventrsvp>
+                                                                </div>
                                                             </div>
+                                                        </div>
+                                                    </div>
 
-                                                            <div v-if="guests[0].rehearsal_dinner === true">
-                                                                <div class="card-content">
-                                                                    <div class="media">
-                                                                        <div class="media-content">
-                                                                            <h2 class="has-text-primary">
-                                                                                {{ events[2].event_name }}</h2>
-                                                                            <p
-                                                                                class="has-text-info has-text-weight-bold">
-                                                                                {{ events[2].fancy_date }}
-                                                                            </p>
-                                                                            <p>{{ events[2].details }}</p>
-                                                                            <div class="columns">
-                                                                                <div class="column">
-                                                                                    <div class="box">
-                                                                                        <div v-for="location in locations"
-                                                                                            :key="location.id">
-                                                                                            <div
-                                                                                                v-if="events[2].location_id===location.id">
-                                                                                                <p
-                                                                                                    class="has-text-primary">
-                                                                                                    {{ location.location_name }}
-                                                                                                </p>
-                                                                                                <p
-                                                                                                    class="has-text-info">
-                                                                                                    {{ location.street_num }}
-                                                                                                    {{ location.street_name}}
-                                                                                                </p>
-                                                                                                <p
-                                                                                                    class="has-text-info">
-                                                                                                    {{ location.city }},
-                                                                                                    {{ location.province }}
-                                                                                                </p>
-                                                                                                <p
-                                                                                                    class="has-text-info">
-                                                                                                    {{ location.postal_code }}
-                                                                                                </p>
+                                                    <div v-if="guests[0].wedding_rehearsal === true">
+                                                        <div class="box has-background-light">
+                                                            <h2 class="has-text-primary">
+                                                                {{ events[1].event_name }}</h2>
+                                                            <p class="has-text-info has-text-weight-bold">
+                                                                {{ events[1].fancy_date }}
+                                                            </p>
+                                                            <p>{{ events[1].details }}</p>
+                                                            <div class="columns">
+                                                                <div class="column">
+                                                                    <div class="box">
 
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="column">
-                                                                                    <eventrsvp :guest="guests"
-                                                                                        :eventType="rehearsal_dinner">
-                                                                                    </eventrsvp>
-                                                                                </div>
+                                                                        <div v-for="location in locations"
+                                                                            :key="location.id">
+                                                                            <div
+                                                                                v-if="events[1].location_id===location.id">
+                                                                                <p class="has-text-primary">
+                                                                                    {{ location.location_name }}
+                                                                                </p>
+                                                                                <p class="has-text-info">
+                                                                                    {{ location.street_num }}
+                                                                                    {{ location.street_name}}
+                                                                                </p>
+                                                                                <p class="has-text-info">
+                                                                                    {{ location.city }},
+                                                                                    {{ location.province }}
+                                                                                </p>
+                                                                                <p class="has-text-info">
+                                                                                    {{ location.postal_code }}
+                                                                                </p>
+
                                                                             </div>
-                                                                            <!-- </div> -->
                                                                         </div>
                                                                     </div>
                                                                 </div>
+                                                                <div class="column">
+                                                                    <eventrsvp :guest="guests"
+                                                                        :eventType="wedding_rehearsal">
+                                                                    </eventrsvp>
+                                                                </div>
                                                             </div>
+                                                        </div>
+                                                    </div>
 
+                                                    <div v-if="guests[0].rehearsal_dinner === true">
+                                                        <div class="box has-background-light">
+                                                            <h2 class="has-text-primary">
+                                                                {{ events[2].event_name }}</h2>
+                                                            <p class="has-text-info has-text-weight-bold">
+                                                                {{ events[2].fancy_date }}
+                                                            </p>
+                                                            <p>{{ events[2].details }}</p>
+                                                            <div class="columns">
+                                                                <div class="column">
+                                                                    <div class="box">
+                                                                        <div v-for="location in locations"
+                                                                            :key="location.id">
+                                                                            <div
+                                                                                v-if="events[2].location_id===location.id">
+                                                                                <p class="has-text-primary">
+                                                                                    {{ location.location_name }}
+                                                                                </p>
+                                                                                <p class="has-text-info">
+                                                                                    {{ location.street_num }}
+                                                                                    {{ location.street_name}}
+                                                                                </p>
+                                                                                <p class="has-text-info">
+                                                                                    {{ location.city }},
+                                                                                    {{ location.province }}
+                                                                                </p>
+                                                                                <p class="has-text-info">
+                                                                                    {{ location.postal_code }}
+                                                                                </p>
 
-
-                                                            <div v-if="guests[0].brunch === true">
-                                                                <div class="card-content">
-                                                                    <div class="media">
-                                                                        <div class="media-content">
-                                                                            <h2 class="has-text-primary">
-                                                                                {{ events[4].event_name }}</h2>
-                                                                            <p
-                                                                                class="has-text-info has-text-weight-bold">
-                                                                                {{ events[4].fancy_date }}
-                                                                            </p>
-                                                                            <p>{{ events[4].details }}</p>
-                                                                            <div class="columns">
-                                                                                <div class="column">
-                                                                                    <div class="box">
-                                                                                        <div v-for="location in locations"
-                                                                                            :key="location.id">
-                                                                                            <div
-                                                                                                v-if="events[4].location_id===location.id">
-                                                                                                <p
-                                                                                                    class="has-text-primary">
-                                                                                                    {{ location.location_name }}
-                                                                                                </p>
-                                                                                                <p
-                                                                                                    class="has-text-info">
-                                                                                                    {{ location.street_num }}
-                                                                                                    {{ location.street_name}}
-                                                                                                </p>
-                                                                                                <p
-                                                                                                    class="has-text-info">
-                                                                                                    {{ location.city }},
-                                                                                                    {{ location.province }}
-                                                                                                </p>
-                                                                                                <p
-                                                                                                    class="has-text-info">
-                                                                                                    {{ location.postal_code }}
-                                                                                                </p>
-
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="column">
-                                                                                    <eventrsvp :guest="guests"
-                                                                                        :eventType="rehearsal_dinner">
-                                                                                    </eventrsvp>
-                                                                                </div>
                                                                             </div>
                                                                         </div>
                                                                     </div>
+                                                                </div>
+                                                                <div class="column">
+                                                                    <eventrsvp :guest="guests"
+                                                                        :eventType="rehearsal_dinner">
+                                                                    </eventrsvp>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div v-if="guests[0].brunch === true">
+                                                        <div class="box has-background-light">
+                                                            <h2 class="has-text-primary">
+                                                                {{ events[4].event_name }}</h2>
+                                                            <p class="has-text-info has-text-weight-bold">
+                                                                {{ events[4].fancy_date }}
+                                                            </p>
+                                                            <p>{{ events[4].details }}</p>
+                                                            <div class="columns">
+                                                                <div class="column">
+                                                                    <div class="box">
+                                                                        <div v-for="location in locations"
+                                                                            :key="location.id">
+                                                                            <div
+                                                                                v-if="events[4].location_id===location.id">
+                                                                                <p class="has-text-primary">
+                                                                                    {{ location.location_name }}
+                                                                                </p>
+                                                                                <p class="has-text-info">
+                                                                                    {{ location.street_num }}
+                                                                                    {{ location.street_name}}
+                                                                                </p>
+                                                                                <p class="has-text-info">
+                                                                                    {{ location.city }},
+                                                                                    {{ location.province }}
+                                                                                </p>
+                                                                                <p class="has-text-info">
+                                                                                    {{ location.postal_code }}
+                                                                                </p>
+
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="column">
+                                                                    <eventrsvp :guest="guests" :eventType="brunch">
+                                                                    </eventrsvp>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -311,6 +272,7 @@
             getGuests() {
                 this.error = this.party = null
                 this.loading = true
+                this.guesturl = this.$route.params.uuid
                 const url = this.$route.params.uuid + '/guests/'
                 console.log(url)
                 return session.get(url, {
@@ -422,5 +384,9 @@
         -moz-background-size: cover;
         -o-background-size: cover;
         background-size: cover;
+    }
+
+    .box {
+        margin-top: 5%;
     }
 </style>

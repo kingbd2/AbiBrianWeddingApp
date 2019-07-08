@@ -1,0 +1,56 @@
+{% load mjml %}
+{% mjml %}
+{% autoescape off %}
+{% load i18n %}
+
+<mjml>
+    <mj-head>
+        <mj-font name="Montserrat" href="https://fonts.googleapis.com/css?family=Montserrat:400,700" />
+        <mj-preview>Click the link inside to find information about events during Abiella and Brian's wedding weekend!</mj-preview>
+
+        <mj-attributes>
+            <mj-text font-size="16px" line-height="24px" padding="0px 48px 16px" />
+            <mj-button font-weight="bold" font-size="16px" background-color="#8CA0D7" />
+            <mj-divider border-color="#8CA0D7" />
+            <mj-all font-family="Montserrat, Helvetica, Arial, sans-serif" />
+        </mj-attributes>
+    </mj-head>
+    <mj-body>
+        <!-- <mj-section background-color="white">
+            
+        </mj-section> -->
+        <mj-section background-color="#fafafa">
+            <mj-column>
+                 
+                <mj-text font-size="30px" color="#000000">
+                    Hi {{ first_name_text }},
+                </mj-text>
+                <mj-text font-size="20px" color="#8CA0D7">
+                    We want to provide some more information about the various events that are occurring over the Aug 30 - Sept 2 weekend.
+                </mj-text>
+                   <mj-image width="300px"
+                       src="https://b0rldg.bn.files.1drv.com/y4mjEgv7U-YShZxhuJGHcJq570FGnpqtH_jbTDJc2YkIw5HzIp2Oc_uHBR2HqfA-H_KXitQQHgXmWp5jH9GfwMIEg3Fn0U55lS8ZUxGSdZ-Nv3UQjnnbyZgCHTMGgpqayG045cevXad1xeSDcTFVupt1aYowxr9sKCPN2yKbthO-lmdUiyR25tO1tsTLhF4aC-W7g2fqZMdNUat-4D4ZOyc9A?width=640&height=427&cropmode=none"
+                       />
+               
+                <mj-text font-size="20px" color="#000000">Click below to see more information about these events and please let us know if you can make it to them!
+                </mj-text>
+                <!-- <mj-text font-style="bold" font-size="20px" color="#000000">
+                    <strong>Please RSVP before July 15th.</strong></mj-text> -->
+                <mj-button background-color="#8CA0D7" href="https://abiellaandbriangetmarried.ca/{{ invitation_id }}/events/">
+                    Click here to see and RSVP to events</mj-button>
+                <mj-divider />
+                <!-- <mj-text font-size="20px" color="#000000">Click below to RSVP and find
+                    information about accommodations. We have arranged limited room holds at two London hotels.
+                </mj-text>
+                <mj-text font-style="bold" font-size="20px" color="#000000">
+                    <strong>Please RSVP before July 15th.</strong></mj-text>
+                <mj-button background-color="#8CA0D7" href="https://abiellaandbriangetmarried.ca/{{ invitation_id }}/">
+                    Click here to RSVP</mj-button> -->
+                <!-- <mj-divider /> -->
+            </mj-column>
+        </mj-section>
+
+    </mj-body>
+</mjml>
+{% endautoescape %}
+{% endmjml %}

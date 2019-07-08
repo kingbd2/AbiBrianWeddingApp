@@ -23,7 +23,7 @@
 
                                     <div v-if="guests" class="content">
                                         <p class="is-size-3 has-text-success has-text-left has-text-weight-bold">Please
-                                            RSVP for your guests below, and
+                                            RSVP to our wedding below, and
                                             don't forget to leave a comment below!</p>
                                         <div class="container" v-for="guest in guests" :key="guest.id">
                                             <guestrsvp v-bind:guest="guest" v-on:childToParent="onChildClick">

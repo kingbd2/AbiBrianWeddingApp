@@ -21,17 +21,11 @@
                                 <div class="column is-5">
                                     <h1 class="title has-text-info">Hi, {{ partytext }}!</h1>
                                     <p class="is-size-4 has-text-info">You have been invited to our wedding, and we are
-                                        very excited to celebrate with you. </p>
+                                        very excited to celebrate with you. Please click on the button below to RSVP to the wedding.</p>
                                     <div>
                                         <nuxt-link :to="{name: 'uuid-guests', params: { uuid:guesturl } }">
                                             <div class="button is-primary rsvp">
                                                 RSVP for your guests</div>
-                                        </nuxt-link>
-                                    </div>
-                                    <div>
-                                        <nuxt-link :to="{name: 'uuid-events', params: { uuid:guesturl } }">
-                                            <div class="button is-success rsvp">
-                                                Go to your events</div>
                                         </nuxt-link>
                                     </div>
                                 </div>
@@ -190,5 +184,8 @@
 
     .button.rsvp {
         margin-bottom: 15%;
+    }
+    .button.is-info{
+        margin-bottom: 5%;
     }
 </style>
