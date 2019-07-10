@@ -20,20 +20,17 @@
                                     </div>
 
                                     <div class="loading" v-if="guests">
+                                        <div class="box has-background-light">
+                                            <p class="is-size-4">To RSVP to the wedding, go here: <nuxt-link :to="{name: 'uuid-guests', params: { uuid:guesturl } }">
+                                                    <div class="button is-primary rsvp">
+                                                        RSVP for the wedding</div>
+                                                </nuxt-link></p>
+                                        </div>
+
                                         <div class="content">
-
-
                                             <div class="card large">
                                                 <div class="card-content">
-                                                    <p class="has-text-5">To RSVP to the wedding, click the button
-                                                        below:</p>
-                                                    <div>
-                                                        <nuxt-link
-                                                            :to="{name: 'uuid-guests', params: { uuid:guesturl } }">
-                                                            <div class="button is-primary rsvp">
-                                                                RSVP for the wedding</div>
-                                                        </nuxt-link>
-                                                    </div>
+
                                                     <p
                                                         class="is-size-3 has-text-success has-text-left has-text-weight-bold">
                                                         We

@@ -17,46 +17,42 @@
                         </div>
 
                         <div v-if="guests" class="content">
-                            <div class="button is-info is-large" @click="createReport()">Generate Report of Attendance:</div>
-                            <div class="box">
-                            <div class="columns">
-                                <div class="column">
-                                    <div class="has-text-info has-text-weight-bold">Guests attending: 
-                                    </div>
-                                    <div class="has-text-info">{{ is_attending_count }} /
-                                        {{ guestcount }}
-                                    </div>
-                                </div>
-                                <div class="column">
-                                    <div class="has-text-info has-text-weight-bold">Attending Shabbat: 
-                                    </div>
-                                    <div class="has-text-info">{{ attending_shabbat_count }} /
-                                        {{ guestcount }}</div>
-                                </div>
-                                <div class="column">
-                                    <div class="has-text-info has-text-weight-bold">Attending brunch: 
-                                    </div>
-                                    <div class="has-text-info">{{ attending_brunch_count }} / {{ guestcount }}</div>
-
-                                </div>
-                                <div class="column">
-                                    <div class="has-text-info has-text-weight-bold">Attending wedding rehearsal:
-                                    </div>
-                                    <div class="has-text-info">{{ attending_wedding_rehearsal_count }} / {{ guestcount }}</div>
-                                </div>
-                                <div class="column">
-                                    <div class="has-text-info has-text-weight-bold">Attending rehearsal dinner: 
-                                    </div>
-                                    <div class="has-text-info">{{ attending_rehearsal_dinner_count }}
-                                        / {{ guestcount }}</div>
-                                </div>
-                                <!-- <div class="column">
-                                    <div class="has-text-info has-text-weight-bold">Invited to shabbat: 
-                                    </div>
-                                    <div class="has-text-info">{{ attending_shabbat_count }} /
-                                        {{ guestcount }}</div>
-                                </div> -->
+                            <div class="button is-info is-large" @click="createReport()">Generate Report of Attendance:
                             </div>
+                            <div class="box">
+                                <div class="columns">
+                                    <div class="column">
+                                        <div class="has-text-info has-text-weight-bold">Guests attending:
+                                        </div>
+                                        <div class="has-text-info">{{ is_attending_count }} /
+                                            {{ guestcount }}
+                                        </div>
+                                    </div>
+                                    <div class="column">
+                                        <div class="has-text-info has-text-weight-bold">Attending Shabbat:
+                                        </div>
+                                        <div class="has-text-info">{{ attending_shabbat_count }} /
+                                            {{ guestcount }}</div>
+                                    </div>
+                                    <div class="column">
+                                        <div class="has-text-info has-text-weight-bold">Attending brunch:
+                                        </div>
+                                        <div class="has-text-info">{{ attending_brunch_count }} / {{ guestcount }}</div>
+
+                                    </div>
+                                    <div class="column">
+                                        <div class="has-text-info has-text-weight-bold">Attending wedding rehearsal:
+                                        </div>
+                                        <div class="has-text-info">{{ attending_wedding_rehearsal_count }} /
+                                            {{ guestcount }}</div>
+                                    </div>
+                                    <div class="column">
+                                        <div class="has-text-info has-text-weight-bold">Attending rehearsal dinner:
+                                        </div>
+                                        <div class="has-text-info">{{ attending_rehearsal_dinner_count }}
+                                            / {{ guestcount }}</div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="card large">
                                 <div class="card-content">
@@ -72,10 +68,6 @@
                                                 <div class="column">
                                                     <div>Attending Wedding?</div>
                                                 </div>
-                                                <!-- <div class="column">
-                                                    <div>Dietary Restrictions?
-                                                    </div>
-                                                </div> -->
                                                 <div class="column">
                                                     <div>Attending Shabbat?</div>
                                                 </div>
@@ -88,7 +80,9 @@
                                                 <div class="column">
                                                     <div>Attending Brunch?</div>
                                                 </div>
-                                               
+                                                <div class="column">
+                                                    <div>Dietary Restrictions?</div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

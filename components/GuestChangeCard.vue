@@ -14,11 +14,17 @@
                             <div class="column">
                                 <div>{{ guest.party }}</div>
                             </div>
-                            <div class="column">
+                            <!-- <div class="column">
                                 <div><input class="input" type="text" placeholder="Group" v-model="guest.group">
                                 </div>
-                            </div>
+                            </div> -->
+
                             <div class="column">
+                                <!-- <dropdown :value="guest.iskid" @child-to-parent="changekid"></dropdown> -->
+                                <div class="button" v-bind:class="{ 'is-success': details.has_responded }"
+                                    @click='toggle_has_responded()'>Has responded?</div>
+                            </div>
+                            <!-- <div class="column">
                                 <div v-if="guest.is_attending===true">
                                     <div class="has-text-weight-bold has-text-primary">Yes!</div>
                                 </div>
@@ -35,7 +41,7 @@
                                     <div class="">No</div>
                                 </div>
 
-                            </div>
+                            </div> -->
                             <div class="column">
                                 <!-- <dropdown :value="guest.iskid" @child-to-parent="changekid"></dropdown> -->
                                 <div class="button" v-bind:class="{ 'is-success': details.iskid }"
@@ -103,7 +109,8 @@
                         shabbat: this.details.shabbat,
                         brunch: this.details.brunch,
                         rehearsal_dinner: this.details.rehearsal_dinner,
-                        wedding_rehearsal: this.details.wedding_rehearsal
+                        wedding_rehearsal: this.details.wedding_rehearsal,
+                        has_responded: this.details.has_responded
                     })
                     .then((res) => {
                         if (res.data) {
@@ -146,6 +153,11 @@
                 this.has_submitted = false
                 this.has_changed = true
             },
+            toggle_has_responded: function () {
+                this.details.has_responded = !this.details.has_responded
+                this.has_submitted = false
+                this.has_changed = true
+            },
 
             changekid(payload) {
                 this.details.iskid = payload
@@ -161,6 +173,9 @@
             },
             changeweddingrehearsal(payload) {
                 this.details.wedding_rehearsal = payload
+            },
+            changehasresponded(payload) {
+                this.details.has_responded = payload
             }
         }
 

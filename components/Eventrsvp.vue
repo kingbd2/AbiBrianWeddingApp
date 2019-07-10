@@ -2,12 +2,19 @@
     <div>
         <div class="column">
             <div v-for="guest in party_guests" :key="guest.id">
-                <p class="has-text-info">Will {{ guest.first_name }} be attending?</p>
+                <p class="has-text-info">Will {{ guest.first_name }} be attending? </p>
                 <toggle :guest="guest" :eventType="event_type" v-on:childToParent="onChildClick"></toggle>
             </div>
 
         </div>
-        <div v-if="has_changed === true" class="success">
+        <p class="has-text-primary has-text-weight-bold">Please click "Yes" or "No" for each guest and press the button
+            below to submit your response.</p>
+        <div v-if="started === true" class="success">
+            <div class="button is-primary" disabled>Select an option for each guest above</div>
+        </div>
+
+        <div v-else-if="has_changed === true" class="success">
+
             <div class="button is-primary" @click='RsvpGuests()'>Click here to submit your
                 response.</div>
         </div>
@@ -28,6 +35,7 @@
         },
         data() {
             return {
+                started: true,
                 id: this.guest.id,
                 loading: false,
                 is_attending: false,
@@ -38,10 +46,14 @@
                 has_submitted: false,
                 has_changed: false,
                 test: '',
+                has_responded_brunch: false,
+                has_responded_shabbat: false,
+                has_responded_rehearsal_dinner: false,
+                has_responded_wedding_rehearsal: false,
             }
         },
         mounted: function () {
-            // this.GET_STATUS();
+            this.GET_EVENT_TYPE();
         },
         methods: {
             GET_STATUS() {
@@ -73,27 +85,88 @@
                 this.error = this.response = null
                 this.loading = true
                 const RSVP_URL = this.$route.params.uuid + '/guests/' + id + '/'
-                return session.put(RSVP_URL, {
-                        is_attending_wedding_rehearsal: this.party_guests[i].is_attending_wedding_rehearsal,
-                        is_attending_rehearsal_dinner: this.party_guests[i].is_attending_rehearsal_dinner,
-                        is_attending_brunch: this.party_guests[i].is_attending_brunch,
-                        is_attending_shabbat: this.party_guests[i].is_attending_shabbat
-                    })
-                    .then((res) => {
-                        if (res.data) {
-                            this.has_submitted = true
-                            this.has_changed = false
+                if (this.has_responded_brunch === true) {
+                    return session.put(RSVP_URL, {
+                            is_attending_brunch: this.party_guests[i].is_attending_brunch,
+                            has_responded_brunch: this.has_responded_brunch,
+
+                        })
+                        .then((res) => {
+                            if (res.data) {
+                                this.started = false
+                                this.has_submitted = true
+                                this.has_changed = false
+                                this.loading = false
+                            } else {
+                                context.error()
+                            }
+                        })
+                        .catch(error => {
+                            console.log(error)
                             this.loading = false
-                            this.guests = res.data
-                        } else {
-                            context.error()
-                        }
-                    })
-                    .catch(error => {
-                        console.log(error)
-                        this.loading = false
-                        this.error = "Please go to your wedding invitation email and try again."
-                    })
+                            this.error = "Please go to your wedding invitation email and try again."
+                        })
+                } else if (this.has_responded_shabbat === true) {
+                    return session.put(RSVP_URL, {
+                            is_attending_shabbat: this.party_guests[i].is_attending_shabbat,
+                            has_responded_shabbat: this.has_responded_shabbat,
+                        })
+                        .then((res) => {
+                            if (res.data) {
+                                this.started = false
+                                this.has_submitted = true
+                                this.has_changed = false
+                                this.loading = false
+                            } else {
+                                context.error()
+                            }
+                        })
+                        .catch(error => {
+                            console.log(error)
+                            this.loading = false
+                            this.error = "Please go to your wedding invitation email and try again."
+                        })
+                } else if (this.has_responded_rehearsal_dinner === true) {
+                    return session.put(RSVP_URL, {
+                            is_attending_rehearsal_dinner: this.party_guests[i].is_attending_rehearsal_dinner,
+                            has_responded_rehearsal_dinner: this.has_responded_rehearsal_dinner,
+                        })
+                        .then((res) => {
+                            if (res.data) {
+                                this.started = false
+                                this.has_submitted = true
+                                this.has_changed = false
+                                this.loading = false
+                            } else {
+                                context.error()
+                            }
+                        })
+                        .catch(error => {
+                            console.log(error)
+                            this.loading = false
+                            this.error = "Please go to your wedding invitation email and try again."
+                        })
+                } else {
+                    return session.put(RSVP_URL, {
+                            is_attending_wedding_rehearsal: this.party_guests[i].is_attending_wedding_rehearsal,
+                            has_responded_wedding_rehearsal: this.has_responded_wedding_rehearsal,
+                        })
+                        .then((res) => {
+                            if (res.data) {
+                                this.started = false
+                                this.has_submitted = true
+                                this.has_changed = false
+                                this.loading = false
+                            } else {
+                                context.error()
+                            }
+                        })
+                        .catch(error => {
+                            console.log(error)
+                            this.loading = false
+                            this.error = "Please go to your wedding invitation email and try again."
+                        })
+                }
             },
             RsvpGuests() {
                 var i;
@@ -102,9 +175,22 @@
                 }
 
             },
-            
+            GET_EVENT_TYPE() {
+                if (this.event_type === 'brunch') {
+                    this.has_responded_brunch = true
+                } else if (this.event_type === 'shabbat') {
+                    this.has_responded_shabbat = true
+                } else if (this.event_type === 'rehearsal_dinner') {
+                    this.has_responded_rehearsal_dinner = true
+                } else {
+                    this.has_responded_wedding_rehearsal = true
+                }
+            },
+
+
             onChildClick: function (value) {
                 this.has_changed = true
+                this.started = false
                 var i;
                 // console.log(value[0])
 

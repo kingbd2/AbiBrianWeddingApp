@@ -17,11 +17,6 @@
                         </div>
 
                         <div v-if="party" class="content">
-                            <!-- <div class="button" @click="createReport()">Generate Report</div>
-                            <div class="has-text-info">Guests attending: {{ is_attending_count }} / {{ guestcount }}
-                            </div>
-                            <div class="has-text-info">Number of kids: {{ kids_attending_count }} / {{ guestcount }}
-                            </div> -->
                             <h1 class="title has-text-primary">Here are all the comments!</h1>
                             <div v-for="item in party" :key="item.id">
                                 <div v-if="item.comments">

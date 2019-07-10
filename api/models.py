@@ -64,6 +64,13 @@ class Guest(models.Model):
         group = models.CharField(blank=True, null=True, max_length=50)
         first_name = models.CharField(blank=True, null=True, max_length=50)
         last_name = models.CharField(blank=True, null=True, max_length=50)
+
+        has_responded = models.BooleanField(default=False)
+        has_responded_brunch = models.BooleanField(default=False)
+        has_responded_shabbat = models.BooleanField(default=False)
+        has_responded_wedding_rehearsal = models.BooleanField(default=False)
+        has_responded_rehearsal_dinner = models.BooleanField(default=False)
+
         is_attending = models.BooleanField(default=False)
         is_attending_brunch = models.BooleanField(default=False)
         is_attending_shabbat = models.BooleanField(default=False)

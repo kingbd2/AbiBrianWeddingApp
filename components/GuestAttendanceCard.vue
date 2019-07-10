@@ -18,6 +18,12 @@
                                 <div v-else>
                                     <div class="">No</div>
                                 </div>
+                                <div v-if="guest.has_responded===true">
+                                    <div class="has-text-weight-bold has-text-primary">Responded</div>
+                                </div>
+                                <div v-else>
+                                    <div class="has-text-weight-bold has-text-danger">Has not responded</div>
+                                </div>
                             </div>
                             <div class="column">
                                 <div v-if="guest.is_attending_shabbat===true">
@@ -25,6 +31,15 @@
                                 </div>
                                 <div v-else>
                                     <div class="">No</div>
+                                </div>
+                                <div v-if="guest.shabbat===false">
+                                    <div class="has-text-info">Not invited</div>
+                                </div>
+                                <div v-else-if="guest.has_responded_shabbat===true">
+                                    <div class="has-text-weight-bold has-text-primary">Responded</div>
+                                </div>
+                                <div v-else>
+                                    <div class="has-text-weight-bold has-text-danger">Has not responded</div>
                                 </div>
                             </div>
                             <div class="column">
@@ -34,6 +49,15 @@
                                 <div v-else>
                                     <div class="">No</div>
                                 </div>
+                                <div v-if="guest.wedding_rehearsal===false">
+                                    <div class="has-text-info">Not invited</div>
+                                </div>
+                                <div v-else-if="guest.has_responded_wedding_rehearsal===true">
+                                    <div class="has-text-weight-bold has-text-primary">Responded</div>
+                                </div>
+                                <div v-else>
+                                    <div class="has-text-weight-bold has-text-danger">Has not responded</div>
+                                </div>
                             </div>
                             <div class="column">
                                 <div v-if="guest.is_attending_rehearsal_dinner===true">
@@ -41,6 +65,15 @@
                                 </div>
                                 <div v-else>
                                     <div class="">No</div>
+                                </div>
+                                <div v-if="guest.rehearsal_dinner===false">
+                                    <div class="has-text-info">Not invited</div>
+                                </div>
+                                <div v-else-if="guest.has_responded_rehearsal_dinner===true">
+                                    <div class="has-text-weight-bold has-text-primary">Responded</div>
+                                </div>
+                                <div v-else>
+                                    <div class="has-text-weight-bold has-text-danger">Has not responded</div>
                                 </div>
                             </div>
                             <div class="column">
@@ -50,14 +83,24 @@
                                 <div v-else>
                                     <div class="">No</div>
                                 </div>
+                                <div v-if="guest.brunch===false">
+                                    <div class="has-text-info">Not invited</div>
+                                </div>
+                                <div v-else-if="guest.has_responded_brunch===true">
+                                    <div class="has-text-weight-bold has-text-primary">Responded</div>
+                                </div>
+                                <div v-else>
+                                    <div class="has-text-weight-bold has-text-danger">Has not responded</div>
+                                </div>
                             </div>
-
+                            <div class="column">
+                                <div class="has-text-danger">{{ guest.dietary_restrictions }}</div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
     </div>
 </template>
 

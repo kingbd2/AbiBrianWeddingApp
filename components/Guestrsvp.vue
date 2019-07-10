@@ -1,51 +1,45 @@
 <template>
     <div>
-        <div class="card large has-background-light">
-            <div class="card-content">
-                <div class="media">
-                    <div class="media-content">
-                        <h1 class="title is-4 no-padding has-text-primary">{{ guest.first_name }} {{ guest.last_name }}
-                        </h1>
-                        <div class="columns">
-                            <div class="column">
-                                <p class="no-padding has-text-info">Attending?</p>
-                                <div class="button" v-bind:class="{ 'is-success': is_attending }"
-                                    @click='toggle_is_attending()' v-on:click="emitToParent">Yes</div>
-                                <div class="button" v-bind:class="{ 'is-success': !is_attending }"
-                                    @click='toggle_is_attending()'>No</div>
-                            </div>
-                            <div class="column">
-                                <p class="no-padding has-text-info">Any dietary restrictions?</p>
-                                <div class="button" v-bind:class="{ 'is-success': has_dietary_restrictions }"
-                                    @click='toggle_dietary_restrictions()'>Yes</div>
-                                <div class="button" v-bind:class="{ 'is-success': !has_dietary_restrictions }"
-                                    @click='toggle_dietary_restrictions()'>No</div>
-                            </div>
-                            <div class="column"></div>
-                        </div>
-                        </br>
-
-                        <div v-if="has_dietary_restrictions === true">
-                            <input class="input" type="text" placeholder="Please provide your dietary restriction."
-                                v-model="dietary_restrictions">
-                        </div>
-                        <div v-else>
-                            <input class="input" type="text" placeholder="Please provide your dietary restriction."
-                                disabled>
-                        </div>
-                        </br>
-
-                        <div v-if="has_changed === true" class="success">
-                            <div class="button is-primary" @click='Rsvp(guest.id)'>Click here to submit {{ guest.first_name }}'s response.</div>
-                        </div>
-                        <div v-else>
-                            <div class="button is-primary" disabled>Thanks for letting us know!</div>
-                        </div>
-                    </div>
+            <h1 class="title is-4 no-padding has-text-primary">{{ guest.first_name }} {{ guest.last_name }}
+            </h1>
+            <div class="columns">
+                <div class="column">
+                    <p class="no-padding has-text-info">Is {{ guest.first_name }} attending?</p>
+                    <div class="button" v-bind:class="{ 'is-success': is_attending_yes }"
+                        @click='toggle_is_attending_yes()' v-on:click="emitToParent">Yes</div>
+                    <div class="button" v-bind:class="{ 'is-success': is_attending_no }"
+                        @click='toggle_is_attending_no()'>No</div>
                 </div>
+                <div class="column">
+                    <p class="no-padding has-text-info">Any dietary restrictions?</p>
+                    <div class="button" v-bind:class="{ 'is-success': has_dietary_restrictions_yes }"
+                        @click='toggle_dietary_restrictions_yes()'>Yes</div>
+                    <div class="button" v-bind:class="{ 'is-success': has_dietary_restrictions_no }"
+                        @click='toggle_dietary_restrictions_no()'>No</div>
+                </div>
+                <div class="column"></div>
+            </div>
+            </br>
+
+            <div v-if="has_dietary_restrictions === true">
+                <input class="input" type="text" placeholder="Please provide your dietary restriction."
+                    v-model="dietary_restrictions">
+            </div>
+            <div v-else>
+                <input class="input" type="text" placeholder="Please provide your dietary restriction." disabled>
+            </div>
+            </br>
+            <div v-if="started === true" class="success">
+                <div class="button is-primary" disabled>Select an option for each guest above</div>
+            </div>
+            <div v-else-if="has_changed === true" class="success">
+                <div class="button is-primary" @click='Rsvp(guest.id)'>Click here to submit
+                    {{ guest.first_name }}'s response.</div>
+            </div>
+            <div v-else>
+                <div class="button is-primary" disabled>Thanks for letting us know!</div>
             </div>
         </div>
-    </div>
 </template>
 
 <script>
@@ -54,10 +48,15 @@
         props: ['guest'],
         data() {
             return {
+                started: true,
                 id: this.guest.id,
                 loading: false,
+                is_attending_yes: false,
+                is_attending_no: false,
                 is_attending: false,
                 has_dietary_restrictions: false,
+                has_dietary_restrictions_yes: false,
+                has_dietary_restrictions_no: false,
                 dietary_restrictions: '',
                 error: null,
                 response: null,
@@ -71,7 +70,7 @@
         },
         methods: {
             GET_STATUS() {
-                
+
                 this.has_submitted = false
                 this.error = this.response = null
                 this.loading = true
@@ -102,8 +101,8 @@
                 return session.put(RSVP_URL, {
                         is_attending: this.is_attending,
                         has_dietary_restrictions: this.has_dietary_restrictions,
-                        dietary_restrictions: this.dietary_restrictions
-
+                        dietary_restrictions: this.dietary_restrictions,
+                        has_responded: true
                     })
                     .then((res) => {
                         if (res.data) {
@@ -128,7 +127,8 @@
                 return session.put(RSVP_URL, {
                         is_attending: this.is_attending,
                         has_dietary_restrictions: this.has_dietary_restrictions,
-                        dietary_restrictions: this.dietary_restrictions
+                        dietary_restrictions: this.dietary_restrictions,
+                        has_responded: true,
 
                     })
                     .then((res) => {
@@ -147,15 +147,49 @@
                         this.error = "Please go to your wedding invitation email and try again."
                     })
             },
-            toggle_is_attending: function () {
-                this.is_attending = !this.is_attending
+            toggle_is_attending_yes: function () {
+                this.is_attending_no = false
+                this.started = false
+                this.is_attending_yes = !this.is_attending_yes
                 this.has_submitted = false
                 this.has_changed = true
+                if (this.is_attending_no === false & this.is_attending_yes === true) {
+                    this.is_attending = true
+                } else {
+                    this.is_attending = false
+                }
             },
-            toggle_dietary_restrictions: function () {
-                this.has_dietary_restrictions = !this.has_dietary_restrictions
+            toggle_is_attending_no: function () {
+                this.is_attending_yes = false
+                this.started = false
+                this.is_attending_no = !this.is_attending_no
                 this.has_submitted = false
                 this.has_changed = true
+                if (this.is_attending_no === true & this.is_attending_yes === false) {
+                    this.is_attending = false
+                }
+            },
+            toggle_dietary_restrictions_yes: function () {
+                this.has_dietary_restrictions_no = false
+                this.started = false
+                this.has_dietary_restrictions_yes = !this.has_dietary_restrictions_yes
+                this.has_submitted = false
+                this.has_changed = true
+                if (this.has_dietary_restrictions_no === false & this.has_dietary_restrictions_yes === true) {
+                    this.has_dietary_restrictions = true
+                } else {
+                    this.has_dietary_restrictions = false
+                }
+            },
+            toggle_dietary_restrictions_no: function () {
+                this.has_dietary_restrictions_yes = false
+                this.started = false
+                this.has_dietary_restrictions_no = !this.has_dietary_restrictions_no
+                this.has_submitted = false
+                this.has_changed = true
+                if (this.has_dietary_restrictions_no === true & this.has_dietary_restrictions_yes === false) {
+                    this.has_dietary_restrictions = false
+                }
             },
             emitToParent(event) {
                 this.$emit('childToParent', this.guest.id)

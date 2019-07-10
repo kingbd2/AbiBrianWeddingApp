@@ -4,8 +4,6 @@
             <div class="hero-body">
                 <div class="container">
                     <div>
-                        <!-- <h1 class="title has-text-info"> {{ error }}</h1> -->
-
                         <div class="tile is-ancestor">
                             <div class="tile is-vertical is-8">
                                 <div class="party">
@@ -22,109 +20,109 @@
                                     </div>
 
                                     <div v-if="guests" class="content">
-                                        <p class="is-size-3 has-text-success has-text-left has-text-weight-bold">Please
-                                            RSVP to our wedding below, and
-                                            don't forget to leave a comment below!</p>
-                                        <div class="container" v-for="guest in guests" :key="guest.id">
-                                            <guestrsvp v-bind:guest="guest" v-on:childToParent="onChildClick">
-                                            </guestrsvp>
-                                        </div>
+                                        <div class="card large">
+                                            <div class="card-content">
+                                                <p
+                                                    class="is-size-3 has-text-success has-text-left has-text-weight-bold">
+                                                    Please
+                                                    RSVP to our wedding below, and
+                                                    don't forget to leave a comment below!</p>
+                                                <p class="has-text-primary is-size-4">Click "Yes" or "No"
+                                                    and press the button
+                                                    below to submit your response <strong>for each guest</strong>.</p>
+                                                <div class="box has-background-light" v-for="guest in guests"
+                                                    :key="guest.id">
+
+                                                    <guestrsvp v-bind:guest="guest" v-on:childToParent="onChildClick">
+                                                    </guestrsvp>
+                                                </div>
 
 
-                                        <div class="container" v-if="commentSubmitted === false">
-                                            <div class="card large has-background-link">
-                                                <div class="card-content">
-                                                    <div class="media">
-                                                        <div class="media-content">
-                                                            <p class="is-size-4 has-text-info">We would love to hear
-                                                                from you.
-                                                            </p>
-                                                            <div class="columns">
-                                                                <div class="column">
-                                                                    <textarea class="textarea"
-                                                                        placeholder="Please leave a message for the bride and groom!"
-                                                                        v-model="party_comment"></textarea>
-                                                                    <div class="column">
-                                                                        <div class="button is-primary"
-                                                                            @click='SubmitComment()'>
-                                                                            Submit Comment</div>
-                                                                    </div>
-                                                                </div>
-
+                                                <div class="box has-background-link" v-if="commentSubmitted === false">
+                                                    <p class="is-size-4 has-text-info">We would love to
+                                                        hear
+                                                        from you.
+                                                    </p>
+                                                    <div class="columns">
+                                                        <div class="column">
+                                                            <textarea class="textarea"
+                                                                placeholder="Please leave a message for the bride and groom!"
+                                                                v-model="party_comment"></textarea>
+                                                            <div class="column">
+                                                                <div class="button is-primary" @click='SubmitComment()'>
+                                                                    Submit Comment</div>
                                                             </div>
                                                         </div>
-
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
 
-                                        <div class="container" v-else>
-                                            <div class="card large has-background-primary">
-                                                <div class="card-content">
-                                                    <div class="media">
-                                                        <div class="media-content">
-                                                            <div class="columns">
-                                                                <div class="column">
-                                                                    <p class="title is-size-4 has-text-white">Thanks, we
-                                                                        will see you soon!
-                                                                    </p>
+                                                <div class="box has-background-primary" v-else>
+                                                    <div class="columns">
+                                                        <div class="column">
+                                                            <p class="title is-size-4 has-text-white">
+                                                                Thanks, we
+                                                                will see you soon!
+                                                            </p>
 
-                                                                    <p class="is-size-4 has-text-white">Love, Abiella
-                                                                        and Brian :)</p>
-                                                                </div>
-                                                                <div class="column is-8">
-                                                                    <div class="box has-background-light">
-                                                                        <p class="is-size-5 has-text-danger">If you need
-                                                                            to change your responses, please go back to
-                                                                            your emailed invitation and click on the
-                                                                            link provided. Please RSVP by July 15th, 2019. 
-                                                                        </p>
-                                                                        <p class="is-size-5">Check out other parts of
-                                                                            our site!</p>
-                                                                        <ul>
-                                                                            <nuxt-link to="/">
-                                                                                <a class="button navbar-item has-text-primary"
-                                                                                    @click="showNav = !showNav">
+                                                            <p class="is-size-4 has-text-white">Love,
+                                                                Abiella
+                                                                and Brian :)</p>
+                                                        </div>
+                                                        <div class="column is-8">
+                                                            <div class="box has-background-light">
+                                                                <p class="is-size-5 has-text-danger">If
+                                                                    you need
+                                                                    to change your responses, please go
+                                                                    back to
+                                                                    your emailed invitation and click on
+                                                                    the
+                                                                    link provided. Please RSVP by July
+                                                                    15th,
+                                                                    2019.
+                                                                </p>
+                                                                <p class="is-size-5">Check out other
+                                                                    parts of
+                                                                    our site!</p>
+                                                                <ul>
+                                                                    <nuxt-link to="/">
+                                                                        <a class="button navbar-item has-text-primary"
+                                                                            @click="showNav = !showNav">
 
-                                                                                    Our Wedding
+                                                                            Our Wedding
 
-                                                                                </a>
-                                                                            </nuxt-link>
-                                                                            <nuxt-link to="/accomodations">
-                                                                                <a class="button navbar-item"
-                                                                                    @click="showNav = !showNav">
+                                                                        </a>
+                                                                    </nuxt-link>
+                                                                    <nuxt-link to="/accomodations">
+                                                                        <a class="button navbar-item"
+                                                                            @click="showNav = !showNav">
 
-                                                                                    Guest Accomodations
+                                                                            Guest Accomodations
 
-                                                                                </a>
-                                                                            </nuxt-link>
+                                                                        </a>
+                                                                    </nuxt-link>
 
-                                                                            <nuxt-link to="/registry">
-                                                                                <a class="button navbar-item has-text-info"
-                                                                                    @click="showNav = !showNav">
+                                                                    <nuxt-link to="/registry">
+                                                                        <a class="button navbar-item has-text-info"
+                                                                            @click="showNav = !showNav">
 
-                                                                                    Registry
+                                                                            Registry
 
-                                                                                </a>
-                                                                            </nuxt-link>
-                                                                            <nuxt-link to="/photos">
-                                                                                <a class="button navbar-item has-text-info"
-                                                                                    @click="showNav = !showNav">
+                                                                        </a>
+                                                                    </nuxt-link>
+                                                                    <nuxt-link to="/photos">
+                                                                        <a class="button navbar-item has-text-info"
+                                                                            @click="showNav = !showNav">
 
-                                                                                    Photos
+                                                                            Photos
 
-                                                                                </a>
-                                                                            </nuxt-link>
-                                                                        </ul>
-
-                                                                    </div>
-                                                                </div>
-
+                                                                        </a>
+                                                                    </nuxt-link>
+                                                                </ul>
 
                                                             </div>
                                                         </div>
                                                     </div>
+
                                                 </div>
                                             </div>
                                         </div>
@@ -223,7 +221,7 @@
                 return session.put(COMMENT_URL, {
                         comments: this.party_comment,
                         email: this.party.email,
-                        name: this.party.name      
+                        name: this.party.name
 
                     })
                     .then((res) => {

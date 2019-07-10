@@ -19,44 +19,46 @@
                         <div v-if="guests" class="content">
                             <div class="button is-info is-large" @click="createReport()">Generate Report</div>
                             <div class="box">
-                            <div class="columns">
-                                <!-- <div class="column">
+                                <div class="columns">
+                                    <!-- <div class="column">
                                     <div class="has-text-info has-text-weight-bold">Guests attending: 
                                     </div>
                                     <div class="has-text-info">{{ is_attending_count }} /
                                         {{ guestcount }}
                                     </div>
                                 </div> -->
-                                <div class="column">
-                                    <div class="has-text-info has-text-weight-bold">Number of kids invited to wedding: 
+                                    <div class="column">
+                                        <div class="has-text-info has-text-weight-bold">Number of kids invited to
+                                            wedding:
+                                        </div>
+                                        <div class="has-text-info">{{ kids_attending_count }} /
+                                            {{ guestcount }}</div>
                                     </div>
-                                    <div class="has-text-info">{{ kids_attending_count }} /
-                                        {{ guestcount }}</div>
-                                </div>
-                                <div class="column">
-                                    <div class="has-text-info has-text-weight-bold">Invited to brunch: 
-                                    </div>
-                                    <div class="has-text-info">{{ brunch_count }} / {{ guestcount }}</div>
+                                    <div class="column">
+                                        <div class="has-text-info has-text-weight-bold">Invited to brunch:
+                                        </div>
+                                        <div class="has-text-info">{{ brunch_count }} / {{ guestcount }}</div>
 
-                                </div>
-                                <div class="column">
-                                    <div class="has-text-info has-text-weight-bold">Invited to wedding rehearsal:
                                     </div>
-                                    <div class="has-text-info">{{ wedding_rehearsal_count }} / {{ guestcount }}</div>
-                                </div>
-                                <div class="column">
-                                    <div class="has-text-info has-text-weight-bold">Invited to rehearsal dinner: 
+                                    <div class="column">
+                                        <div class="has-text-info has-text-weight-bold">Invited to wedding rehearsal:
+                                        </div>
+                                        <div class="has-text-info">{{ wedding_rehearsal_count }} / {{ guestcount }}
+                                        </div>
                                     </div>
-                                    <div class="has-text-info">{{ rehearsal_dinner_count }}
-                                        / {{ guestcount }}</div>
-                                </div>
-                                <div class="column">
-                                    <div class="has-text-info has-text-weight-bold">Invited to shabbat: 
+                                    <div class="column">
+                                        <div class="has-text-info has-text-weight-bold">Invited to rehearsal dinner:
+                                        </div>
+                                        <div class="has-text-info">{{ rehearsal_dinner_count }}
+                                            / {{ guestcount }}</div>
                                     </div>
-                                    <div class="has-text-info">{{ shabbat_count }} /
-                                        {{ guestcount }}</div>
+                                    <div class="column">
+                                        <div class="has-text-info has-text-weight-bold">Invited to shabbat:
+                                        </div>
+                                        <div class="has-text-info">{{ shabbat_count }} /
+                                            {{ guestcount }}</div>
+                                    </div>
                                 </div>
-                            </div>
                             </div>
                             <div class="card large">
                                 <div class="card-content">
@@ -73,14 +75,7 @@
                                                     <div>Party</div>
                                                 </div>
                                                 <div class="column">
-                                                    <div>Group
-                                                    </div>
-                                                </div>
-                                                <!-- <div class="column">
-                                                    <div>Is Attending?</div>
-                                                </div> -->
-                                                <div class="column">
-                                                    <div>Dietary Restrictions</div>
+                                                    <div>Has responded?</div>
                                                 </div>
                                                 <div class="column">
                                                     <div>Kid?</div>

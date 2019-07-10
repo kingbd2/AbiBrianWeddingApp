@@ -15,41 +15,47 @@ class Command(BaseCommand):
         for item in data:
             # email = item['email']
             email = 'kingbd2@gmail.com'
-            print(email)
-            invitation_id = item['invitation_id']
-            # print(invitation_id)
-            first_name = list(Guest.objects.filter(
-                party=item['name']).values('first_name'))
-            last_name = list(Guest.objects.filter(
-                party=item['name']).values('last_name'))
+            # print(item)
+            invited_events = list(Guest.objects.filter(
+                party=item['name']).values('shabbat', 'wedding_rehearsal', 'rehearsal_dinner', 'brunch'))
+            responses = []
+            for event in invited_events:
+                for event_name, response in event.items():
+                    responses.append(response)
 
-            if len(first_name) == 1:
-                first_name_text = first_name[0]['first_name']
-                print(first_name_text)
-            elif len(first_name) == 2:
-                first_name_text = first_name[0]['first_name'] + \
-                    " and " + \
-                    first_name[1]['first_name']
-                print(first_name_text)
-            else:
-                j = 0
-                first_name_text = ''
-                for name in first_name:
-                    if j == (len(first_name)-1):
-                        first_name_text = first_name_text + \
-                            'and ' + first_name[j]['first_name']
-                    else:
-                        first_name_text = first_name_text + \
-                            first_name[j]['first_name'] + ', '
-                    j = j + 1
-                    print(first_name_text)
+            no_events = not any(responses)
+            if no_events is False:
+                invitation_id = item['invitation_id']
+                first_name = list(Guest.objects.filter(
+                    party=item['name']).values('first_name'))
+                last_name = list(Guest.objects.filter(
+                    party=item['name']).values('last_name'))
 
-            c = {
-                'first_name_text': first_name_text,
-                'last_name': last_name,
-                'invitation_id': invitation_id}
-            send_events(c, email)
-            print("Email sent")
-            i = i+1
-            if i == 2:
-                break
+                if len(first_name) == 1:
+                    first_name_text = first_name[0]['first_name']
+                elif len(first_name) == 2:
+                    first_name_text = first_name[0]['first_name'] + \
+                        " and " + \
+                        first_name[1]['first_name']
+                else:
+                    j = 0
+                    first_name_text = ''
+                    for name in first_name:
+                        if j == (len(first_name)-1):
+                            first_name_text = first_name_text + \
+                                'and ' + first_name[j]['first_name']
+                        else:
+                            first_name_text = first_name_text + \
+                                first_name[j]['first_name'] + ', '
+                        j = j + 1
+                        
+                print(first_name_text + ': ' + str(no_events))
+                c = {
+                    'first_name_text': first_name_text,
+                    'last_name': last_name,
+                    'invitation_id': invitation_id}
+                send_events(c, email)
+                print("Email sent")
+                # i = i+1
+                # if i == 2:
+                #     break
