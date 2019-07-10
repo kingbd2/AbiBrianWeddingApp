@@ -1,0 +1,53 @@
+{% load mjml %}
+{% mjml %}
+{% autoescape off %}
+{% load i18n %}
+
+<mjml>
+    <mj-head>
+        <mj-font name="Montserrat" href="https://fonts.googleapis.com/css?family=Montserrat:400,700" />
+        <mj-preview>Click the link inside to RSVP to Abiella and Brian's wedding!</mj-preview>
+
+        <mj-attributes>
+            <mj-text font-size="16px" line-height="24px" padding="0px 48px 16px" />
+            <mj-button font-weight="bold" font-size="16px" background-color="#8CA0D7" />
+            <mj-divider border-color="#8CA0D7" />
+            <mj-all font-family="Montserrat, Helvetica, Arial, sans-serif" />
+        </mj-attributes>
+    </mj-head>
+    <mj-body>
+        <!-- <mj-section background-color="white">
+            
+        </mj-section> -->
+        <mj-section background-color="#fafafa">
+            <mj-column>
+                 
+                <mj-text font-size="30px" color="#000000">
+                    Hi {{ first_name_text }},
+                </mj-text>
+                <mj-text font-size="20px" color="#8CA0D7">
+                    Abiella and Brian are getting married, and they want to celebrate with you!
+                </mj-text>
+                   <mj-image width="300px"
+                       src="https://berpdg.bn.files.1drv.com/y4mDlvyuV-cINTRA4bbxgqMRVvo98gGLmMiHabn0A4-doj4hdwYeBBDJxATRgkCjIyf8K1w8WixMSSrIGBvEZtIJUjLjABM2BeufYEgkEaSoVFKWMN5L2qdvbjrtcZrzvVUFcVi3jGdqk0qecvHHevj7BbnYN9N4M4XUOpNA7kZ7pYP7zg_HzaTnggMhqnVtcqQlQXqx4I3u1tCRwMAeDwNaw?width=493&height=441&cropmode=none" />
+               
+                <mj-text font-size="20px" font-style="bold" color="#000000">You're receiving this
+                    e-mail because you are invited to Abiella and Brian's wedding on <strong>September 1st,
+                        2019</strong> in St Thomas, Ontario.
+                        </mj-text>
+                <mj-text font-size="20px" color="#000000">Click below to RSVP and find
+                    information about accommodations. We have arranged limited room holds at two London hotels.
+                </mj-text>
+                <mj-text font-style="bold" font-size="20px" color="#000000">
+                    <strong>Please RSVP before July 15th.</strong></mj-text>
+                <mj-button background-color="#8CA0D7"
+                    href="https://abiellaandbriangetmarried.ca/909837bb-c8c5-4890-8b43-82ccf7089b09/">
+                    Click here to RSVP</mj-button>
+                <mj-divider />
+            </mj-column>
+        </mj-section>
+
+    </mj-body>
+</mjml>
+{% endautoescape %}
+{% endmjml %}

@@ -62,10 +62,10 @@ def party_list(request, format=None):
 
 
 @csrf_exempt
-@api_view(['GET', 'PUT'])
+@api_view(['GET', 'PUT', 'DELETE'])
 def party_detail(request, invitation_id):
     """
-    List party details.
+    List, modify, or delete party details.
     """
     if request.method == 'GET':
         party = Party.objects.get(
@@ -79,6 +79,10 @@ def party_detail(request, invitation_id):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    elif request.method == 'DELETE':
+        party = Party.objects.get(invitation_id=invitation_id)
+        party.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
 
 @csrf_exempt

@@ -13,8 +13,8 @@ class Command(BaseCommand):
         data = list(Party.objects.values('name', 'email', 'invitation_id'))
         i = 0
         for item in data:
-            # email = item['email']
-            email = 'kingbd2@gmail.com'
+            email = item['email']
+            # email = 'kingbd2@gmail.com'
             # print(item)
             invited_events = list(Guest.objects.filter(
                 party=item['name']).values('shabbat', 'wedding_rehearsal', 'rehearsal_dinner', 'brunch'))
@@ -54,8 +54,8 @@ class Command(BaseCommand):
                     'first_name_text': first_name_text,
                     'last_name': last_name,
                     'invitation_id': invitation_id}
-                send_events(c, email)
-                print("Email sent")
+                # send_events(c, email)
+                print("Sending emails disconnected")
                 # i = i+1
                 # if i == 2:
                 #     break

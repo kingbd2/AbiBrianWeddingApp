@@ -9,15 +9,14 @@ c = {'name': Party.name}
 class Command(BaseCommand):
 
     def handle(self, *args, **kwargs):
-        # data = Party.objects.all()
-        data = list(Party.objects.values('name', 'email', 'invitation_id'))
+        data = list(Party.objects.values(
+                    'name', 'email', 'invitation_id'))
         i = 0
         for item in data:
-            email = item['email']
-            # email = 'kingbd2@gmail.com'
+            # email = item['email']
+            email = 'kingbd2@gmail.com'
             print(email)
             invitation_id = item['invitation_id']
-            # print(invitation_id)
             first_name = list(Guest.objects.filter(
                 party=item['name']).values('first_name'))
             last_name = list(Guest.objects.filter(
