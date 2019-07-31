@@ -6,9 +6,12 @@
                     <div class="columns is-vcentered">
                         <div class="column is-5">
                             <h1 class="title is-4 has-text-info">
-                                Details for registry to come.
+                                Please see this link for our registry:
                             </h1>
                             <br>
+                            <a href="https://registry.thebay.com/registry/view-registry/abiellaandbrian">
+                            <div class="button is-large is-primary">Abiella and Brian's Registry</div>
+                            </a>
                         </div>
                         <div class="column is-6 is-offset-1">
                             <br>
