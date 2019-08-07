@@ -2,20 +2,25 @@
     <div>
         <section class="hero is-fullheight is-primary is-background">
             <div class="hero-body">
-                <div class="container has-text-centered">
+                <div class="container">
                     <div class="columns is-vcentered">
-                        <div class="column is-5">
+                        <div class="column is-6">
                             <h1 class="title is-4 has-text-info">
-                                Please see this link for our registry:
+                                Our registry
+                            </h1>
+                            <h1 class="subtitle is-4 has-text-info">
+                                We have a small registry at the Bay (see link below), but living in an apartment in the city means that we don't
+                                have much space for gifts. We would appreciate any contributions to our honeymoon and future home.
+                                Thank you for your support as we enter the next stage of our lives!
                             </h1>
                             <br>
                             <a href="https://registry.thebay.com/registry/view-registry/abiellaandbrian">
                             <div class="button is-large is-primary">Abiella and Brian's Registry</div>
                             </a>
                         </div>
-                        <div class="column is-6 is-offset-1">
+                        <!-- <div class="column is-6 is-offset-1">
                             <br>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
