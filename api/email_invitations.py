@@ -5,7 +5,7 @@ from django.template.loader import render_to_string
 def send_invitation(c, email):
     msg_plain = render_to_string('email/wedding_invitation_email.txt', c)
     msg_html = render_to_string('email/wedding_invitation_email_oneoff.html', c)
-    print("This is a real email to " + email)
+    print("This is a test email to " + email)
     send_mail(
         'Abiella and Brian are getting married!',
         msg_plain,

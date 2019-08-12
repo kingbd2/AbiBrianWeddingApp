@@ -54,7 +54,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="card large">
+                            <div class="card large sticky">
                                 <div class="card-content">
                                     <div class="media">
                                         <div class="media-content">
@@ -283,6 +283,13 @@
     .button.rsvp {
         margin-bottom: 15%;
     }
+
+    .sticky {
+        position: sticky;
+        z-index:999;
+        top: 0;
+    }
+    
 
     $gl-ms : "screen and (max-width: 23.5em)"; // up to 360px
     $gl-xs : "screen and (max-width: 35.5em)"; // up to 568px

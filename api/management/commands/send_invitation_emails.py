@@ -16,8 +16,8 @@ class Command(BaseCommand):
         #             'name', 'email', 'invitation_id'))
         i = 0
         for item in data:
-            email = item['email']
-            # email = 'kingbd2@gmail.com'
+            # email = item['email']
+            email = 'kingbd2@gmail.com'
             print(email)
             invitation_id = item['invitation_id']
             first_name = list(Guest.objects.filter(
