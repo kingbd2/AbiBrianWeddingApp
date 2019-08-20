@@ -8,10 +8,23 @@
             <div class="section">
               <div class="has-text-centered">
                 <h1 class="title is-1 is-spaced has-text-info">Abiella & Brian are getting married!</h1>
-                <h4 class="subtitle is-4 has-text-info">September 1st, 2019</h4>
-                <h4 class="p is-4 has-text-info">Wildflowers Farm</h4>
-                <h4 class="p is-4 has-text-info">42338 Fruit Ridge Line, St. Thomas, ON</h4>
+                
+                <h2 class="subtitle is-4 has-text-info">September 1st, 2019</h2>
+                
+                <h3 class="p is-4 has-text-info">Wildflowers Farm</h3>
+                <h3 class="p is-4 has-text-info">42338 Fruit Ridge Line, St. Thomas, ON</h3>
               </div>
+              <div class="container has-background-primary">
+                <h1 class="shuttle-heading is-size-4 has-text-white has-text-weight-bold">Wedding Day Shuttle Information</h1>
+                <ul class="is-size-6 has-text-white">
+                  <li>2:30PM - 87 Tetherwood Blvd. Shuttle departs</li>
+                  <li>2:45PM - Delta Armouries Shuttle departs</li>
+                  <li>2:45PM - Windermere Manor Shuttle departs</li>
+                  <li>10:30PM - Delta Armouries, Windermere Manor and 87 Tetherwood Blvd.</li>
+                  <li>12:30AM - Delta Armouries, Windermere Manor and 87 Tetherwood Blvd.</li>
+                </ul>
+              </div>
+              
             </div>
           </div>
         </header>
@@ -24,20 +37,17 @@
           <div class="columns is-vcentered">
             <div class="column is-5">
               <figure class="image">
-                <img
-                  src="../assets/images/front.png"
-                  style="border-radius:50%"
-                  alt="Description">
+                <img src="../assets/images/front.png" style="border-radius:50%" alt="Description">
               </figure>
             </div>
             <div class="column is-6 is-offset-1">
               <div class="has-text-centered">
-              <h1 class="title is-1 is-spaced has-text-info">We are very excited to celebrate with you!</h1>
-              <h4 class="p is-4 has-text-info">Time until marriage:</h4>
-              <h4 class="subtitle is-3 has-text-info">
-                <Countdown class="has-text-info" deadline="September 1, 2019"></Countdown>
-              </h4>
-            </div>
+                <h1 class="title is-1 is-spaced has-text-info">We are very excited to celebrate with you!</h1>
+                <h4 class="p is-4 has-text-info">Time until marriage:</h4>
+                <h4 class="subtitle is-3 has-text-info">
+                  <Countdown class="has-text-info" deadline="September 1, 2019"></Countdown>
+                </h4>
+              </div>
               <br>
             </div>
           </div>
@@ -89,7 +99,8 @@
                   </li>
                 </ul>
                 </br>
-                <p class="has-text-info has-text-weight-bold">To RSVP, use the link in the email you received from abiella.and.brian@gmail.com. Please RSVP by July 15th, 2019. </p>
+                <p class="has-text-info has-text-weight-bold">To RSVP, use the link in the email you received from
+                  abiella.and.brian@gmail.com. Please RSVP by July 15th, 2019. </p>
               </div>
               <div class="column">
                 <location-map v-bind:center="[-80.44, 43.10]"></location-map>
@@ -145,7 +156,8 @@
                   </li>
                 </ul>
                 </br>
-                <p class="has-text-info has-text-weight-bold">To RSVP, use the link in the email you received from abiella.and.brian @ gmail.com. Please RSVP by July 15th, 2019. </p>
+                <p class="has-text-info has-text-weight-bold">To RSVP, use the link in the email you received from
+                  abiella.and.brian @ gmail.com. Please RSVP by July 15th, 2019. </p>
               </div>
               <div class="column">
                 <iframe
@@ -197,12 +209,13 @@
 
   .subtitle {
     font-family: 'Karla', sans-serif;
-    padding-bottom: 10%;
+    padding-bottom: 2%;
   }
 
   p {
     font-family: 'Karla', sans-serif;
   }
+
   .button {
     margin-bottom: 5%;
   }
@@ -242,5 +255,18 @@
     // -webkit-filter: grayscale(100%);
     /* Chrome, Safari, Opera */
     // filter: grayscale(100%);
+  }
+
+  li {
+    margin-bottom: 0.5%;
+  }
+  .shuttle-heading{
+    margin-bottom: 1%;
+  }
+
+  .container .has-background-primary{
+    padding-left: 10%;
+    padding-top: 2%;
+    padding-bottom: 2%;
   }
 </style>
